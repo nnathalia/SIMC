@@ -1,2 +1,5 @@
 Django==4.2.11
 django-bootstrap5==1.0.0
+python-dotenv
+psycopg2
+django-bootstrap-v5
