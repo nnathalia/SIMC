@@ -1,0 +1,29 @@
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>{% block title %}{% endblock %}</title> 
+ </head>
+  <header>
+    <h2>Bem vindo Filipe!</h2>
+    <h2>Ji-Paraná / Rondônia</h2>
+  </header>
+  <body>
+    <div class="d-flex">
+    {% block barra_lateral %}
+      {% include 'layout/barra-lateral.html' %}
+    {% endblock %}
+    <main class="flex-fill p-3">
+      {% block content %}
+
+      {% endblock %}
+    </main>
+</div>
+  </body>
+  <footer>
+    <p>nimbus</p>
+  </footer>
+</html>
