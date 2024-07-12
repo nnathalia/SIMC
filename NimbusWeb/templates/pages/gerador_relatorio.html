@@ -1,0 +1,116 @@
+{% extends 'layout/layout.html' %}
+{% block title %}Relatorios{% endblock %}
+{% block content %}
+
+
+<main class="">
+    <section>
+      <div class="container-grafico bg-white">
+        <div class="headdress">
+          <p class="title-graph">Grafico do tempo durante a semana</p>
+          <div class="date">
+            <span>Agosto 24</span>
+            <i class="bi bi-calendar4"></i>
+          </div>
+        </div>
+        
+        <canvas class="grafico">
+          {% comment %} GRAFICO {% endcomment %}
+        </canvas>
+      </div>
+    
+      <div class="container-info bg-white">
+        <div class="info headdress">
+          <p>Media das informacoes</p>
+          <select name="date" id="date">
+            <option value="mes">Mês</option>
+            <option value="semana">Sem</option>
+          </select>
+        </div>
+      
+        <div class="list text-secondary">
+          <ul>
+            <li>Temperatura</li>
+            <li>Luminosidade</li>
+            <li>Umidade do solo</li>
+            <li>Umidade do ar </li>
+            <li>Chuva</li>
+           </ul>
+
+          <ul id="info-dados">
+            <li>32ºC</li>
+            <li>30%</li>
+            <li>30%</li>
+            <li>30%</li>
+            <li>30%</li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="container-gerador bg-white">
+        <div class="headdress">
+          <p>Gerador de Relatorios</p>
+        </div>
+
+        <div class="gerador">
+          <form class="opcoes mb-4" action="">
+            <label for="dataInicial">Data Inicial</label>
+            <input type="date" class="form-control input-style" id="dataInicial"/>
+        
+            <label for="dataFinal">Data Final</label>
+            <input type="date" class="form-control input-style" id="dataFinal"/>
+        
+            <label for="horaInicial">Hora Inicial</label>
+            <input type="time" class="form-control input-style" id="horaInicial"/>
+        
+            <label for="horaFinal">Hora Final</label>
+            <input type="time" class="form-control input-style" id="horaFinal"/>
+          </form>
+        
+          <fieldset class="dados">
+            {% comment %} <legend>Dados</legend> {% endcomment %}
+        
+            <div class="">
+              <input class="form-check-input" type="checkbox" id="temperatura" name="temperatura" value="temperatura" />
+              <label class="form-check-label" for="temperatura">Temperatura</label>
+            </div>
+        
+            <div class="">
+              <input class="form-check-input" type="checkbox" id="luminosidade" name="luminosidade" value="luminosidade" />
+              <label class="form-check-label"for="luminosidade">Luminosidade</label>
+            </div>
+        
+            <div class="">
+              <input class="form-check-input" type="checkbox" id="umidadeSolo" name="umidadeSolo" value="umidadeSolo" />
+              <label class="form-check-label" for="umidadeSolo">Umidade do Solo</label>
+            </div>
+        
+            <div class="">
+              <input class="form-check-input" type="checkbox" id="umidadeAr" name="umidadeAr" value="umidadeAr" />
+              <label class="form-check-label" for="umidadeAr">Umidade do Ar</label>
+            </div>
+        
+            <div class="">
+              <input class="form-check-input" type="checkbox" id="Chuva" name="Chuva" value="Chuva" />
+              <label class="form-check-label" for="Chuva">Chuva</label>
+            </div>
+        
+            <div class="">
+              <input class="form-check-input" type="checkbox" id="iqa" name="iqa" value="iqa" />
+              <label class="form-check-label" for="iqa">IQA</label>
+            </div>
+        
+          </fieldset>
+        </div>
+        
+       <div class="bt-gerador">
+        <button class="btn">Gerar relatório</button>
+       </div>
+        
+      </div>
+    </section>
+
+</main>
+  
+{% endblock %}
+

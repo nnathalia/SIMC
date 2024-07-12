@@ -1,27 +1,39 @@
+{% load static %}
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     {% load bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
-    <title>{% block title %}{% endblock %}</title> 
- </head>
+    <title>
+      {% block title %}
+      {% endblock %}
+    </title>
+  </head>
   <header>
-    <h2>Bem vindo Filipe!</h2>
-    <h2>Ji-Paraná / Rondônia</h2>
+    {% block navbar %}
+    {% include 'layout/navbar.html' %}
+    {% endblock %}
   </header>
   <body>
     <div class="d-flex">
-    {% block barra_lateral %}
-      {% include 'layout/barra-lateral.html' %}
-    {% endblock %}
-    <main class="flex-fill p-3">
-      {% block content %}
-
+      {% block sidebar %}
+        {% include 'layout/sidebar.html' %}
       {% endblock %}
-    </main>
-</div>
+      <main class="flex-fill p-3">
+        {% block content %}
+
+        {% endblock %}
+      </main>
+    </div>
   </body>
   <footer>
     <p>nimbus</p>

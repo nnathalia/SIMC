@@ -1,0 +1,170 @@
+/* Configurações gerais */
+
+:root{
+  --background-color: #EEEEEE ;
+}
+*{
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+/* main  */
+
+main{
+  background-color: var(--background-color);
+}
+
+/* navbar */
+nav{
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  padding: 10px;
+}
+
+nav p{
+  align-content: center;
+}
+
+nav .perfil{
+ display: flex;
+ gap: 10px;
+ color: #5B6176;
+}
+
+nav .perfil img{
+  width: 2.0rem;
+  height: 2.0rem;
+  border-radius: 50%;
+}
+
+nav .logo{
+ display: flex;
+}
+
+/* sidebar */
+
+aside ul li .nav-item {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  color: #5B6176;
+}
+
+.item-list{
+  display: flex;
+  align-items: center;
+  font-weight:500;
+}
+
+li{
+  display: flex;
+}
+
+/* section  */
+section{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+.container-gerador,
+.container-grafico,
+.container-info{
+  border-radius: 6px;
+  padding: 10px;
+  
+}
+
+.container-grafico{
+  width: 60%;
+  min-width: 600px;
+}
+
+.container-info{
+  width: 39%;
+  min-width: 400px;
+}
+
+.container-gerador{
+  width: 100%;
+  min-width: 600px;
+}
+
+.headdress{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* container garfico  */
+
+.date span{
+  color: #3F97FF;
+}
+
+/* container info */
+
+.list{
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
+
+.list ul{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  gap: 5px;
+}
+
+.info select {
+  padding: 5px 10px;
+  background-color: var(--background-color);
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* container gerador */
+
+.gerador{
+  display: flex;
+  font-size: 16px;
+}
+
+.gerador form{
+  display: flex;
+ flex-direction: column;
+}
+
+fieldset{
+  display: grid;
+  grid-template-columns: 3fr 2fr 2fr;
+}
+
+.bt-gerador{
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 10px;
+}
+
+.bt-gerador button{
+  background-color: #1363AC;
+  color: white;
+}
+
+.bt-gerador button:hover{
+  color: white;
+  background-color: #104e88;
+}
+
+
+
+
+
