@@ -1,3 +1,4 @@
+@import 'reset.css';
 /* Configurações gerais */
 
 :root{
@@ -20,6 +21,7 @@ nav{
   display: flex;
   align-items: center; 
   justify-content: center;
+  text-align: center;
   padding: 10px;
 }
 
@@ -29,6 +31,8 @@ nav p{
 
 nav .perfil{
  display: flex;
+ align-items: center;
+ text-align: center;
  gap: 10px;
  color: #5B6176;
 }
@@ -62,6 +66,10 @@ li{
   display: flex;
 }
 
+.sidebar-mobile{
+  display: none;
+}
+
 /* section  */
 section{
   display: flex;
@@ -73,37 +81,46 @@ section{
 
 .container-gerador,
 .container-grafico,
-.container-info{
+.container-info,
+.container-tempo,
+.container-previsao,
+.card-info{
   border-radius: 6px;
   padding: 10px;
-  
 }
 
-.container-grafico{
+.container-grafico,
+.container-tempo{
   width: 60%;
-  min-width: 600px;
 }
 
-.container-info{
+.container-info,
+.container-previsao{
   width: 39%;
-  min-width: 400px;
 }
 
-.container-gerador{
+.container-gerador
+.container-cards{
   width: 100%;
-  min-width: 600px;
 }
 
 .headdress{
   display: flex;
   justify-content: space-between;
-  align-items: center;
+
 }
+
+
 
 /* container garfico  */
 
 .date span{
   color: #3F97FF;
+}
+.grafico{
+  display: flex;
+  width: 100%;
+  max-height: 250px;
 }
 
 /* container info */
@@ -111,6 +128,7 @@ section{
 .list{
   display: flex;
   justify-content: space-between;
+  gap: 20px;
   width: 95%;
 }
 
@@ -118,7 +136,7 @@ section{
   display: flex;
   flex-direction: column;
   margin-top: 10px;
-  gap: 5px;
+  gap: 20px;
 }
 
 .info select {
@@ -135,16 +153,36 @@ section{
 .gerador{
   display: flex;
   font-size: 16px;
+  gap: 40px;
 }
 
 .gerador form{
   display: flex;
- flex-direction: column;
+  gap: 40px;
 }
 
-fieldset{
-  display: grid;
-  grid-template-columns: 3fr 2fr 2fr;
+form  .inputs-data,
+.inputs-hora input{
+ width: 200px;
+}
+
+.inputs-data, 
+.inputs-hora,
+.title-dados{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px; 
+}
+
+div .checkbox-1,
+.checkbox-2{
+  display: flex;
+  gap: 40px;
+}
+
+.checkbox-2{
+  padding: 25px 0px;
 }
 
 .bt-gerador{
@@ -157,6 +195,8 @@ fieldset{
 .bt-gerador button{
   background-color: #1363AC;
   color: white;
+  border-radius: 10px;
+  padding: 4px 20px;
 }
 
 .bt-gerador button:hover{
@@ -165,6 +205,77 @@ fieldset{
 }
 
 
+/* container gerador */
 
+div .container-cards{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+@media (max-width: 1243px){
+  section{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container-grafico,
+  .container-info,
+  .container-gerador{
+    width: 100%;
+  }
+}
+
+@media (max-width: 1123px){
+  .gerador{
+    display: flex;
+    flex-direction: column;
+    align-items: first baseline;
+  }
+}
+
+@media (max-width: 713px){
+  *{
+    font-size: 14px;
+  }
+  .sidebar{
+    display: none;
+  }
+
+  .sidebar-mobile{
+   display: block;
+   flex-direction: column;
+  }
+
+  div .nav-link i{
+    color: #5B6176;
+   
+  }
+  nav .perfil span{
+    display: none;
+  }
+  
+}
+
+@media (max-width: 548px){
+  .container-form, .checkbox-1, .checkbox-2{
+    flex-direction: column;
+  }
+  
+  div .checkbox-1,
+  .checkbox-2{
+  display: flex;
+  gap: 20px;
+  }
+
+  .date i{
+    display: none;
+  }
+  .date span{
+   display: flex;
+   
+  }
+
+}
 
 

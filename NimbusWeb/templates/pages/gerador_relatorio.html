@@ -3,7 +3,7 @@
 {% block content %}
 
 
-<main class="">
+<main>
     <section>
       <div class="container-grafico bg-white">
         <div class="headdress">
@@ -53,53 +53,57 @@
         </div>
 
         <div class="gerador">
-          <form class="opcoes mb-4" action="">
-            <label for="dataInicial">Data Inicial</label>
-            <input type="date" class="form-control input-style" id="dataInicial"/>
+          <form class="container-form mb-4" action="">
+            <div class="inputs-data">
+              <label for="dataInicial">Data Inicial</label>
+              <input type="date" class="form-control input-style" id="dataInicial"/>
         
-            <label for="dataFinal">Data Final</label>
-            <input type="date" class="form-control input-style" id="dataFinal"/>
+              <label for="dataFinal">Data Final</label>
+              <input type="date" class="form-control input-style" id="dataFinal"/>
+            </div>
+            
+            <div class="inputs-hora">
+              <label for="horaInicial">Hora Inicial</label>
+              <input type="time" class="form-control input-style" id="horaInicial"/>
         
-            <label for="horaInicial">Hora Inicial</label>
-            <input type="time" class="form-control input-style" id="horaInicial"/>
-        
-            <label for="horaFinal">Hora Final</label>
-            <input type="time" class="form-control input-style" id="horaFinal"/>
+              <label for="horaFinal">Hora Final</label>
+              <input type="time" class="form-control input-style" id="horaFinal"/>
+            </div>
+            
           </form>
         
           <fieldset class="dados">
-            {% comment %} <legend>Dados</legend> {% endcomment %}
-        
-            <div class="">
-              <input class="form-check-input" type="checkbox" id="temperatura" name="temperatura" value="temperatura" />
-              <label class="form-check-label" for="temperatura">Temperatura</label>
+            <p class="title-dados">Dados</p>
+            
+            <div class="checkbox-1 text-secondary">
+              <div>
+                <input class="form-check-input" type="checkbox" id="temperatura" name="temperatura" value="temperatura" />
+                <label class="form-check-label" for="temperatura">Temperatura</label>
+              </div>
+              <div>
+                <input class="form-check-input" type="checkbox" id="umidadeAr" name="umidadeAr" value="umidadeAr" />
+                <label class="form-check-label" for="umidadeAr">Umidade do Ar</label>
+              </div>
+              <div>
+                <input class="form-check-input" type="checkbox" id="Chuva" name="Chuva" value="Chuva" />
+                <label class="form-check-label" for="Chuva">Chuva</label> 
+              </div>
             </div>
         
-            <div class="">
-              <input class="form-check-input" type="checkbox" id="luminosidade" name="luminosidade" value="luminosidade" />
-              <label class="form-check-label"for="luminosidade">Luminosidade</label>
+            <div class="checkbox-2 text-secondary">
+              <div>
+                <input class="form-check-input" type="checkbox" id="luminosidade" name="luminosidade" value="luminosidade" />
+                <label class="form-check-label"for="luminosidade">Luminosidade</label>
+              </div>
+              <div>
+                <input class="form-check-input" type="checkbox" id="umidadeSolo" name="umidadeSolo" value="umidadeSolo" />
+                <label class="form-check-label" for="umidadeSolo">Umidade do Solo</label>
+              </div>
+              <div>
+                <input class="form-check-input" type="checkbox" id="iqa" name="iqa" value="iqa" />
+                <label class="form-check-label" for="iqa">IQA</label>
+              </div>             
             </div>
-        
-            <div class="">
-              <input class="form-check-input" type="checkbox" id="umidadeSolo" name="umidadeSolo" value="umidadeSolo" />
-              <label class="form-check-label" for="umidadeSolo">Umidade do Solo</label>
-            </div>
-        
-            <div class="">
-              <input class="form-check-input" type="checkbox" id="umidadeAr" name="umidadeAr" value="umidadeAr" />
-              <label class="form-check-label" for="umidadeAr">Umidade do Ar</label>
-            </div>
-        
-            <div class="">
-              <input class="form-check-input" type="checkbox" id="Chuva" name="Chuva" value="Chuva" />
-              <label class="form-check-label" for="Chuva">Chuva</label>
-            </div>
-        
-            <div class="">
-              <input class="form-check-input" type="checkbox" id="iqa" name="iqa" value="iqa" />
-              <label class="form-check-label" for="iqa">IQA</label>
-            </div>
-        
           </fieldset>
         </div>
         

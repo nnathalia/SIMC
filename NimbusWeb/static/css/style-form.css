@@ -2,8 +2,7 @@
 
 /*CONFIGURAÇÃO GERAL*/
 :root{
-  ---blue: #1363AC;
-  
+  ---blue: #1363AC; 
 }
 p, label{
   color: var(---blue);
@@ -14,7 +13,7 @@ img{
   pointer-events: none;
 }
 *{
-
+  font-family: "Inter", sans-serif;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -23,7 +22,7 @@ img{
 
 /*CONFIGURAÇÃO BACKGROUND*/
 
-body{
+main{
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url(../img/img-unsplash.png);

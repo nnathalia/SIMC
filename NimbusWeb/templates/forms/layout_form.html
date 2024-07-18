@@ -1,0 +1,29 @@
+{% load static %}
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="{% static 'img/icone-page.png' %}">
+    <link rel="stylesheet" href="{% static 'css/style-form.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/senha.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/cadastro.css' %}"/>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>
+      {% block title %}
+      {% endblock %}
+    </title>
+  </head>
+
+  <body>
+    <main>
+      {% block content %} {% endblock %}
+    </main>
+  </body>
+</html>

@@ -1,17 +1,143 @@
 {% extends 'layout/layout.html' %}
 {% block title %}Dashboard{% endblock %}
 {% block content %}
-<div>
-  <div class="container-tempo">
 
-  </div>
- <div class="container-previsao">
-  <p>Previsao para os proximos dias</p>
-  <p></p>
-  <p></p>
-  <p></p>
-  <p></p>
-  <p></p>
- </div>
-</div>
+<main>
+  <section>
+      <div class="container-tempo bg-white">
+        <div class="tempo-dia">
+          <i>icone</i>
+          <span>Ensolarado</span>
+        </div>
+
+        <div class="temperatura-dia">
+          <h1>30º</h1> <h3>C</h3>
+        </div>
+
+        <div class="temperatura-dias-anteriores">
+          <div>
+            <p>domingo</p>
+            <i>icone</i>
+            <p class="temperatura">32ºC</p>
+          </div>
+
+          <div>
+            <p>segunda</p>
+            <i>icone</i>
+            <p class="temperatura"><p>32ºC</p>
+          </div>
+
+          <div>
+            <p>terca</p>
+            <i>icone</i>
+            <p class="temperatura">32ºC</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="iqa">
+            <i>icone</i>
+            <p>IQA</p>
+          </div>
+
+          <div class="dia">
+            <p>Quarta-feira, 20 de marco de 2024</p>
+          </div>
+        </div>
+      </div>
+     <div class="container-previsao bg-white">
+      <span class="headdress">Previsao para os proximos dias</span>
+      <div class="list text-secondary">
+        <ul id="icones">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+
+        <ul class="dias-semana">
+          <li>Amanha</li>
+          <li>Terca</li>
+          <li>Quarta</li>
+          <li>Quinta</li>
+          <li>Sexta</li>
+        </ul>
+
+        <ul id="previsao">
+          <li>32ºC Max/ 25ºC Min</li>
+          <li>32ºC Max/ 25ºC Min</li>
+          <li>32ºC Max/ 25ºC Min</li>
+          <li>32ºC Max/ 25ºC Min</li>
+          <li>32ºC Max/ 25ºC Min</li>
+        </ul>
+      </div>
+     </div>
+
+     <div class="container-cards">
+      <div class="card-info bg-white">
+        <p class="title-card">
+          Luminosidade
+        </p>
+
+        <p class="info-card">
+          30
+        </p>
+      </div>
+
+      <div class="card-info bg-white">
+        <p class="title-card">
+          Umidade do ar
+        </p>
+
+        <p class="info-card">
+          30
+        </p>
+      </div>
+
+      <div class="card-info bg-white">
+        <p class="title-card">
+          Umidade do solo
+        </p>
+
+        <p class="info-card">
+          30
+        </p>
+      </div>
+
+      <div class="card-info bg-white">
+        <p class="title-card">
+          Chuva
+        </p>
+
+        <p class="info-card">
+          30
+        </p>
+      </div>
+
+      <div class="card-info bg-white">
+        <p class="title-card">
+          Velocidade/Direcao do vento
+        </p>
+
+        <p class="info-card">
+          30
+        </p>
+      </div>
+
+      <div class="card-info bg-white">
+        <p class="title-card">
+          Indice ultravioleta
+        </p>
+
+        <p class="info-card">
+          30
+        </p>
+      </div>
+
+      
+     </div>
+  </section>
+</main>
+
 {% endblock %}
