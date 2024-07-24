@@ -295,10 +295,15 @@ div .checkbox-1,
 .temp-dia{
   display: flex;
   margin-left: 40px;
+  align-items:center
 }
 
-.temp-dia h1, h3{
-  font-size: 40px;
+.temperatura-dia{
+  font-size: 90px;
+}
+
+.grau{
+  font-size: 70px;
 }
 
 
@@ -331,12 +336,40 @@ div .checkbox-1,
 .container-previsao{
   display: flex;
   flex-direction: column;
+
 }
 
-.listas{
+.list-previsao{
+  width: 100%;
   display: flex;
+  flex-direction: column;
 
 }
+
+.title-previsao{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-previsao{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.list-previsao ul  li{
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+  align-items: center;
+  
+}
+
+
 
 /* CONTAINER CARDS */
 div .container-cards{
@@ -357,4 +390,20 @@ div .container-cards{
 
   border-radius: 6px;
   padding: 10px;
+}
+
+.title-card{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.dado{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
 }
