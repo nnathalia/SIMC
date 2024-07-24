@@ -38,6 +38,8 @@
     </div>
   </body>
   <footer>
-    <p>nimbus</p>
+    {% block footer %}
+        {% include 'layout/footer.html' %}
+      {% endblock %}
   </footer>
 </html>
