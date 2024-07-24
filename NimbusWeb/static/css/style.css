@@ -99,7 +99,7 @@ section{
   width: 39%;
 }
 
-.container-gerador
+.container-gerador,
 .container-cards{
   width: 100%;
 }
@@ -210,7 +210,14 @@ div .checkbox-1,
 div .container-cards{
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+}
+
+.card-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  height: 200px;
 }
 
 @media (max-width: 1243px){
