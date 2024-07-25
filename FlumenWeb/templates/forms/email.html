@@ -1,6 +1,6 @@
 {% extends 'forms/layout_form.html' %}
 {% load static %}
-{% block title %}Login{% endblock %}
+{% block title %}Redefinicao de senha{% endblock %}
 {% block content %}
 
   <section>
@@ -14,26 +14,17 @@
       <div class="logo">
         <img src="{% static 'img/logo.png' %}" alt="Logo" />
           <p class="text" >Bem vindo ao Flúmen!</p>
-          <p class="info">Faça login para continuar.</p>
+          <p class="info">Digite seu email para continuar.</p>
       </div>
       <form class="form mb-2">
         <div class="mb-2 input-style">
           <label for="inputEmail" class="form-label">Email</label>
           <input type="email" class="form-control input-style" id="inputEmail" placeholder="Digite seu email aqui"/>
-        </div>
-        <div class="mb-2 input-style">
-          <label for="inputPassword" class="form-label">Senha</label>
-          <input type="password" class="form-control" id="inputPassword" placeholder="Digite sua senha aqui"/>
-        </div>     
+        </div>  
       </form>
       
-      <div class="link-senha">
-        <a class="btn btn-link" href="{% url 'email' %}">
-          Esqueceu a senha?
-        </a>
-      </div>
       <div class="button" >
-        <button class="btn bt-login" type="submit">Login</button>
+        <button class="btn bt-login" type="submit">Enviar email</button>
       </div>
       <div class="link">
         <a class="btn btn-link" href="{% url 'cadastro' %}">Não tem conta? Clique aqui!</a>

@@ -9,6 +9,9 @@ def login(request):
 def cadastro(request):
     return render(request, 'forms\cadastro.html')
 
+def email(request):
+    return render(request, 'forms\email.html')
+
 def senha(request):
     return render(request, 'forms\senha.html')
 
