@@ -1,5 +1,23 @@
-{% extends 'layout/navbar.html' %}
-{% block title %}INDEX{% endblock %}
-{% block content %}
+{% load static %}
 
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flumen</title>
+</head>
+<body>
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}" alt="Logo" width="80" height="40" /></a>
+      <form class="d-flex">
+        <button class="btn btn-outline-success" type="submit">Login</button>
+      </form>
+    </div>
+  </nav>
+  
+</body>
+</html>
+
+
