@@ -1,23 +1,106 @@
 {% load static %}
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" /> 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flumen</title>
-</head>
-<body>
-  <nav class="navbar bg-body-tertiary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}" alt="Logo" width="80" height="40" /></a>
-      <form class="d-flex">
-        <button class="btn btn-outline-success" type="submit">Login</button>
-      </form>
-    </div>
-  </nav>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://kit.fontawesome.com/7a2b9d2cd6.js" crossorigin="anonymous"></script>
+
+    <link rel="icon" href="{% static 'img/icone-page.png' %}">
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>
+      {% block title %}
+      Flúmen
+      {% endblock %}
+    </title>
+  </head>
+
+  <body>
+    <header class="header-menu">
+      <nav class="navbar bg-body-tertiary">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="{% static 'img/logo.png' %}" alt="Logo" width="80" height="60" class="d-inline-block align-text-top">
+          </a>
+          <a 
+            href="{% url 'login' %}"><button class="btn" >Login</button>
+          </a>
+        </div>
+      </nav>
+
+      <section class="home d-flex align-items-center h-75 bg-section" id="home">
+        <div class="container">
+          <div class="row d-flex align-items-center">
+            <div class="col-xl-6">
+              <h1 class="slogan">Sua estação meteorológica completa na palma da mão.</h1>
+              <p class="text-secondary fw-light">Flúmen veio para revolucionar sua vida!</p>
+              <a 
+                href="{% url 'cadastro' %}"><button class="btn btn-login" >Cadastrar</button>
+              </a>
+            </div>
+
+            <div class="col-xl-6 d-flex justify-content-center">
+              <img src="{% static 'img/img-index.svg' %}" alt="imagem do tempo"  class="d-inline-block align-text-top img">
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+    </header>
+
+    <main class="container-main">
+    
+      <section>
+        <div class="container mt-5">
+          <div class="row d-flex align-items-center">
+            <div class="row d-flex align-items-center">
+              <div class="col-xl-4">
+                <i class="fa-solid fa-cloud pb-3 d-flex justify-content-center"></i>
+                <p class="d-flex mx-auto text-center pb-3 w-75">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa, eaque?</p>
+              </div>
   
-</body>
-</html>
+              <div class="col-xl-4">
+                <i class="fa-solid fa-cloud pb-3 d-flex justify-content-center"></i>
+                <p class="d-flex mx-auto text-center pb-3 w-75">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa, eaque?</p>
+              </div>
+  
+              <div class="col-xl-4">
+                <i class="fa-solid fa-cloud pb-3 d-flex justify-content-center" ></i>
+                <p class="d-flex mx-auto text-center pb-3 w-75">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa, eaque?</p>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+        
+      </section>
 
+      <section class="about pb-5 d-flex align-items-center bg-section"> 
+        <div class="container mt-3">
+         <h1 class="text-center pb-3 flumen">Flúmen</h1>
+         <p class="d-flex mx-auto text-center w-75 mb-5 pb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus velit temporibus sequi, similique excepturi libero nobis repellendus nemo doloribus. Vitae corporis consectetur, sit facilis quasi quisquam nemo minus nihil magnam aperiam rem praesentium molestias? Minima vero est eligendi maiores, minus corrupti quidem dolores, numquam fuga ex ducimus iure. Mollitia fugiat ratione doloremque ipsum. Amet repellat accusamus est tenetur, necessitatibus, odio distinctio, ut corrupti saepe consectetur deserunt! Provident, ea? Maxime, dolore fugiat. Fuga cum officia ea incidunt, non magnam? Vero iusto aliquam dolorum soluta saepe sit impedit deserunt commodi, dolor, nulla consequuntur inventore suscipit nesciunt eius reprehenderit omnis perspiciatis, facilis repudiandae.  </p>
+
+        </div>
+
+      </section>
+
+
+    </main>
+
+    <footer>
+      {% block footer %}
+        {% include 'layout/footer.html' %}
+      {% endblock %}
+    </footer>
+  </body>
 

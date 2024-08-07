@@ -1,0 +1,36 @@
+
+*{
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+
+nav .btn,
+section .btn{
+  background-color: #1363AC;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 7px;
+}
+
+header .bg-section,
+main .bg-section{
+  background-color: #e9eaeb;
+}
+
+section .slogan{
+  color: #1363AC;
+}
+
+
+/*main*/
+
+main h1 .flumen{
+  color: #1363AC;
+}
+
+
+
+
+
