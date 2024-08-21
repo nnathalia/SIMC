@@ -30,6 +30,9 @@ main h1 .flumen{
   color: #1363AC;
 }
 
+img .img{
+  width: 8rem;
+}
 
 .icones-tech{
   width: 4rem;
