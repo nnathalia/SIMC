@@ -30,13 +30,30 @@ main h1 .flumen{
   color: #1363AC;
 }
 
-img .img{
-  width: 8rem;
+.icones-tech{
+  width: 70px;
 }
 
-.icones-tech{
-  width: 4rem;
+/* COLABORADORES */
+
+.card img .img{
+  width: 120px;
+  height: 120px;
+  
 }
+
+.card-container {
+  max-width: 300px;
+}
+.card-img-top {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+ 
+}
+
 
 
 
