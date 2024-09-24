@@ -1,8 +1,9 @@
 {% extends 'forms/layout_form.html' %}
 {% load static %}
-{% block title %}Login{% endblock %}
+{% block title %}
+  Login
+{% endblock %}
 {% block content %}
-
   <section>
     <div class="container-slogan">
       <div class="title">Flúmen</div>
@@ -11,22 +12,20 @@
     <div class="container-formulario">
       <div class="formulario">
         <div class="logo">
-          <img src="{% static 'img/logo.png' %}" alt="Logo"/>
+          <img src="{% static 'img/logo.png' %}" alt="Logo" />
           <p class="text">Bem vindo ao Flúmen!</p>
           <p class="info">Faça login para continuar.</p>
         </div>
         <form method="post" class="form mb-2">
           {% csrf_token %}
-          <input type="hidden" name="next" value="{{ next }}">
+          <input type="hidden" name="next" value="{{ next }}" />
           <div class="mb-2 input-style">
             <label for="inputEmail" class="form-label">Email</label>
-            <input class="form-control input-style" type="text" id="username" name="username"
-                   placeholder="Digite seu usuário" required>
+            <input class="form-control input-style" type="text" id="username" name="username" placeholder="Digite seu usuário" required />
           </div>
           <div class="mb-2 input-style">
             <label for="inputPassword" class="form-label">Senha</label>
-            <input type="password" name="password" class="form-control" id="inputPassword"
-                   placeholder="Digite sua senha aqui" required>
+            <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Digite sua senha aqui" required />
           </div>
           <div class="link-senha">
             <a class="btn btn-link" href="{% url 'senha' %}">Esqueceu a senha?</a>
@@ -41,8 +40,4 @@
       </div>
     </div>
   </section>
-
 {% endblock %}
-
-
-
