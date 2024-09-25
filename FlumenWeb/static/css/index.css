@@ -35,27 +35,3 @@ main h1 .flumen{
 }
 
 /* COLABORADORES */
-
-.card img .img{
-  width: 120px;
-  height: 120px;
-  
-}
-
-.card-container {
-  max-width: 300px;
-}
-.card-img-top {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
- 
-}
-
-
-
-
-
-

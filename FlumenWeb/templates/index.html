@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/index.css' %}" /> 
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <script src="https://kit.fontawesome.com/7a2b9d2cd6.js" crossorigin="anonymous"></script>
 
-    <link rel="icon" href="{% static 'img/icone-page.png' %}">
+    <link rel="icon" href="{% static 'img/icone-page.png' %}" />
     {% load bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     <title>
       {% block title %}
-      Flúmen
+        Flúmen
       {% endblock %}
     </title>
   </head>
@@ -28,12 +28,8 @@
     <header class="header-menu">
       <nav class="navbar bg-body-tertiary">
         <div class="container">
-          <a class="navbar-brand" href="#">
-            <img src="{% static 'img/logo.png' %}" alt="Logo" width="80" height="60" class="d-inline-block align-text-top">
-          </a>
-          <a 
-            href="{% url 'login' %}"><button class="btn" >Login</button>
-          </a>
+          <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}" alt="Logo" width="80" height="60" class="d-inline-block align-text-top" /></a>
+          <a href="{% url 'login' %}"><button class="btn">Login</button></a>
         </div>
       </nav>
 
@@ -43,126 +39,99 @@
             <div class="col-xl-6">
               <h1 class="slogan">Sua estação meteorológica completa na palma da mão.</h1>
               <p class="text-secondary fw-light">Flúmen veio para revolucionar sua vida!</p>
-              <a 
-                href="{% url 'cadastro' %}"><button class="btn btn-login" >Cadastrar</button>
-              </a>
+              <a href="{% url 'cadastro' %}"><button class="btn btn-login">Cadastrar</button></a>
             </div>
 
             <div class="col-xl-6 d-flex justify-content-center">
-              <img src="{% static 'img/img-index.svg' %}" alt="imagem do tempo"  class="d-inline-block align-text-top img">
+              <img src="{% static 'img/img-index.svg' %}" alt="imagem do tempo" class="d-inline-block align-text-top img" />
             </div>
-
           </div>
-
         </div>
       </section>
     </header>
 
     <main class="container-main">
-
-      <section class="about mt-5 d-flex align-items-center "> 
+      <!-- Sobre -->
+      <section class="about mt-5 d-flex align-items-center">
         <div class="container mt-3">
-         <h1 class="text-center pb-3 flumen">Flúmen</h1>
-         <div class=" align-items-center justfy-content-center pb-3">
-          <div class="row">
-            <div class="col-md-3 offset-md-3">
-              <img class="img" src="{% static 'img/icones/projeto.ico' %}" alt="">
-            </div>
-            <div class="col-md-4">
-              <h2>Projeto</h2>
-              <p>O objetivo do projeto é criar uma estação meteorológica inteligente com Raspberry Pi para coletar e analisar dados climáticos. Ela fornecerá informações precisas sobre variáveis climáticas para monitoramento, previsão e alerta de fenômenos, além de apoiar o planejamento estratégico em várias áreas.</p>
-            </div>
-          </div>
-
-          <div class="row mt-5">
-            <div class="offset-md-2 col-md-4">
-              <h2>Estação</h2>
-              <p>Estações meteorológicas coletam dados climáticos diários. Existem versões convencionais, que requerem coleta manual, e automáticas, que usam sensores para coleta contínua e sem intervenção. Estações automáticas são mais eficientes e economizam tempo. Com a tecnologia e IoT, as estações inteligentes permitem acesso remoto e em tempo real aos dados.</p>
+          <h1 class="text-center pb-3 flumen">Flúmen</h1>
+          <div class="align-items-center justify-content-center pb-3">
+            <div class="row">
+              <div class="col-md-3 offset-md-3">
+                <img class="img" src="{% static 'img/icones/projeto.ico' %}" alt="" />
               </div>
-            <div class="offset-md-1 col-md-5">
-              <img class="img" src="{% static 'img/icones/estacao.ico' %}" alt="">
+              <div class="col-md-4">
+                <h2>Projeto</h2>
+                <p>O objetivo do projeto é criar uma estação meteorológica inteligente com Raspberry Pi para coletar e analisar dados climáticos. Ela fornecerá informações precisas sobre variáveis climáticas para monitoramento, previsão e alerta de fenômenos, além de apoiar o planejamento estratégico em várias áreas.</p>
+              </div>
+            </div>
+
+            <div class="row mt-5">
+              <div class="offset-md-2 col-md-4">
+                <h2>Estação</h2>
+                <p>Estações meteorológicas coletam dados climáticos diários. Existem versões convencionais, que requerem coleta manual, e automáticas, que usam sensores para coleta contínua e sem intervenção. Estações automáticas são mais eficientes e economizam tempo. Com a tecnologia e IoT, as estações inteligentes permitem acesso remoto e em tempo real aos dados.</p>
+              </div>
+              <div class="offset-md-1 col-md-5">
+                <img class="img" src="{% static 'img/icones/estacao.ico' %}" alt="" />
+              </div>
             </div>
 
             <div class="row mt-5 pb-5">
               <div class="col-md-3 offset-md-3">
-                <img class="img" src="{% static 'img/icones/desenvolvimento.ico' %}" alt="">
+                <img class="img" src="{% static 'img/icones/desenvolvimento.ico' %}" alt="" />
               </div>
               <div class="col-md-4">
                 <h2>Desenvolvimento</h2>
                 <p>O projeto desenvolverá uma estação meteorológica inteligente com Raspberry Pi, equipada com sensores para medir umidade, temperatura, vento e pressão. Os dados serão processados e acessíveis remotamente em tempo real via internet. Além disso, foi desenvolvido o sistema web chamado Flúmem para acompanhar e visualizar os dados fornecidos pela estação. O objetivo é oferecer uma solução precisa e prática para o monitoramento e planejamento climático.</p>
-            </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!--Colaboradores-->
-      <section class="colaboradores mt-5   pb-5">
-        <h1 class="text-center pb-3 flumen">Colaboradores</h1>
-        <div class="container-fluid justify-content-center align-items-center mt-3">
-          <div class="card card-container">
-            <img src="{% static 'img/perfil.jpg' %}" class="card-img-top" alt="Imagem do Card">
-            <div class="card-body text-center">
-              <h5 class="card-title">Título do Card</h5>
-              <p class="card-text">Legenda do Card</p>
-            </div>
-          </div>
-        </div>
-        
-          
-          
+      <!-- Colaboradores -->
+      <section class="colaboradores mt-5 pb-5">
+        <h1 class="text-center pb-3">Colaboradores</h1>
       </section>
 
+      <!-- Tecnologias -->
       <section class="tech bg-section">
-        <div class="container ">
-          
-          <div class="row d-flex align-items-center pb-5">
-            <h1 class="text-center mt-3  fs-2">Tecnologias</h1>
-            
-            <div class="row d-flex align-items-center mt-3">
-              <div class="col-xl-2 d-flex justify-content-center">
-                <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank">
-                  <img class="icones-tech"  src="{% static 'img/tecnologias/logo_html.svg' %}" alt="">
-                </a>   
-              </div>
-  
-              <div class="col-xl-2 d-flex justify-content-center">
-                <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="_blank">
-                  <img class="icones-tech"  src="{% static 'img/tecnologias/logo_css.svg' %}" alt="">
-                </a>      
-              </div>
-  
-              <div class="col-xl-2 d-flex justify-content-center">
-                <a href="https://www.djangoproject.com/" target="_blank">
-                  <img class="icones-tech"  src="{% static 'img/tecnologias/logo_django.svg' %}" alt="">
-                </a>
+        <div class="container">
+          <div class="row d-flex pb-5">
+            <h1 class="text-center mt-3 fs-2">Tecnologias</h1>
+
+            <div class="row d-flex align-items-center justify-content-center mt-3 gap-5">
+              <div class="col-md-1 d-flex justify-content-center">
+                <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank"><img class="icones-tech" src="{% static 'img/tecnologias/logo_html.svg' %}" alt="" /></a>
               </div>
 
-              <div class="col-xl-2 d-flex justify-content-center">
-                <a href="https://getbootstrap.com/" target="_blank">
-                  <img class="icones-tech"  src="{% static 'img/tecnologias/logo_bootstrap.svg' %}" alt="">
-                </a>
+              <div class="col-md-1 d-flex justify-content-center">
+                <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="_blank"><img class="icones-tech" src="{% static 'img/tecnologias/logo_css.svg' %}" alt="" /></a>
               </div>
-  
-              <div class="col-xl-2 d-flex justify-content-center">
-                <a href="https://www.python.org/" target="_blank">
-                  <img class="icones-tech" src="{% static 'img/tecnologias/logo_python.svg' %}" alt="">
-                </a>
+
+              <div class="col-md-1 d-flex justify-content-center">
+                <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="_blank"><img class="icones-tech" src="{% static 'img/tecnologias/logo_javascript.svg' %}" alt="" /></a>
               </div>
-  
-              <div class="col-xl-2 d-flex justify-content-center">
-                <a href="https://www.postgresql.org/" target="_blank">
-                  <img class="icones-tech"  src="{% static 'img/tecnologias/logo_postgresql.svg' %}" alt="">
-                </a>
+
+              <div class="col-md-1 d-flex justify-content-center">
+                <a href="https://www.djangoproject.com/" target="_blank"><img class="icones-tech" src="{% static 'img/tecnologias/logo_django.svg' %}" alt="" /></a>
+              </div>
+
+              <div class="col-md-1 d-flex justify-content-center">
+                <a href="https://getbootstrap.com/" target="_blank"><img class="icones-tech" src="{% static 'img/tecnologias/logo_bootstrap.svg' %}" alt="" /></a>
+              </div>
+
+              <div class="col-md-1 d-flex justify-content-center">
+                <a href="https://www.python.org/" target="_blank"><img class="icones-tech" src="{% static 'img/tecnologias/logo_python.svg' %}" alt="" /></a>
+              </div>
+
+              <div class="col-md-1 d-flex justify-content-center">
+                <a href="https://www.postgresql.org/" target="_blank"><img class="icones-tech" src="{% static 'img/tecnologias/logo_postgresql.svg' %}" alt="" /></a>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      
-
-
     </main>
 
     <footer>
@@ -171,4 +140,4 @@
       {% endblock %}
     </footer>
   </body>
-
+</html>
