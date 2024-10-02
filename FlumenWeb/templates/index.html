@@ -28,22 +28,22 @@
     <header class="header-menu">
       <nav class="navbar bg-body-tertiary">
         <div class="container">
-          <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}" alt="Logo" width="80" height="60" class="d-inline-block align-text-top" /></a>
+          <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}" alt="Logo" width="80" height="0" class="d-inline-block align-text-top" /></a>
           <a href="{% url 'login' %}"><button class="btn">Login</button></a>
         </div>
       </nav>
 
-      <section class="home d-flex align-items-center h-75 bg-section" id="home">
-        <div class="container">
-          <div class="row d-flex align-items-center">
-            <div class="col-xl-6">
+      <section class=" container-fluid d-flex justify-content-center align-items-center bg-section" id="home">
+        <div class="container m-5 p-5">
+          <div class="row">
+            <div class="col-md-6">
               <h1 class="slogan">Sua estação meteorológica completa na palma da mão.</h1>
               <p class="text-secondary fw-light">Flúmen veio para revolucionar sua vida!</p>
               <a href="{% url 'cadastro' %}"><button class="btn btn-login">Cadastrar</button></a>
             </div>
 
-            <div class="col-xl-6 d-flex justify-content-center">
-              <img src="{% static 'img/img-index.svg' %}" alt="imagem do tempo" class="d-inline-block align-text-top img" />
+            <div class="col-md-6 mt-4">
+              <img src={% static 'img/img-index.svg' %} alt="Imagem do tempo">
             </div>
           </div>
         </div>
@@ -62,7 +62,7 @@
               </div>
               <div class="col-md-4">
                 <h2>Projeto</h2>
-                <p>O objetivo do projeto é criar uma estação meteorológica inteligente com Raspberry Pi para coletar e analisar dados climáticos. Ela fornecerá informações precisas sobre variáveis climáticas para monitoramento, previsão e alerta de fenômenos, além de apoiar o planejamento estratégico em várias áreas.</p>
+                <p>O objetivo do projeto é desenvolver uma estação meteorológica inteligente com Raspberry Pi para coletar e analisar dados climáticos. Ela fornecerá informações precisas sobre variáveis climáticas para monitoramento, previsão e alerta de fenômenos, além de apoiar o planejamento estratégico em várias áreas.</p>
               </div>
             </div>
 
