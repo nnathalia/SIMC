@@ -1,0 +1,55 @@
+@import "reset.css";
+
+/*CONFIGURAÇÃO GERAL*/
+:root {
+  ---blue: #1363ac;
+}
+
+* {
+  font-family: "Inter", sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+p,
+label,
+a {
+  color: var(---blue);
+}
+
+img {
+  pointer-events: none;
+}
+
+/*CONFIGURAÇÃO BACKGROUND*/
+
+main {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(../img/img-unsplash.png);
+  width: 100%;
+  height: 100vh;
+}
+
+section {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(../img/bg-overlay.png);
+  width: 100%;
+  height: 100vh;
+}
+
+/*CONFIGURAÇÃO CONTAINER FORMULÁRIO*/
+.form-content {
+  border-radius: 20px 20px 0px 0px;
+}
+
+.bg-btn button {
+  background-color: #1363ac;
+}
+
+a{
+  color: var(---blue);
+}
