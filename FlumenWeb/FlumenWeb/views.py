@@ -4,16 +4,16 @@ def index(request):
     return render(request, 'index.html')
 
 def login(request):
-    return render(request, 'forms\login.html')
+    return render(request, 'auth\login.html')
     
 def cadastro(request):
-    return render(request, 'forms\cadastro.html')
+    return render(request, 'auth\cadastro.html')
 
 def email(request):
-    return render(request, 'forms\email.html')
+    return render(request, 'auth\email.html')
 
 def senha(request):
-    return render(request, 'forms\senha.html')
+    return render(request, 'auth\senha.html')
 
 def dashboard(request):
     return render(request, 'pages\dashboard.html')

@@ -23,26 +23,26 @@
   </head>
   <header>
     {% block navbar %}
-    {% include 'layout/navbar.html' %}
+    {% include 'partials/_navbar.html' %}
     {% endblock %}
   </header>
   <body>
     <div class="d-flex">
       {% block sidebar %}
-        {% include 'layout/sidebar.html' %}
+        {% include 'partials/_sidebar.html' %}
       {% endblock %}
 
       {% block sidebarmobile %}
-        {% include 'layout/sidebarmobile.html' %}
+        {% include 'partials/_sidebarmobile.html' %}
       {% endblock %}
-      <main class="flex-fill p-3">
+      <main class="flex-fill p-3 vh-100">
         {% block content %} {% endblock %}
       </main>
     </div>
   </body>
   <footer>
     {% block footer %}
-        {% include 'layout/footer.html' %}
+        {% include 'partials/_footer.html' %}
       {% endblock %}
   </footer>
 </html>

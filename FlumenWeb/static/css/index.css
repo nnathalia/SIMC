@@ -35,3 +35,13 @@ main h1 .flumen{
 }
 
 /* COLABORADORES */
+
+div .card-content{
+  border: 4px solid #1363AC;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+div .image img{
+  border-radius: 50%;
+}
