@@ -4,9 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
     <link rel="stylesheet" href="{% static 'css/index.css' %}" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
@@ -33,17 +31,17 @@
         </div>
       </nav>
 
-      <section class=" container-fluid d-flex justify-content-center align-items-center bg-section" id="home">
-        <div class="container m-5 p-5">
-          <div class="row">
-            <div class="col-md-6">
-              <h1 class="slogan">Sua estação meteorológica completa na palma da mão.</h1>
+      <section class="container-fluid d-flex justify-content-center align-items-center bg-section" id="home">
+        <div class="conatiner m-5 p-5">
+          <div class="row" >
+            <div class="col-md-6 col-sm-12">
+              <h1 class="slogan" >Sua estação meteorológica completa na palma da mão.</h1>
               <p class="text-secondary fw-light">Flúmen veio para revolucionar sua vida!</p>
               <a href="{% url 'cadastro' %}"><button class="btn btn-login">Cadastrar</button></a>
             </div>
 
-            <div class="col-md-6 mt-4">
-              <img src={% static 'img/img-index.svg' %} alt="Imagem do tempo">
+            <div class="col-md-6 col-sm-12 mt-4 ">
+              <img src="{% static 'img/img-index.svg' %}" alt="Imagem do tempo" style="width: 100%;" />
             </div>
           </div>
         </div>
@@ -92,85 +90,97 @@
       <!-- Colaboradores -->
       <section class="colaboradores mt-5 pb-5">
         <h1 class="text-center pb-3">Colaboradores</h1>
-        <div class="row p-3  d-flex  justify-content-center" style="width: 100%;">
-          <div class="mt-2"  style="max-width: 250px; min-width: 250px;">
+        <div class="row p-3 d-flex justify-content-center" style="width: 100%;">
+          <div class="mt-2" style="max-width: 250px; min-width: 250px;">
             <a class="text-decoration-none text-dark" href="https://www.linkedin.com/in/nnathallia/" target="_blank">
               <div class="card-content p-3">
                 <div class="image d-flex flex-column align-items-center">
-                  <img src="{% static 'img/colaboradores/nathalia.jpeg' %}" class="img-fluid rounded-circle" style="max-width: 120px;" alt="Foto de Nathalia Mariano">
+                  <img src="{% static 'img/colaboradores/nathalia.jpeg' %}" class="img-fluid rounded-circle" style="max-width: 120px;" alt="Foto de Nathalia Mariano" />
                 </div>
                 <div class="text-center mt-2">
                   <p class="mt-1 mb-0 fw-bold">Nathalia Mariano</p>
-                  <p class="mb-0 text-muted">Desenvolvedora <br> Frontend</p>
+                  <p class="mb-0 text-muted">
+                    Desenvolvedora <br /> Frontend
+                  </p>
                 </div>
               </div>
             </a>
           </div>
-          <div class="mt-2"  style="max-width: 250px; min-width: 250px;">
+          <div class="mt-2" style="max-width: 250px; min-width: 250px;">
             <a class="text-decoration-none text-dark" href="https://www.linkedin.com/in/nnathallia/" target="_blank">
-              <div class="card-content p-3" >
+              <div class="card-content p-3">
                 <div class="image d-flex flex-column align-items-center">
-                  <img src="{% static 'img/colaboradores/filipe.png' %}" class="img-fluid rounded-circle" style="max-width: 120px;" alt="Foto de Nathalia Mariano">
+                  <img src="{% static 'img/colaboradores/filipe.png' %}" class="img-fluid rounded-circle" style="max-width: 120px;" alt="Foto de Nathalia Mariano" />
                 </div>
                 <div class="text-center mt-2">
                   <p class="mt-1 mb-0 fw-bold">Filipe Maciel</p>
-                  <p class="mb-0 text-muted">Desenvolvedor <br> Backend</p>
+                  <p class="mb-0 text-muted">
+                    Desenvolvedor <br /> Backend
+                  </p>
                 </div>
               </div>
             </a>
           </div>
 
-          <div class="mt-2"  style="max-width: 250px; min-width: 250px;">
+          <div class="mt-2" style="max-width: 250px; min-width: 250px;">
             <a class="text-decoration-none text-dark" href="https://www.linkedin.com/in/nnathallia/" target="_blank">
               <div class="card-content p-3">
                 <div class="image d-flex flex-column align-items-center">
-                  <img src="{% static 'img/colaboradores/nathalia.jpeg' %}" class="img-fluid rounded-circle" style="max-width: 120px;" alt="Foto de Nathalia Mariano">
+                  <img src="{% static 'img/colaboradores/nathalia.jpeg' %}" class="img-fluid rounded-circle" style="max-width: 120px;" alt="Foto de Nathalia Mariano" />
                 </div>
                 <div class="text-center mt-2">
                   <p class="mt-1 mb-0 fw-bold">Nathalia Mariano</p>
-                  <p class="mb-0 text-muted">Desenvolvedora <br> Frontend</p>
+                  <p class="mb-0 text-muted">
+                    Desenvolvedora <br /> Frontend
+                  </p>
                 </div>
               </div>
             </a>
           </div>
 
-          <div class="mt-2"  style="max-width: 250px; min-width: 250px;">
+          <div class="mt-2" style="max-width: 250px; min-width: 250px;">
             <a class="text-decoration-none text-dark" href="https://www.linkedin.com/in/nnathallia/" target="_blank">
               <div class="card-content p-3">
                 <div class="image d-flex flex-column align-items-center">
-                  <img src="{% static 'img/colaboradores/nathalia.jpeg' %}" class="img-fluid rounded-circle" style="max-width: 120px;" alt="Foto de Nathalia Mariano">
+                  <img src="{% static 'img/colaboradores/nathalia.jpeg' %}" class="img-fluid rounded-circle" style="max-width: 120px;" alt="Foto de Nathalia Mariano" />
                 </div>
                 <div class="text-center mt-2">
                   <p class="mt-1 mb-0 fw-bold">Nathalia Mariano</p>
-                  <p class="mb-0 text-muted">Desenvolvedora <br> Frontend</p>
+                  <p class="mb-0 text-muted">
+                    Desenvolvedora <br /> Frontend
+                  </p>
                 </div>
               </div>
             </a>
           </div>
 
-          <div class="mt-2"  style="max-width: 250px; min-width: 250px;">
+          <div class="mt-2" style="max-width: 250px; min-width: 250px;">
             <a class="text-decoration-none text-dark" href="https://www.linkedin.com/in/nnathallia/" target="_blank">
               <div class="card-content p-3">
                 <div class="image d-flex flex-column align-items-center">
-                  <img src="{% static 'img/colaboradores/nathalia.jpeg' %}" class="img-fluid rounded-circle" style="max-width: 120px;" alt="Foto de Nathalia Mariano">
+                  <img src="{% static 'img/colaboradores/nathalia.jpeg' %}" class="img-fluid rounded-circle" style="max-width: 120px;" alt="Foto de Nathalia Mariano" />
                 </div>
                 <div class="text-center mt-2">
                   <p class="mt-1 mb-0 fw-bold">Nathalia Mariano</p>
-                  <p class="mb-0 text-muted">Desenvolvedora <br> Frontend</p>
+                  <p class="mb-0 text-muted">
+                    Desenvolvedora <br /> Frontend
+                  </p>
                 </div>
               </div>
             </a>
           </div>
 
-          <div class="mt-2"  style="max-width: 250px; min-width: 250px;">
+          <div class="mt-2" style="max-width: 250px; min-width: 250px;">
             <a class="text-decoration-none text-dark" href="https://www.linkedin.com/in/nnathallia/" target="_blank">
               <div class="card-content p-3">
                 <div class="image d-flex flex-column align-items-center">
-                  <img src="{% static 'img/colaboradores/nathalia.jpeg' %}" class="img-fluid rounded-circle" style="max-width: 120px;" alt="Foto de Nathalia Mariano">
+                  <img src="{% static 'img/colaboradores/nathalia.jpeg' %}" class="img-fluid rounded-circle" style="max-width: 120px;" alt="Foto de Nathalia Mariano" />
                 </div>
                 <div class="text-center mt-2">
                   <p class="mt-1 mb-0 fw-bold">Nathalia Mariano</p>
-                  <p class="mb-0 text-muted">Desenvolvedora <br> Frontend</p>
+                  <p class="mb-0 text-muted">
+                    Desenvolvedora <br /> Frontend
+                  </p>
                 </div>
               </div>
             </a>

@@ -1,47 +1,44 @@
-
-*{
+* {
   font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 16px;
 }
 
-
 nav .btn,
-section .btn{
-  background-color: #1363AC;
+section .btn {
+  background-color: #1363ac;
   color: white;
   padding: 5px 20px;
   border-radius: 7px;
 }
 
 header .bg-section,
-main .bg-section{
+main .bg-section {
   background-color: #e9eaeb;
 }
 
-section .slogan{
-  color: #1363AC;
+section .slogan {
+  color: #1363ac;
 }
-
 
 /*main*/
 
-main h1 .flumen{
-  color: #1363AC;
+main h1 .flumen {
+  color: #1363ac;
 }
 
-.icones-tech{
+.icones-tech {
   width: 70px;
 }
 
 /* COLABORADORES */
 
-div .card-content{
-  border: 4px solid #1363AC;
+div .card-content {
+  border: 3px solid #1363ac;
   border-radius: 10px;
   cursor: pointer;
 }
 
-div .image img{
+div .image img {
   border-radius: 50%;
 }
