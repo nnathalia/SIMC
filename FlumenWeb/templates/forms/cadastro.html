@@ -10,9 +10,9 @@
         <h1 class="text-white fw-semibold">Flúmen</h1>
         <p class="text-white fs-4 fw-light">Sua estação meteorológica completa na palma da mão!</p>
       </div>
-      <div class="container-fluid d-flex justify-content-start align-items-end col-lg-4 col-md-6 justify-content-sm-center ">
+      <div class="container-fluid d-flex justify-content-start align-items-end col-lg-4 col-md-6 justify-content-sm-center">
         <div class="form-content d-flex flex-column bg-white p-5 pb-2" style=" min-height: 80%; min-width: 70%;">
-          <div class="container-fluid p-2 d-flex flex-column align-items-center justify-content-center ">
+          <div class="container-fluid p-2 d-flex flex-column align-items-center justify-content-center">
             <img src="{% static 'img/logo.png' %}" style="width: 300px;" alt="Logo" />
             <p class="mt-2 fw-semibold">Bem vindo ao Flúmen!</p>
             <p class="text-sm-center">Faça login para continuar.</p>
@@ -22,9 +22,9 @@
             <input type="hidden" name="next" value="{{ next }}" />
             <div class="mb-2 input-style">
               <label for="inputName" class="form-label">Nome completo</label>
-              <input type="text" class="form-control input-style" id="inputName" placeholder="Digite seu nome aqui"/>
+              <input type="text" class="form-control input-style" id="inputName" placeholder="Digite seu nome aqui" />
             </div>
-  
+
             <div class="mb-2 input-style">
               <label for="inputEmail" class="form-label">Email</label>
               <input class="form-control input-style" type="text" id="username" name="username" placeholder="Digite seu usuário" required />
@@ -35,7 +35,7 @@
             </div>
             <div class="mb-2 input-style">
               <label for="inputNewPasswordConfirm" class="form-label">Confirmar senha</label>
-              <input type="password" class="form-control" id="inputNewPasswordConfirm" placeholder="Repita sua senha aqui"/>
+              <input type="password" class="form-control" id="inputNewPasswordConfirm" placeholder="Repita sua senha aqui" />
             </div>
             <div class="d-flex flex-column align-items-end justify-content-center mt-2">
               <a class="btn btn-link text-decoration-none" href="{% url 'senha' %}">Esqueceu a senha?</a>
