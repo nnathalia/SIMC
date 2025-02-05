@@ -1,54 +1,56 @@
 {% extends 'layout/layout_form.html' %}
 {% load static %}
-{% block title %}
-  Cadastro
-{% endblock %}
-{% block content %}
-  <section class="container-fluid col-12">
-    <div class="row h-100">
-      <div class="container-fluid col-lg-6 col-md-6 d-flex flex-column align-items-start justify-content-center">
-        <h1 class="text-white fw-semibold">Flúmen</h1>
-        <p class="text-white fs-4 fw-light">Sua estação meteorológica completa na palma da mão!</p>
-      </div>
-      <div class="container-fluid d-flex justify-content-start align-items-end col-lg-4 col-md-6 justify-content-sm-center">
-        <div class="form-content d-flex flex-column bg-white p-5 pb-2" style=" min-height: 80%; min-width: 70%;">
-          <div class="container-fluid p-2 d-flex flex-column align-items-center justify-content-center">
-            <img src="{% static 'img/logo.png' %}" style="width: 300px;" alt="Logo" />
-            <p class="mt-2 fw-semibold">Bem vindo ao Flúmen!</p>
-            <p class="text-sm-center">Faça login para continuar.</p>
-          </div>
-          <form method="post" class="">
-            {% csrf_token %}
-            <input type="hidden" name="next" value="{{ next }}" />
-            <div class="mb-2 input-style">
-              <label for="inputName" class="form-label">Nome completo</label>
-              <input type="text" class="form-control input-style" id="inputName" placeholder="Digite seu nome aqui" />
-            </div>
 
-            <div class="mb-2 input-style">
-              <label for="inputEmail" class="form-label">Email</label>
-              <input class="form-control input-style" type="text" id="username" name="username" placeholder="Digite seu usuário" required />
-            </div>
-            <div class="mb-2 input-style">
+{% block title %}Cadastro{% endblock %}
+
+{% block content %}
+<section class="container-fluid col-12">
+  <div class="row h-100">
+    <div class="col-lg-6 col-md-6 d-flex flex-column align-items-start justify-content-center">
+      <h1 class="text-white fw-semibold">Flúmen</h1>
+      <p class="text-white fs-4 fw-light">Sua estação meteorológica completa na palma da mão!</p>
+    </div>
+    <div class="col-lg-4 col-md-6 d-flex justify-content-start align-items-end justify-content-sm-center">
+      <div class="form-content bg-white p-5 pb-2 d-flex flex-column">
+        <div class=" d-flex flex-column align-items-center  text-center  mb-4">
+          <img src="{% static 'img/logo.png' %}" class="mb-3" alt="Logo" style="width: 300px;" />
+          <p class="fw-semibold">Bem-vindo ao Flúmen!</p>
+          <p>Faça login para continuar.</p>
+        </div>
+        <form method="post">
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{ next }}" />
+          <div class="mb-3">
+            <label for="inputName" class="form-label">Nome completo</label>
+            <input type="text" class="form-control" id="inputName" placeholder="Digite seu nome aqui" />
+          </div>
+          <div class="mb-3">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Digite seu usuário" required />
+          </div>
+          <div class="row">
+            <div class="mb-3 col-md-6 col-sm-12">
               <label for="inputPassword" class="form-label">Senha</label>
-              <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Digite sua senha aqui" required />
+              <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Digite sua senha aqui" required />
             </div>
-            <div class="mb-2 input-style">
+            <div class="mb-3 col-md-6 col-sm-12">
               <label for="inputNewPasswordConfirm" class="form-label">Confirmar senha</label>
               <input type="password" class="form-control" id="inputNewPasswordConfirm" placeholder="Repita sua senha aqui" />
             </div>
-            <div class="d-flex flex-column align-items-end justify-content-center mt-2">
-              <a class="btn btn-link text-decoration-none" href="{% url 'senha' %}">Esqueceu a senha?</a>
-            </div>
-            <div class="bg-btn d-flex justify-content-center align-items-center mt-2">
-              <button class="btn text-white" style="width: 100%;" type="submit">Cadastrar</button>
-            </div>
-          </form>
-          <div class="d-flex flex-column align-items-center justify-content-center mt-2">
-            <a class="btn btn-link text-decoration-none" href="{% url 'login' %}">Já tem conta? Clique aqui!</a>
           </div>
+          
+          <div class="d-flex justify-content-end">
+            <a href="{% url 'senha' %}" class="btn btn-link text-decoration-none">Esqueceu a senha?</a>
+          </div>
+          <div class="d-grid mt-3 bg-btn">
+            <button class="btn btn-primary text-white" type="submit">Cadastrar</button>
+          </div>
+        </form>
+        <div class="text-center mt-3">
+          <a href="{% url 'login' %}" class="btn btn-link text-decoration-none">Já tem conta? Clique aqui!</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 {% endblock %}

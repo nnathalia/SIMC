@@ -15,7 +15,8 @@
 
 p,
 label,
-a {
+a, 
+button {
   color: var(---blue);
 }
 
@@ -23,11 +24,20 @@ img {
   pointer-events: none;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
 /*CONFIGURAÇÃO BACKGROUND*/
 
 main {
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   background-image: url(../img/img-unsplash.png);
   width: 100%;
   height: 100vh;
@@ -36,6 +46,7 @@ main {
 section {
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   background-image: url(../img/bg-overlay.png);
   width: 100%;
   height: 100vh;
