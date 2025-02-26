@@ -14,9 +14,7 @@
 }
 
 p,
-label,
-a, 
-button {
+label {
   color: var(---blue);
 }
 
@@ -57,10 +55,10 @@ section {
   border-radius: 20px 20px 0px 0px;
 }
 
-.bg-btn button {
+.bg-btn button{
   background-color: #1363ac;
 }
 
-a{
+.color-link a{
   color: var(---blue);
 }
