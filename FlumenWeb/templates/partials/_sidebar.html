@@ -1,44 +1,48 @@
 {% load static %}
 
-<aside class="bg-white text-secondary vh-90 p-4 border-none sidebar" width="300px">
-  <ul class="nav flex-column">
-    <li class="nav-item mb-2 " id="nav-item">
-      <div class="item-list">
-        <i class="bi bi-file-bar-graph"></i>
-        <a class="nav-link text-secondary" href="{% url 'dashboard' %}">Dashboard</a>
-      </div>
-    </li>
-    <li class="nav-item mb-2  ">
-      <div class="item-list">
-        <i class="bi bi-card-text"></i>
-        <a class="nav-link text-secondary" href="{% url 'relatorio' %}">Relatórios</a>
-      </div>
-    </li>
-    <li class="nav-item mb-2 ">
-      <div class="item-list">
-        <i class="bi bi-bell"></i>
-        <a class="nav-link text-secondary" href="#">Notificações</a>
-      </div>
-    </li>
-    <hr />
-    <li class="nav-item mb-2 ">
-      <div class="item-list">
-        <i class="bi bi-person"></i>
-        <a class="nav-link text-secondary" href="#">Perfil</a>
-      </div>
-    </li>
-    <li class="nav-item mb-2 ">
-      <div class="item-list">
-        <i class="bi bi-gear"></i>
-        <a class="nav-link text-secondary" href="#">Configurações</a>
-      </div>
-    </li>
-    <li class="nav-item">
-      <div class="item-list">
-        <i class="bi bi-box-arrow-left"></i>
-        <a class="nav-link text-secondary" href="{% url 'logout' %}">Sair</a>
-      </div>
-      
-    </li>
-  </ul>
+<aside class="bg-white text-secondary vh-100 p-5 border-none sidebar">
+  <div class="pb-4 d-flex justify-content-center">
+    <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}" alt="Logo" width="120" height="80" /></a>
+  </div>
+  <div class="d-flex justify-content-center">
+    <ul class="nav flex-column">
+      <li class="nav-item mb-2" id="nav-item">
+        <div class="item-list">
+          <i class="bi bi-file-bar-graph"></i>
+          <a class="nav-link text-secondary" href="{% url 'dashboard' %}">Dashboard</a>
+        </div>
+      </li>
+      <li class="nav-item mb-2">
+        <div class="item-list">
+          <i class="bi bi-card-text"></i>
+          <a class="nav-link text-secondary" href="{% url 'relatorio' %}">Relatórios</a>
+        </div>
+      </li>
+      <li class="nav-item mb-2">
+        <div class="item-list">
+          <i class="bi bi-bell"></i>
+          <a class="nav-link text-secondary" href="#">Notificações</a>
+        </div>
+      </li>
+      <hr />
+      <li class="nav-item mb-2">
+        <div class="item-list">
+          <i class="bi bi-person"></i>
+          <a class="nav-link text-secondary" href="#">Perfil</a>
+        </div>
+      </li>
+      <li class="nav-item mb-2">
+        <div class="item-list">
+          <i class="bi bi-gear"></i>
+          <a class="nav-link text-secondary" href="#">Configurações</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="item-list">
+          <i class="bi bi-box-arrow-left"></i>
+          <a class="nav-link text-secondary" href="{% url 'logout' %}">Sair</a>
+        </div>
+      </li>
+    </ul>
+  </div>
 </aside>

@@ -1,141 +1,134 @@
 {% extends 'layout/layout.html' %}
-{% block title %}Dashboard{% endblock %}
+{% block title %}
+  Dashboard
+{% endblock %}
 {% block content %}
-
-<main>
-  <section>
-      <div class="container-tempo bg-white">
-        <div class="tempo-dia">
-          <i class="fa-solid fa-sun"></i>
-          <span>Ensolarado</span>
+  <div class="bg-climate  container-climate">
+    <div class="current-weather d-flex justify-content-between p-5">
+      <div class="d-flex align-items-center gap-4">
+        <div>
+          <i class="bi bi-sun fw-bold text-white" style="font-size: 90px;"></i>
         </div>
-
-        <div class="container-temp">
-          <div class="temp-dia">
-            <span class="temperatura-dia">30º</span>
-            <span class="grau">C</span>
-          </div>
-
-          <div class="temp-dias-anteriores">
-            <div class="card-dia">
-              <p>domingo</p>
-              <i class="fa-solid fa-cloud-bolt"></i>
-              <p class="temperatura">32ºC</p>
-            </div>
-
-            <div class="card-dia">
-              <p>Segunda</p>
-              <i class="fa-solid fa-cloud-sun-rain"></i>
-              <p class="temperatura">32ºC</p>
-            </div>
-
-            <div class="card-dia">
-              <p>Terca</p>
-              <i class="fa-solid fa-cloud-sun"></i>
-              <p class="temperatura">32ºC</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="info-dia">
-          <div class="iqa">
-            <i class="fa-solid fa-leaf"></i>
-            <span>IQA 13</span>
-          </div>
-
-          <div class="data">
-            <span>Quarta-feira, 20 de Agosto de 2024</span>
-          </div>
+        <div>
+          <p class="fs-1 fw-bold text-white mb-0">30°C</p>
+          <p class="text-white">Sensação térmica: 32°C</p>
         </div>
       </div>
 
-      <div class="container-previsao bg-white " >
-        <span class="title-previsao">Previsao para os proximos dias</span>
-        <div class="list-previsao text-secondary">
-          <ul>
-            <li>
-              <i class="fa-solid fa-cloud-rain"></i>
-              <span>Amanha Chuva</span>
-            </li>
-            
-            <li>
-              <i class="fa-solid fa-cloud-rain"></i>
-              <span>Amanha Chuva</span>
-            </li>
+      <div class="last-week d-flex gap-5">
+        <div class="d-flex flex-column align-items-center">
+          <p class="fw-bold text-white">Domingo</p>
+          <i class="bi bi-cloud-lightning-rain fs-1 fw-bold text-white"></i>
+          <p class="fw-bold text-white pt-2">32°C</p>
+        </div>
 
-            <li>
-              <i class="fa-solid fa-cloud-rain"></i>
-              <span>Amanha Chuva</span>
-            </li>
+        <div class="d-flex flex-column align-items-center">
+          <p class="fw-bold text-white">Segunda</p>
+          <i class="bi bi-cloud-drizzle fs-1 fw-bold text-white"></i>
+          <p class="fw-bold text-white pt-2">32°C</p>
+        </div>
 
-            <li>
-              <i class="fa-solid fa-cloud-rain"></i>
-              <span>Amanha Chuva</span>
-            </li>
-
-            <li>
-              <i class="fa-solid fa-cloud-rain"></i>
-              <span>Amanha Chuva</span>
-            </li>
-          </ul>
-
-          <ul>
-            <li><span> 20º Min / 25º Max</span></li>
-            <li><span> 20º Min / 25º Max</span></li>
-            <li><span> 20º Min / 25º Max</span></li>
-            <li><span> 20º Min / 25º Max</span></li>
-            <li><span> 20º Min / 25º Max</span></li>  
-          </ul>
+        <div class="d-flex flex-column align-items-center">
+          <p class="fw-bold text-white">Terça</p>
+          <i class="bi bi-cloud-sun fs-1 fw-bold text-white"></i>
+          <p class="fw-bold text-white pt-2">32°C</p>
         </div>
       </div>
+    </div>
+  </div>
 
-      <div class="container-cards">
-        <div class="card-info bg-white">
-          <p class="title-card">
-            Luminosidade
-          </p>
-          <span class="dado">30%</span>
-        </div>
-
-        <div class="card-info bg-white">
-          <p class="title-card">
-            Umidade do ar
-          </p>
-          <span class="dado">30%</span>
-        </div>
-
-        <div class="card-info bg-white">
-          <p class="title-card">
-            Umidade do solo
-          </p>
-          <span class="dado">30%</span>
-        </div>
-
-        <div class="card-info bg-white">
-          <p class="title-card">
-            Chuva
-          </p>
-          <span class="dado">30%</span>
-        </div>
-
-        <div class="card-info bg-white">
-          <p class="title-card">
-            Velocidade do vento
-          </p>
-          <span class="dado">30%</span>
-        </div>
-
-        <div class="card-info bg-white">
-          <p class="title-card">
-            Indice Ultravioleta
-          </p>
-          <span class="dado">30%</span>
-        </div>
-  
+  <div class="weather-metrics gap-3 pt-4 d-flex flex-wrap justify-content-start">
+    <div class="card-metric p-4 d-flex justify-content-between">
+      <div>
+        <p class="mb-0 fw-bold">Luminosidade</p>
+        <p class="fw-bold fs-3 mb-0">30%</p>
       </div>
+      <div class="icon">
+        <i class="bi bi-sun text-secondary"></i>
+      </div>
+    </div>
 
+    <div class="card-metric p-4 d-flex justify-content-between">
+      <div>
+        <p class="mb-0 fw-bold">Umidade do ar</p>
+        <p class="fw-bold fs-3 mb-0">30%</p>
+      </div>
+      <div class="icon">
+        <i class="bi bi-droplet text-secondary"></i>
+      </div>
+    </div>
 
-  </section>
-</main>
+    <div class="card-metric p-4 d-flex justify-content-between">
+      <div>
+        <p class="mb-0 fw-bold">Umidade do solo</p>
+        <p class="fw-bold fs-3 mb-0">30%</p>
+      </div>
+      <div class="icon">
+        <i class="bi bi-droplet text-secondary"></i>
+      </div>
+    </div>
 
+    <div class="card-metric p-4 d-flex justify-content-between">
+      <div>
+        <p class="mb-0 fw-bold">Chuva</p>
+        <p class="fw-bold fs-3 mb-0">30%</p>
+      </div>
+      <div class="icon">
+        <i class="bi bi-cloud-drizzle text-secondary"></i>
+      </div>
+    </div>
+
+    <div class="card-metric p-4 d-flex justify-content-between">
+      <div>
+        <p class="mb-0 fw-bold">Velocidade do vento</p>
+        <p class="fw-bold fs-3 mb-0">30%</p>
+      </div>
+      <div class="icon">
+        <i class="bi bi-wind text-secondary"></i>
+      </div>
+    </div>
+
+    <div class="card-metric p-4 d-flex justify-content-between">
+      <div>
+        <p class="mb-0 fw-bold">Índice Ultravioleta</p>
+        <p class="fw-bold fs-3 mb-0">30%</p>
+      </div>
+      <div class="icon">
+        <i class="bi bi-sun text-secondary"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="forecast mt-4 bg-white p-4">
+    <p class="fw-bold fs-4">Previsão para os próximos dias</p>
+    <div class="d-flex justify-content-between pb-2">
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-cloud-lightning-rain"></i>
+        <p class="m-0">Amanhã: Chuva</p>
+      </div>
+      <div class="d-flex align-items-center">
+        <p class="m-0">28°C min / 32°C max</p>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between pb-2">
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-cloud-lightning-rain"></i>
+        <p class="m-0">Amanhã: Chuva</p>
+      </div>
+      <div class="d-flex align-items-center">
+        <p class="m-0">28°C min / 32°C max</p>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between pb-2">
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-cloud-lightning-rain"></i>
+        <p class="m-0">Amanhã: Chuva</p>
+      </div>
+      <div class="d-flex align-items-center">
+        <p class="m-0">28°C min / 32°C max</p>
+      </div>
+    </div>
+  </div>
 {% endblock %}

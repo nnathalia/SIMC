@@ -1,81 +1,113 @@
 {% extends 'layout/layout.html' %}
-{% block title %}Relatorios{% endblock %}
+{% block title %}
+  Relatorios
+{% endblock %}
 {% block content %}
-
-
-<main>
-    <section>
-      <div class="container-grafico bg-white">
-        <div class="headdress">
-          <p class="title-graph">Grafico do tempo durante a semana</p>
-          <div class="date">
-            <span>Agosto 24</span>
-            <i class="bi bi-calendar4"></i>
+  <div class="row">
+    <div class=" container-graph col-lg-8 col-md-12 col-sm-12 mb-lg-0 mb-sm-3 mb-md-3">
+      <div class="weather-graph p-4" style="height: 100%;">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex align-items-center">
+            <p class="mt-0">Gráfico do tempo durante a semana</p>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-calendar"></i>
+            <p class="text-primary mb-0">Agosto 24</p>
           </div>
         </div>
-        
-        <canvas class="grafico">
-          {% comment %} GRAFICO {% endcomment %}
-        </canvas>
       </div>
-    
-      <div class="container-info bg-white">
-        <div class="info headdress">
-          <p>Media das informacoes</p>
-          <select name="date" id="date">
-            <option value="mes">Mês</option>
-            <option value="semana">Sem</option>
-          </select>
-        </div>
-      
-        <div class="list text-secondary">
-          <ul>
-            <li>Temperatura</li>
-            <li>Luminosidade</li>
-            <li>Umidade do solo</li>
-            <li>Umidade do ar </li>
-            <li>Chuva</li>
-           </ul>
+    </div>
 
-          <ul id="info-dados">
-            <li>32ºC</li>
-            <li>30%</li>
-            <li>30%</li>
-            <li>30%</li>
-            <li>30%</li>
-          </ul>
+    <div class="col-lg-4 col-md-12 col-sm-12">
+      <div class="data-average p-4">
+        <div class="d-flex justify-content-between pb-2">
+          <div class="d-flex align-items-center">
+            <p class="mt-0">Média das informações</p>
+          </div>
+          <div class="d-flex align-items-center btn-select">
+            <select name="date" id="date" class="p-2">
+              <option value="mes">Mês</option>
+              <option value="semana">Sem</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <div class="d-flex justify-content-between pb-2">
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-cloud-lightning-rain"></i>
+              <p class="m-0">Temperatura</p>
+            </div>
+            <div class="d-flex align-items-center">
+              <p class="m-0">28ºC</p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between pb-2">
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-cloud-lightning-rain"></i>
+              <p class="m-0">Luminosidade</p>
+            </div>
+            <div class="d-flex align-items-center">
+              <p class="m-0">28%</p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between pb-2">
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-cloud-lightning-rain"></i>
+              <p class="m-0">Umidade do solo</p>
+            </div>
+            <div class="d-flex align-items-center">
+              <p class="m-0">28%</p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between pb-2">
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-cloud-lightning-rain"></i>
+              <p class="m-0">Umidade do ar</p>
+            </div>
+            <div class="d-flex align-items-center">
+              <p class="m-0">28%</p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between pb-2">
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-cloud-lightning-rain"></i>
+              <p class="m-0">Chuva</p>
+            </div>
+            <div class="d-flex align-items-center">
+              <p class="m-0">28%</p>
+            </div>
+          </div>
         </div>
       </div>
-    
-      <div class="container-gerador bg-white">
-        <div class="headdress">
-          <p>Gerador de Relatorios</p>
-        </div>
+    </div>
+  </div>
 
-        <div class="gerador">
-          <form class="container-form mb-4" action="">
-            <div class="inputs-data">
-              <label for="dataInicial">Data Inicial</label>
-              <input type="date" class="form-control input-style" id="dataInicial"/>
-        
-              <label for="dataFinal">Data Final</label>
-              <input type="date" class="form-control input-style" id="dataFinal"/>
-            </div>
-            
-            <div class="inputs-hora">
-              <label for="horaInicial">Hora Inicial</label>
-              <input type="time" class="form-control input-style" id="horaInicial"/>
-        
-              <label for="horaFinal">Hora Final</label>
-              <input type="time" class="form-control input-style" id="horaFinal"/>
-            </div>
-            
-          </form>
-        
+  <div class="report-generator mt-4 p-4">
+    <p class="fw-bold fs-4">Gerador de Relatórios</p>
+
+    <form class="container-form mb-4" action="">
+      <div class="d-flex gap-5 row">
+        <div class="d-flex gap-4 col-lg-6 col-md-12 col-sm-12">
+          <div class="inputs-data">
+            <label for="dataInicial">Data Inicial</label>
+            <input type="date" class="form-control input-style" id="dataInicial" />
+
+            <label for="dataFinal">Data Final</label>
+            <input type="date" class="form-control input-style" id="dataFinal" />
+          </div>
+
+          <div class="inputs-hora">
+            <label for="horaInicial">Hora Inicial</label>
+            <input type="time" class="form-control input-style" id="horaInicial" />
+
+            <label for="horaFinal">Hora Final</label>
+            <input type="time" class="form-control input-style" id="horaFinal" />
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12">
           <fieldset class="dados">
-            <p class="title-dados">Dados</p>
-            
-            <div class="checkbox-1 text-secondary">
+            <p class="mt-1 fw-bold">Dados</p>
+            <div class="d-flex flex-wrap gap-4 text-secondary">
               <div>
                 <input class="form-check-input" type="checkbox" id="temperatura" name="temperatura" value="temperatura" />
                 <label class="form-check-label" for="temperatura">Temperatura</label>
@@ -86,14 +118,11 @@
               </div>
               <div>
                 <input class="form-check-input" type="checkbox" id="Chuva" name="Chuva" value="Chuva" />
-                <label class="form-check-label" for="Chuva">Chuva</label> 
+                <label class="form-check-label" for="Chuva">Chuva</label>
               </div>
-            </div>
-        
-            <div class="checkbox-2 text-secondary">
               <div>
                 <input class="form-check-input" type="checkbox" id="luminosidade" name="luminosidade" value="luminosidade" />
-                <label class="form-check-label"for="luminosidade">Luminosidade</label>
+                <label class="form-check-label" for="luminosidade">Luminosidade</label>
               </div>
               <div>
                 <input class="form-check-input" type="checkbox" id="umidadeSolo" name="umidadeSolo" value="umidadeSolo" />
@@ -102,19 +131,15 @@
               <div>
                 <input class="form-check-input" type="checkbox" id="iqa" name="iqa" value="iqa" />
                 <label class="form-check-label" for="iqa">IQA</label>
-              </div>             
+              </div>
             </div>
           </fieldset>
         </div>
         
-       <div class="bt-gerador">
-        <button class="btn">Gerar relatório</button>
-       </div>
-        
       </div>
-    </section>
-
-</main>
-  
+      <div class="bt-gerador mt-3">
+        <button class="btn">Gerar relatório</button>
+      </div>
+    </form>
+  </div>
 {% endblock %}
-

@@ -13,38 +13,7 @@
 /* main  */
 
 main{
-  background-color: var(--background-color);
-}
-
-/* navbar */
-nav{
-  display: flex;
-  align-items: center; 
-  justify-content: center;
-  text-align: center;
-  padding: 10px;
-}
-
-nav p{
-  align-content: center;
-}
-
-nav .perfil{
- display: flex;
- align-items: center;
- text-align: center;
- gap: 10px;
- color: #5B6176;
-}
-
-nav .perfil img{
-  width: 2.0rem;
-  height: 2.0rem;
-  border-radius: 50%;
-}
-
-nav .logo{
- display: flex;
+  background-color:#e0f2fe ;
 }
 
 /* sidebar */

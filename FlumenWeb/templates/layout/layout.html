@@ -22,12 +22,7 @@
       {% endblock %}
     </title>
   </head>
-  <header>
-    {% block navbar %}
-      {% include 'partials/_navbar.html' %}
-    {% endblock %}
-  </header>
-  <body>
+  <body class="bg-gradient-sky">
     <div class="d-flex">
       {% block sidebar %}
         {% include 'partials/_sidebar.html' %}
@@ -36,7 +31,13 @@
       {% block sidebarmobile %}
         {% include 'partials/_sidebarmobile.html' %}
       {% endblock %}
-      <main class="flex-fill p-3 vh-100">
+      <main class="flex-fill p-3">
+        <div class="navbar">
+          {% block navbar %}
+            {% include 'partials/_navbar.html' %}
+          {% endblock %}
+        </div>
+        
         {% block content %}
 
         {% endblock %}

@@ -1,16 +1,13 @@
 {% load static %}
-
-  <nav class="navbar bg-white .navbar-expand-lg">
-    <div class="container-fluid">
-      <div class="perfil ">
-        <img src="{% static 'img/perfil.jpg' %}" alt="foto" width="30" height="30"/>
-        <span>Bem vindo Filipe!</span>
-      </div>
-      <div class="loc">
-        <span>Ji-Paraná / Rondônia</span>
-      </div>
-      <div class="logo">
-        <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}" alt="Logo" width="80" height="40" /></a>
-      </div>
+<nav class="navbar w-100">
+  <div class="container-fluid d-flex justify-content-between">
+    <div class="d-flex flex-column justify-content-start ">
+      <h1 class="fw-bold mb-1">Bem-vindo, Filipe!</h1>
+      <p class="text-start text-secondary">Ji-Paraná / Rondônia</p>
     </div>
-  </nav>
+    <div>
+      <p class="text-end text-secondary mb-1">Quarta-feira, 20 de Agosto de 2024</p>
+      <p class="text-end">IQA 13 • Ensolarado</p>
+    </div>
+  </div>
+</nav>
