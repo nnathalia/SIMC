@@ -1,5 +1,101 @@
-{% extends 'layout/navbar.html' %}
-{% block title %}INDEX{% endblock %}
-{% block content %}
+{% load static %}
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <script src="https://kit.fontawesome.com/7a2b9d2cd6.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="{% static 'img/icone-page.png' %}" />
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>
+      {% block title %}
+        Flúmen
+      {% endblock %}
+    </title>
+  </head>
 
-{% endblock %}
+  <body>
+    <header class="header-menu">
+      <nav class="navbar bg-body-tertiary">
+        <div class="container">
+          <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}" alt="Logo" width="80" height="0" class="d-inline-block align-text-top" /></a>
+          <a href="{% url 'login' %}"><button class="btn">Login</button></a>
+        </div>
+      </nav>
+
+      <section class="container-fluid d-flex justify-content-center align-items-center bg-section" id="home">
+        <div class="container m-5 p-5">
+          <div class="row">
+            <div class="col-md-6 col-sm-12">
+              <h1 class="slogan">Sua estação meteorológica completa na palma da mão.</h1>
+              <p class="text-secondary fw-light">Flúmen veio para revolucionar sua vida!</p>
+              <a href="{% url 'cadastro' %}"><button class="btn btn-login">Cadastrar</button></a>
+            </div>
+            <div class="col-md-6 col-sm-12 mt-4">
+              <img src="{% static 'img/img-index.svg' %}" alt="Imagem do tempo" style="width: 100%;" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main class="container-main">
+      <!-- Sobre -->
+      <section class="about mt-5 d-flex align-items-center">
+        <div class="container mt-3">
+          <h1 class="text-center pb-3 flumen">Flúmen</h1>
+          <div class="align-items-center justify-content-center pb-3">
+            <div class="row">
+              <div class="col-md-3 offset-md-3">
+                <img class="img" src="{% static 'img/icones/projeto.ico' %}" alt="Projeto" />
+              </div>
+              <div class="col-md-4">
+                <h2>Projeto</h2>
+                <p>O objetivo do projeto é desenvolver uma estação meteorológica inteligente com Raspberry Pi para coletar e analisar dados climáticos. Ela fornecerá informações precisas sobre variáveis climáticas para monitoramento, previsão e alerta de fenômenos, além de apoiar o planejamento estratégico em várias áreas.</p>
+              </div>
+            </div>
+
+            <div class="row mt-5">
+              <div class="offset-md-2 col-md-4">
+                <h2>Estação</h2>
+                <p>Estações meteorológicas coletam dados climáticos diários. Existem versões convencionais, que requerem coleta manual, e automáticas, que usam sensores para coleta contínua e sem intervenção. Estações automáticas são mais eficientes e economizam tempo. Com a tecnologia e IoT, as estações inteligentes permitem acesso remoto e em tempo real aos dados.</p>
+              </div>
+              <div class="offset-md-1 col-md-5">
+                <img class="img" src="{% static 'img/icones/estacao.ico' %}" alt="Estação" />
+              </div>
+            </div>
+
+            <div class="row mt-5 pb-5">
+              <div class="col-md-3 offset-md-3">
+                <img class="img" src="{% static 'img/icones/desenvolvimento.ico' %}" alt="Desenvolvimento" />
+              </div>
+              <div class="col-md-4">
+                <h2>Desenvolvimento</h2>
+                <p>O projeto desenvolverá uma estação meteorológica inteligente com Raspberry Pi, equipada com sensores para medir umidade, temperatura, vento e pressão. Os dados serão processados e acessíveis remotamente em tempo real via internet. Além disso, foi desenvolvido o sistema web chamado Flúmen para acompanhar e visualizar os dados fornecidos pela estação. O objetivo é oferecer uma solução precisa e prática para o monitoramento e planejamento climático.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Colaboradores -->
+      {% include 'partials/_colaboradores.html' with colaboradores=colaboradores_context %}
+
+      <!-- Tecnologias -->
+      {% include 'partials/_tecnologias.html' with tecnologias=tecnologias_context %}
+    </main>
+
+    <footer>
+      {% block footer %}
+        {% include 'partials/_footer.html' %}
+      {% endblock %}
+    </footer>
+  </body>
+</html>

@@ -1,36 +1,35 @@
 {% load static %}
-
 <aside class="bg-white text-secondary vh-90 p-1 border-none sidebar-mobile" width="300px">
   <ul class="nav flex-column">
     <li class="nav-item mb-2 " id="nav-item">
       <div class="item-list nav-link " >
-        <a href="" > <i class="bi bi-file-bar-graph"></i></a>
+        <a class="nav-link text-secondary" href="{% url 'dashboard' %}" > <i class="bi bi-file-bar-graph"></i></a>
       </div>
     </li>
     <li class="nav-item mb-2  ">
       <div class="item-list nav-link">
-        <a href=""> <i class="bi bi-card-text"></i></a>
+        <a class="nav-link text-secondary" href="{% url 'relatorio' %}"> <i class="bi bi-card-text"></i></a>
       </div>
     </li>
     <li class="nav-item mb-2 ">
       <div class="item-list nav-link">
-        <a href=""> <i class="bi bi-bell"></i></a>
+        <a class="nav-link text-secondary" href=""> <i class="bi bi-bell"></i></a>
       </div>
     </li>
     <hr />
     <li class="nav-item mb-2 ">
       <div class="item-list nav-link">
-        <a href=""> <i class="bi bi-person"></i></a>
+        <a class="nav-link text-secondary" href=""> <i class="bi bi-person"></i></a>
       </div>
     </li>
     <li class="nav-item mb-2 ">
       <div class="item-list nav-link">
-        <a href=""> <i class="bi bi-gear"></i></a>
+        <a class="nav-link text-secondary" href=""> <i class="bi bi-gear"></i></a>
       </div>
     </li>
     <li class="nav-item">
       <div class="item-list nav-link">
-        <a href=""> <i class="bi bi-box-arrow-left"></i></a> 
+        <a class="nav-link text-secondary" href="{% url 'logout' %}"> <i class="bi bi-box-arrow-left"></i></a> 
       </div>
     </li>
   </ul>
