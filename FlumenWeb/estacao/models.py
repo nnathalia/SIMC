@@ -15,6 +15,6 @@ class Estacao(models.Model):
     def __str__(self):
         return self.nome_est
 
+    class Meta:  
+        db_table = 'flu_estacao'
 
-class Meta:
-    db_table = 'flumen_estacao'

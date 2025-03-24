@@ -24,5 +24,5 @@ class Previsao(models.Model):
         return f"Previsão {self.idPrevisao} - {self.Estacao_idEstacao.nome_est}"
 
 
-class Meta:
-    db_table = 'flumen_previsao'
+    class Meta:
+        db_table = 'flu_previsao'

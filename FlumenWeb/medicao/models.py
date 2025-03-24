@@ -17,9 +17,5 @@ class Medicao(models.Model):
     updated_at = models.DateTimeField(auto_now=True, null=True)
     deleted_at = models.DateTimeField(null=True, blank=True)
 
-
-    def __str__(self):
-        return f"Medição {self.idMedicao} - {self.idEstacao_fk.nome_est}"
-
-class Meta:
-    db_table = 'flumen_medicao'
+    class Meta:  
+        db_table = 'flu_medicao'
