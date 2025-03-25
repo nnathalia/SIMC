@@ -56,7 +56,7 @@ section {
 }
 
 .bg-btn button{
-  background-color: #1363ac;
+  background-color: var(---blue);
 }
 
 .color-link a{

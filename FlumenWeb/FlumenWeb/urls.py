@@ -13,6 +13,8 @@ urlpatterns = [
     path('senha/', views.senha, name="senha"),
     path('dashboard/', views.dashboard, name="dashboard"),
     path('gerador_relatorio/', views.relatorio, name="relatorio"),
+    
+    path("chart-data/", views.chart_data, name="chart-data"),
 
     path('login/', LoginView.as_view(template_name='auth/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
