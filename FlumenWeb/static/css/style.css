@@ -1,46 +1,43 @@
-@import 'reset.css';
+@import "reset.css";
 
 /* Configurações gerais */
 
-:root{
-  --background-color: #EEEEEE ;
+:root {
+  --background-color: #eeeeee;
 }
-*{
+* {
   font-family: "Inter", sans-serif;
   font-size: 16px;
 }
 
-/* main  */
-
-main{
-  background-color:#e0f2fe ;
+main {
+  background-color: #dae6f1;
 }
-
 /* sidebar */
 
 aside ul li .nav-item {
   display: flex;
   align-items: center;
   width: 300px;
-  color: #5B6176;
+  color: #5b6176;
 }
 
-.item-list{
+.item-list {
   display: flex;
   align-items: center;
-  font-weight:500;
+  font-weight: 500;
 }
 
-li{
+li {
   display: flex;
 }
 
-.sidebar-mobile{
+.sidebar-mobile {
   display: none;
 }
 
 /* section  */
-section{
+section {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -52,28 +49,27 @@ section{
 .container-grafico,
 .container-info,
 .container-tempo,
-.container-previsao{
+.container-previsao {
   border-radius: 6px;
   padding: 10px;
 }
 
 .container-grafico,
-.container-tempo{
+.container-tempo {
   width: 60%;
 }
 
 .container-info,
-.container-previsao{
+.container-previsao {
   width: 39%;
 }
 
 .container-gerador,
-.container-cards{
+.container-cards {
   width: 100%;
 }
 
-.headdress{
+.headdress {
   display: flex;
   justify-content: space-between;
-
 }

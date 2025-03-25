@@ -1,8 +1,6 @@
 .bg-climate{
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
-  /* background: linear-gradient(#004BB5, #006BFF ); */
-  background: linear-gradient( #FF4500, #FFD700);
 }
 
 .card-metric{ 

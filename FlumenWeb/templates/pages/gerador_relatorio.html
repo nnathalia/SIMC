@@ -15,6 +15,9 @@
             <p class="text-primary mb-0">Agosto 24</p>
           </div>
         </div>
+        <div class="chart">
+          <canvas id="chart" data-url="{% url 'chart-data' %}"></canvas>
+        </div>
       </div>
     </div>
 
@@ -143,3 +146,6 @@
     </form>
   </div>
 {% endblock %}
+
+
+
