@@ -2,7 +2,7 @@ from django.db import models
 from estacao.models import Estacao
 
 class Previsao(models.Model):
-    idPrevisao = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     data_hora = models.DateTimeField()
     data_hora_inicio = models.DateTimeField()
     data_hora_final = models.DateTimeField()

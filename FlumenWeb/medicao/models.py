@@ -3,7 +3,7 @@ from estacao.models import Estacao
 
 
 class Medicao(models.Model):
-    idMedicao = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     data_hora = models.DateTimeField()
     temperatura = models.FloatField()
     umidade_ar = models.FloatField()
