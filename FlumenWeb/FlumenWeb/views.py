@@ -1,5 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.http import JsonResponse
+from django.shortcuts import render
+import random
+
 
 def index(request):
     colaboradores_context = [
@@ -57,6 +61,17 @@ def relatorio(request):
     return render(request, 'pages\gerador_relatorio.html')
 
 
+def chart_data(request):
+    data = {
+        "labels": ["Segunda", "Terca", "Quarta", "Quinta", "Sexta"],
+        "datasets": [
+            {
+                "label": "Temperatura",
+                "data": [random.randint(10, 50) for _ in range(6)],
+            }
+        ],
+    }
+    return JsonResponse(data)
 
 
 
