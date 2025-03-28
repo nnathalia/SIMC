@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     # 'auth',
     'previsao',
     'estacao',
-    'medicao'
+    'medicao',
+    'esp_app'
 ]
 
 MIDDLEWARE = [
