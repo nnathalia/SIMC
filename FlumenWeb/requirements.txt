@@ -3,3 +3,4 @@ django-bootstrap5==1.0.0
 python-dotenv
 psycopg2-binary
 django-bootstrap-v5
+requests
