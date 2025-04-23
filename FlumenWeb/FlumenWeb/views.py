@@ -4,7 +4,6 @@ from django.http import JsonResponse
 from django.shortcuts import render
 import random
 
-
 def index(request):
     colaboradores_context = [
         {
@@ -37,8 +36,6 @@ def index(request):
         "colaboradores_context": colaboradores_context,
         "tecnologias_context": tecnologias_context,
     })
-
-
     
 def cadastro(request):
     return render(request, 'auth/cadastro.html')
@@ -72,6 +69,7 @@ def chart_data(request):
         ],
     }
     return JsonResponse(data)
+
 
 
 
