@@ -1,12 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const temperaturaElement = document.querySelector(".current-weather p.fs-1"); // Seleciona a temperatura
+  const temperaturaElement = document.getElementById("temperatura");
   const bgClimate = document.getElementById("bgClimate");
 
   if (temperaturaElement) {
+<<<<<<< HEAD
     let temp = Math.floor(Math.random() * 1000);
     const temperaturaText = temperaturaElement.innerText.trim();
     const temperatura = parseInt(24);
 
+=======
+    const temperaturaText = temperaturaElement.innerText.trim().replace("°C", "");
+    const temperatura = parseInt(temperaturaText);
+    console.log("Temperatura lida:", temperatura);
+>>>>>>> configuracao_esp
     if (!isNaN(temperatura)) {
       let gradient;
 
@@ -17,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         gradient = "linear-gradient(#FF4500, #FFD700)";
       }
+      
 
       bgClimate.style.background = gradient;
     }
