@@ -1,3 +1,4 @@
 from django.contrib import admin
+from estacao.models import Estacao
 
-# Register your models here.
+admin.site.register(Estacao)

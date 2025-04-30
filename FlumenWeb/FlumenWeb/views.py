@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.shortcuts import render
+from medicao.models import Medicao
 import random
 
 
@@ -37,9 +38,7 @@ def index(request):
         "colaboradores_context": colaboradores_context,
         "tecnologias_context": tecnologias_context,
     })
-
-
-    
+ 
 def cadastro(request):
     return render(request, 'auth/cadastro.html')
 
@@ -53,7 +52,8 @@ def senha(request):
 
 @login_required(redirect_field_name= 'login')
 def dashboard(request):
-    return render(request, 'pages/dashboard.html')
+    medicao = Medicao.objects.order_by('-data_hora').first()
+    return render(request, 'pages/dashboard.html', {'medicao': medicao})
 
 
 @login_required(redirect_field_name= 'login')
@@ -72,7 +72,3 @@ def chart_data(request):
         ],
     }
     return JsonResponse(data)
-
-
-
-
