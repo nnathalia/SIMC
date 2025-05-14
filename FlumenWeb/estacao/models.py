@@ -1,7 +1,13 @@
 from django.db import models
+from django.conf import settings
 
 class Estacao(models.Model):
     id = models.AutoField(primary_key=True)
+    usuario = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='estacao',
+    )
     nome_est = models.CharField(max_length=45)
     latitude = models.FloatField()
     longitude = models.FloatField()
@@ -15,6 +21,5 @@ class Estacao(models.Model):
     def __str__(self):
         return self.nome_est
 
-    class Meta:  
+    class Meta:
         db_table = 'flu_estacao'
-
