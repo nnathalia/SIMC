@@ -6,7 +6,7 @@ class Estacao(models.Model):
     usuario = models.OneToOneField(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
-        related_name='estacao'
+        related_name='estacao',
     )
     nome_est = models.CharField(max_length=45)
     latitude = models.FloatField()
