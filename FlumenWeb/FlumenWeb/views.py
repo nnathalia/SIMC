@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.shortcuts import render
-from medicao.models import Medicao
+from medicao.models import Medicao, Estacao
 import random
 
 def index(request):
@@ -19,7 +19,7 @@ def index(request):
             "foto": "img/colaboradores/filipe.png",
             "linkedin": "https://www.linkedin.com/in/nnathallia/"
         },
-        # Adicione os demais colaboradores
+        # Adicionar outros colaboradores
     ]
 
     tecnologias_context = [
@@ -37,11 +37,7 @@ def index(request):
         "colaboradores_context": colaboradores_context,
         "tecnologias_context": tecnologias_context,
     })
-<<<<<<< HEAD
     
-=======
- 
->>>>>>> configuracao_esp
 def cadastro(request):
     return render(request, 'auth/cadastro.html')
 
@@ -63,6 +59,10 @@ def dashboard(request):
 def relatorio(request):
     return render(request, 'pages/gerador_relatorio.html')
 
+@login_required(redirect_field_name= 'login')
+def perfil(request):
+    estacao = Estacao.objects.all()
+    return render(request, 'pages/perfil.html', {'estacao': estacao})
 
 def chart_data(request):
     data = {
@@ -75,11 +75,3 @@ def chart_data(request):
         ],
     }
     return JsonResponse(data)
-<<<<<<< HEAD
-
-
-
-
-
-=======
->>>>>>> configuracao_esp

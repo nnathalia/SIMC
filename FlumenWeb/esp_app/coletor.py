@@ -21,12 +21,13 @@ def coletar_e_salvar(ip_esp32: str, estacao_id: int):
                 umidade_solo=dados.get("umidade_solo", 0.0),
                 luminosidade=dados.get("luminosidade", 0.0),
                 chuva=dados.get("nivel_agua", 0.0),
-                qualidade_ar=dados.get("uv", 0.0),
+                uv=dados.get("uv", 0.0),
                 idEstacao_fk=estacao
             )
+            print(response.text)
             print("Medição salva com sucesso!")
 
         except Exception as e:
             print(f"Erro na coleta de dados: {e}")
 
-        time.sleep(60)  # coleta a cada 60 segundos
+        time.sleep(10)  # coleta a cada 60 segundos

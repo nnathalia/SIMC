@@ -1,11 +1,9 @@
-{% extends 'layout/layout.html' %}
-{% block title %}
-  Relatorios
-{% endblock %}
+{% extends 'layout/layout.html' %} {% block title %} Relatorios {% endblock %}
 {% block content %}
-  <div class="row">
-    <div class=" container-graph col-lg-8 col-md-12 col-sm-12 mb-lg-0 mb-sm-3 mb-md-3">
-      <div class="weather-graph p-4" style="height: 100%;">
+<section class="w-100">
+  <div class="row w-100">
+    <div class=" col-lg-8 col-md-12 col-sm-12 mb-lg-0 mb-sm-3 mb-md-3">
+      <div class="default-card p-4" style="height: 100%">
         <div class="d-flex justify-content-between">
           <div class="d-flex align-items-center">
             <p class="mt-0">Gráfico do tempo durante a semana</p>
@@ -22,13 +20,13 @@
     </div>
 
     <div class="col-lg-4 col-md-12 col-sm-12">
-      <div class="data-average p-4">
+      <div class="default-card">
         <div class="d-flex justify-content-between pb-2">
           <div class="d-flex align-items-center">
             <p class="mt-0">Média das informações</p>
           </div>
-          <div class="d-flex align-items-center btn-select">
-            <select name="date" id="date" class="p-2">
+          <div class="d-flex align-items-center btn-select custom-select-wrapper">
+            <select name="date" id="date" class="custom-select">
               <option value="mes">Mês</option>
               <option value="semana">Sem</option>
             </select>
@@ -84,68 +82,73 @@
       </div>
     </div>
   </div>
+</section>
 
-  <div class="report-generator mt-4 p-4">
-    <p class="fw-bold fs-4">Gerador de Relatórios</p>
+<section class="default-card mt-4">
+  <p class="fw-bold fs-4">Gerador de Relatórios</p>
 
-    <form class="container-form mb-4" action="">
-      <div class="d-flex gap-5 row">
-        <div class="d-flex gap-4 col-lg-6 col-md-12 col-sm-12">
-          <div class="inputs-data">
-            <label for="dataInicial">Data Inicial</label>
-            <input type="date" class="form-control input-style" id="dataInicial" />
-
-            <label for="dataFinal">Data Final</label>
-            <input type="date" class="form-control input-style" id="dataFinal" />
-          </div>
-
-          <div class="inputs-hora">
-            <label for="horaInicial">Hora Inicial</label>
-            <input type="time" class="form-control input-style" id="horaInicial" />
-
-            <label for="horaFinal">Hora Final</label>
-            <input type="time" class="form-control input-style" id="horaFinal" />
-          </div>
+  <form class="mb-4" action="">
+    <div class="row g-4">
+      <div class="col-md-6 d-flex gap-4">
+        <div class="flex-fill">
+          <label for="dataInicial">Data Inicial</label>
+          <input type="date" class="form-control input-style" id="dataInicial" />
         </div>
-        <div class="col-lg-4 col-md-12 col-sm-12">
-          <fieldset class="dados">
-            <p class="mt-1 fw-bold">Dados</p>
-            <div class="d-flex flex-wrap gap-4 text-secondary">
-              <div>
-                <input class="form-check-input" type="checkbox" id="temperatura" name="temperatura" value="temperatura" />
-                <label class="form-check-label" for="temperatura">Temperatura</label>
-              </div>
-              <div>
-                <input class="form-check-input" type="checkbox" id="umidadeAr" name="umidadeAr" value="umidadeAr" />
-                <label class="form-check-label" for="umidadeAr">Umidade do Ar</label>
-              </div>
-              <div>
-                <input class="form-check-input" type="checkbox" id="Chuva" name="Chuva" value="Chuva" />
-                <label class="form-check-label" for="Chuva">Chuva</label>
-              </div>
-              <div>
-                <input class="form-check-input" type="checkbox" id="luminosidade" name="luminosidade" value="luminosidade" />
-                <label class="form-check-label" for="luminosidade">Luminosidade</label>
-              </div>
-              <div>
-                <input class="form-check-input" type="checkbox" id="umidadeSolo" name="umidadeSolo" value="umidadeSolo" />
-                <label class="form-check-label" for="umidadeSolo">Umidade do Solo</label>
-              </div>
-              <div>
-                <input class="form-check-input" type="checkbox" id="iqa" name="iqa" value="iqa" />
-                <label class="form-check-label" for="iqa">IQA</label>
-              </div>
-            </div>
-          </fieldset>
+        <div class="flex-fill">
+          <label for="dataFinal">Data Final</label>
+          <input type="date" class="form-control input-style" id="dataFinal" />
         </div>
-        
       </div>
-      <div class="bt-gerador mt-3">
+
+      <div class="col-md-6 d-flex gap-4">
+        <div class="flex-fill">
+          <label for="horaInicial">Hora Inicial</label>
+          <input type="time" class="form-control input-style" id="horaInicial" />
+        </div>
+        <div class="flex-fill">
+          <label for="horaFinal">Hora Final</label>
+          <input type="time" class="form-control input-style" id="horaFinal" />
+        </div>
+      </div>
+
+      <div class="col-12">
+        <fieldset class="dados">
+          <p class="mt-1 fw-bold">Dados</p>
+          <div class="d-flex flex-wrap gap-4 text-secondary">
+            <div>
+              <input class="form-check-input" type="checkbox" id="temperatura" name="temperatura" value="temperatura" />
+              <label class="form-check-label" for="temperatura">Temperatura</label>
+            </div>
+            <div>
+              <input class="form-check-input" type="checkbox" id="umidadeAr" name="umidadeAr" value="umidadeAr" />
+              <label class="form-check-label" for="umidadeAr">Umidade do Ar</label>
+            </div>
+            <div>
+              <input class="form-check-input" type="checkbox" id="Chuva" name="Chuva" value="Chuva" />
+              <label class="form-check-label" for="Chuva">Chuva</label>
+            </div>
+            <div>
+              <input class="form-check-input" type="checkbox" id="luminosidade" name="luminosidade" value="luminosidade" />
+              <label class="form-check-label" for="luminosidade">Luminosidade</label>
+            </div>
+            <div>
+              <input class="form-check-input" type="checkbox" id="umidadeSolo" name="umidadeSolo" value="umidadeSolo" />
+              <label class="form-check-label" for="umidadeSolo">Umidade do Solo</label>
+            </div>
+            <div>
+              <input class="form-check-input" type="checkbox" id="iqa" name="iqa" value="iqa" />
+              <label class="form-check-label" for="iqa">IQA</label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="btn-style mt-3 d-flex justify-content-end w-100">
         <button class="btn">Gerar relatório</button>
       </div>
-    </form>
-  </div>
+    </div>
+  </form>
+</section>
+
+
 {% endblock %}
-
-
-

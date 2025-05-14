@@ -57,11 +57,7 @@
   .card-metric {
     width: calc(50% - 10px);
   }
-
-  .container-graph {
-    margin-bottom: 3vh;
-  }
-
+  
   .sidebar {
     display: none;
   }

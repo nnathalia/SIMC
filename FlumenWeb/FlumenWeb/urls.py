@@ -13,6 +13,7 @@ urlpatterns = [
     path('senha/', views.senha, name="senha"),
     path('dashboard/', views.dashboard, name="dashboard"),
     path('gerador_relatorio/', views.relatorio, name="relatorio"),
+     path('perfil/', views.perfil, name="perfil"),
     
     path("chart-data/", views.chart_data, name="chart-data"),
 

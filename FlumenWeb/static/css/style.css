@@ -11,7 +11,7 @@
 }
 
 main {
-  background-color: #dae6f1;
+  background-color: #f3f4f6;
 }
 /* sidebar */
 
@@ -36,40 +36,39 @@ li {
   display: none;
 }
 
-/* section  */
-section {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-
-  gap: 10px;
-}
-
-.container-gerador,
-.container-grafico,
-.container-info,
-.container-tempo,
-.container-previsao {
-  border-radius: 6px;
-  padding: 10px;
-}
-
-.container-grafico,
-.container-tempo {
-  width: 60%;
-}
-
-.container-info,
-.container-previsao {
-  width: 39%;
-}
-
-.container-gerador,
-.container-cards {
+/* Config Default */
+.default-card{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  /* border: 1px solid rgb(214, 214, 214); */
+  background-color: white;
   width: 100%;
+  padding: 1.5rem;
 }
 
-.headdress {
-  display: flex;
-  justify-content: space-between;
+
+
+.btn-style button{
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  padding: 6px 20px;
+}
+
+.bt-style button{
+  color: white;
+  border-radius: 5px;
+  padding: 6px 20px;
+}
+
+.btn-style button:hover{
+  color: white;
+  background-color: #104e88;
+}
+
+.btn-select select{
+  background-color: #1363AC;
+  color: white;
+  border-radius: 5px;
+  padding: 6px 10px;
 }
