@@ -30,4 +30,4 @@ def coletar_e_salvar(ip_esp32: str, estacao_id: int):
         except Exception as e:
             print(f"Erro na coleta de dados: {e}")
 
-        time.sleep(10)  # coleta a cada 60 segundos
+        time.sleep(1000000)  # coleta a cada 60 segundos

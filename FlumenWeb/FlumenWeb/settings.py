@@ -44,8 +44,10 @@ INSTALLED_APPS = [
     'bootstrap5',
     'previsao',
     'estacao',
-    'account',
-    'medicao'
+    'medicao',
+    'esp_app',
+    'account'
+    
 ]
 
 MIDDLEWARE = [

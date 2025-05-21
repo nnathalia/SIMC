@@ -1,6 +1,7 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
-from django.http import JsonResponse
+from django.shortcuts import redirect, render
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from medicao.models import Medicao, Estacao
 import random
@@ -61,8 +62,35 @@ def relatorio(request):
 
 @login_required(redirect_field_name= 'login')
 def perfil(request):
-    estacao = Estacao.objects.all()
-    return render(request, 'pages/perfil.html', {'estacao': estacao})
+    if request.method == "POST":
+        nome_estacao = request.POST.get('estacao')
+        
+        if Estacao.objects.filter(nome_est=nome_estacao, usuario=request.user).exists():
+            messages.error(request, "Você já tem uma estação com esse nome!")
+            request.session['show_modal'] = True
+        else:
+            Estacao.objects.create(
+                nome_est=nome_estacao,
+                usuario=request.user
+            )
+            request.session['show_success_popup'] = True
+        return redirect('perfil')  # ajuste para o nome real da URL
+
+    # Se for GET, verifica se deve exibir algo
+    show_modal = request.session.pop('show_modal', False)
+    show_success_popup = request.session.pop('show_success_popup', False)
+
+    context = {
+        "estacao": Estacao.objects.filter(usuario=request.user),
+        "show_modal": show_modal,
+        "show_success_popup": show_success_popup
+    }
+
+    return render(request, 'pages/perfil.html', context)
+
+
+
+        
 
 def chart_data(request):
     data = {
