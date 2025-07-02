@@ -4,115 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95cfc8f8-f7aa-4ffa-8890-4e8aa06b0a37" name="Changes" comment="update login">
-      <change beforePath="$PROJECT_DIR$/.idea/Flumen.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Simc.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/FlumenWeb/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/SimcWeb/asgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/FlumenWeb/context_processors.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/SimcWeb/context_processors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/FlumenWeb/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/SimcWeb/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/FlumenWeb/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/SimcWeb/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/FlumenWeb/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/SimcWeb/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/FlumenWeb/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/SimcWeb/wsgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/account/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/account/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/account/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/account/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/account/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/account/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/account/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/account/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/account/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/account/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/account/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/account/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/account/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/account/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/account/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/esp_app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/esp_app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/esp_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/esp_app/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/esp_app/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/esp_app/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/esp_app/coletor.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/esp_app/coletor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/esp_app/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/esp_app/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/esp_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/esp_app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/esp_app/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/esp_app/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/esp_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/esp_app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/esp_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/esp_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/estacao/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/estacao/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/estacao/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/estacao/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/estacao/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/estacao/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/estacao/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/estacao/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/estacao/migrations/0002_alter_estacao_usuario.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/estacao/migrations/0002_alter_estacao_usuario.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/estacao/migrations/0003_alter_estacao_altitude_alter_estacao_latitude_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/estacao/migrations/0003_alter_estacao_altitude_alter_estacao_latitude_and_more.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/estacao/migrations/0004_alter_estacao_altitude_alter_estacao_latitude_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/estacao/migrations/0004_alter_estacao_altitude_alter_estacao_latitude_and_more.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/estacao/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/estacao/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/estacao/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/estacao/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/estacao/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/estacao/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/estacao/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/estacao/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/estacao/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/estacao/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/medicao/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/medicao/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/medicao/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/medicao/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/medicao/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/medicao/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/medicao/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/medicao/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/medicao/migrations/0002_rename_qualidade_ar_medicao_uv_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/medicao/migrations/0002_rename_qualidade_ar_medicao_uv_and_more.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/medicao/migrations/0003_medicao_qualidade_ar.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/medicao/migrations/0003_medicao_qualidade_ar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/medicao/migrations/0004_remove_medicao_velocidade_vento.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/medicao/migrations/0004_remove_medicao_velocidade_vento.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/medicao/migrations/0005_remove_medicao_qualidade_ar.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/medicao/migrations/0005_remove_medicao_qualidade_ar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/medicao/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/medicao/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/medicao/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/medicao/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/medicao/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/medicao/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/medicao/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/medicao/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/previsao/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/previsao/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/previsao/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/previsao/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/previsao/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/previsao/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/previsao/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/previsao/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/previsao/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/previsao/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/previsao/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/previsao/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/previsao/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/previsao/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/previsao/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/previsao/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/css/dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/css/form-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/css/form-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/css/perfil.css" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/css/perfil.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/css/relatorio.css" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/css/relatorio.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/css/reset.css" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/css/reset.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/css/responsive.css" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/css/responsive.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/img/bg-overlay.png" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/img/bg-overlay.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/img/colaboradores/filipe.png" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/img/colaboradores/filipe.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/img/colaboradores/nathalia.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/img/colaboradores/nathalia.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/img/icone-page.png" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/img/icone-page.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/img/icones/desenvolvimento.ico" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/img/icones/desenvolvimento.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/img/icones/estacao.ico" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/img/icones/estacao.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/img/icones/projeto.ico" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/img/icones/projeto.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/img/icones/sun.svg" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/img/icones/sun.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/img/img-index.svg" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/img/img-index.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/img/img-unsplash.png" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/img/img-unsplash.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/img/logo-azul.png" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/img/logo-azul.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/img/logo-branca.png" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/img/logo-branca.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/img/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/img/tecnologias/logo_bootstrap.svg" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/img/tecnologias/logo_bootstrap.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/img/tecnologias/logo_css.svg" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/img/tecnologias/logo_css.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/img/tecnologias/logo_django.svg" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/img/tecnologias/logo_django.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/img/tecnologias/logo_html.svg" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/img/tecnologias/logo_html.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/img/tecnologias/logo_javascript.svg" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/img/tecnologias/logo_javascript.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/img/tecnologias/logo_postgresql.svg" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/img/tecnologias/logo_postgresql.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/img/tecnologias/logo_python.svg" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/img/tecnologias/logo_python.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/js/bgClimate.js" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/js/bgClimate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/static/js/chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/static/js/chart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/templates/auth/cadastro.html" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/templates/auth/cadastro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/templates/auth/email.html" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/templates/auth/email.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/templates/auth/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/templates/auth/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/templates/auth/senha.html" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/templates/auth/senha.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/templates/layout/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/templates/layout/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/templates/layout/layout_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/templates/layout/layout_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/templates/pages/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/templates/pages/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/templates/pages/gerador_relatorio.html" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/templates/pages/gerador_relatorio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/templates/pages/perfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/templates/pages/perfil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/templates/partials/_colaboradores.html" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/templates/partials/_colaboradores.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/templates/partials/_footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/templates/partials/_footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/templates/partials/_navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/templates/partials/_navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/templates/partials/_sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/templates/partials/_sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/templates/partials/_sidebarmobile.html" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/templates/partials/_sidebarmobile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlumenWeb/templates/partials/_tecnologias.html" beforeDir="false" afterPath="$PROJECT_DIR$/SimcWeb/templates/partials/_tecnologias.html" afterDir="false" />
-    </list>
+    <list default="true" id="95cfc8f8-f7aa-4ffa-8890-4e8aa06b0a37" name="Changes" comment="ADD .envExemple" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -135,12 +27,12 @@
     &quot;assignee&quot;: &quot;nnathalia&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/nnathalia/Flumen.git&quot;,
-    &quot;accountId&quot;: &quot;e088f115-12ca-4772-855b-178898e3786a&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/nnathalia/Flumen.git",
+    "accountId": "1573f442-35fc-4dc1-ad35-2df1eabfacbf"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -160,7 +52,7 @@
     "django.template.preview.state": "SHOW_EDITOR",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/nmari/OneDrive/Documentos/ADS/IOT/bd_arduino",
+    "last_opened_file_path": "D:/Codes_projects/Flumen",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -175,6 +67,11 @@
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Codes_projects\Flumen" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Simc" type="Python.DjangoServer" factoryName="Django server">
       <module name="Simc" />
@@ -235,7 +132,7 @@
       <workItem from="1731011024544" duration="76000" />
       <workItem from="1731974160270" duration="603000" />
       <workItem from="1731975235428" duration="38000" />
-      <workItem from="1751489356380" duration="317000" />
+      <workItem from="1751489356380" duration="588000" />
     </task>
     <task id="LOCAL-00001" summary="update login">
       <option name="closed" value="true" />
@@ -253,7 +150,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727288671523</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Alterando o nome do projeto de Flumen para Simc">
+      <option name="closed" value="true" />
+      <created>1751489777541</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1751489777541</updated>
+    </task>
+    <task id="LOCAL-00004" summary="ADD .envExemple">
+      <option name="closed" value="true" />
+      <created>1751489852223</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1751489852223</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,6 +175,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update login" />
     <MESSAGE value="subindo accounts" />
-    <option name="LAST_COMMIT_MESSAGE" value="subindo accounts" />
+    <MESSAGE value="Alterando o nome do projeto de Flumen para Simc" />
+    <MESSAGE value="ADD .envExemple" />
+    <option name="LAST_COMMIT_MESSAGE" value="ADD .envExemple" />
   </component>
 </project>
