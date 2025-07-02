@@ -7,3 +7,4 @@ venv
 logs
 .env
 .ipynb_checkpoints
+.idea
