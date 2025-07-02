@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import views as auth_views
 from django.urls import path
-from FlumenWeb import views
+from SimcWeb import views
 
 
 urlpatterns = [
