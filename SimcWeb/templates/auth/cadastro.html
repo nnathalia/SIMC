@@ -18,27 +18,26 @@
           <p>Faça login para continuar.</p>
         </div>
         <form method="post">
-          {% csrf_token %}
-          <input type="hidden" name="next" value="{{ next }}" />
-          <div class="mb-3">
-            <label for="inputName" class="form-label">Nome completo</label>
-            <input type="text" class="form-control" id="inputName" placeholder="Digite seu nome aqui" />
-          </div>
-          <div class="mb-3">
-            <label for="inputEmail" class="form-label">Email</label>
-            <input type="text" class="form-control" id="username" name="username" placeholder="Digite seu usuário" required />
-          </div>
-          <div class="row">
-            <div class="mb-3 col-md-6 col-sm-12">
-              <label for="inputPassword" class="form-label">Senha</label>
-              <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Digite sua senha aqui" required />
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}" />
+            <div class="mb-3">
+                <label for="inputName" class="form-label">Nome completo</label>
+                <input type="text" class="form-control" id="inputName" name="full_name" placeholder="Digite seu nome aqui" required />
             </div>
-            <div class="mb-3 col-md-6 col-sm-12">
-              <label for="inputNewPasswordConfirm" class="form-label">Confirmar senha</label>
-              <input type="password" class="form-control" id="inputNewPasswordConfirm" placeholder="Repita sua senha aqui" />
+            <div class="mb-3">
+                <label for="inputEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Digite seu email" required />
             </div>
-          </div>
-          
+            <div class="row">
+                <div class="mb-3 col-md-6 col-sm-12">
+                  <label for="inputPassword" class="form-label">Senha</label>
+                  <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Digite sua senha" required />
+                </div>
+                <div class="mb-3 col-md-6 col-sm-12">
+                  <label for="inputNewPasswordConfirm" class="form-label">Confirmar senha</label>
+                  <input type="password" class="form-control" id="inputNewPasswordConfirm" name="password2" placeholder="Repita sua senha" required />
+                </div>
+            </div>
           <div class="d-flex justify-content-end">
             <a href="{% url 'senha' %}" class="btn btn-link text-decoration-none">Esqueceu a senha?</a>
           </div>

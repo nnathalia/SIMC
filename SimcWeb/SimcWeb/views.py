@@ -38,17 +38,6 @@ def index(request):
         "colaboradores_context": colaboradores_context,
         "tecnologias_context": tecnologias_context,
     })
-    
-def cadastro(request):
-    return render(request, 'auth/cadastro.html')
-
-def email(request):
-    return render(request, 'auth/email.html')
-
-
-def senha(request):
-    return render(request, 'auth/senha.html')
-
 
 @login_required(redirect_field_name= 'login')
 def dashboard(request):
@@ -87,10 +76,6 @@ def perfil(request):
     }
 
     return render(request, 'pages/perfil.html', context)
-
-
-
-        
 
 def chart_data(request):
     data = {
