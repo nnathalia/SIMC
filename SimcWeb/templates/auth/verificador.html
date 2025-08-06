@@ -15,17 +15,18 @@
         <div class="text-center mb-4">
           <img src="{% static 'img/logo-azul.png' %}" class="mb-3" alt="Logo" style="width: 300px;" />
           <p class="fw-semibold">Bem-vindo ao SIMC!</p>
-          <p>Digite seu email para continuar.</p>
+              <p>Digite seu Código para continuar.</p>
         </div>
-        <form method="post">
+        <form method="post" action="{% url 'verificar_codigo' %}">
           {% csrf_token %}
+          <input type="hidden" name="email" value="{{ email }}">
           <input type="hidden" name="next" value="{{ next }}" />
           <div class="mb-5">
-            <label for="inputEmail" class="form-label">Email</label>
-            <input type="text" class="form-control" id="email" name="email" placeholder="Digite seu email" required />
+            <label for="inputEmail" class="form-label">Código</label>
+            <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Digite seu codigo" required />
           </div>
           <div class="d-grid mt-3 pb-3 bg-btn">
-            <button class="btn btn-primary text-white" type="submit">Enviar email</button>
+            <button class="btn btn-primary text-white" type="submit">Verificar</button>
           </div>
         </form>
         <div class="text-center mt-3 pb-5">

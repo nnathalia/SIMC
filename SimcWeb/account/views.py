@@ -1,7 +1,17 @@
+import os
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+import smtplib
+from email.mime.text import MIMEText
+from django.template.loader import render_to_string
+import secrets, string
+
+
+def _gerar_token(length=6):
+    caracteres = string.digits
+    return ''.join(secrets.choice(caracteres) for _ in range(length))
 
 def login_view(request):
     if request.method == 'POST':
@@ -57,9 +67,79 @@ def cadastro(request):
     return render(request, 'auth/cadastro.html')
 
 
-def email(request):
-    return render(request, 'auth/email.html')
+def verificar_email(request):
+    email = request.POST.get('email')
+
+    try:
+        usuario = User.objects.get(email=email)
+    except User.DoesNotExist:
+        messages.error(request, 'Este e-mail não é válido.')
+        return render(request, 'auth/email.html')
+
+    token = _gerar_token()
+
+    usuario.senha_Token = token
+    usuario.save(update_fields=["senha_Token"])
+
+    html = render_to_string('notificacao/email.html', {'codigo': token})
+
+    msg = MIMEText(html, "html")
+    msg["Subject"] = "Código de verificação para recuperar senha"
+    msg["From"] = os.getenv("EMAIL_HOST_USER")
+    msg["To"] = email
+
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        server.login(os.getenv("EMAIL_HOST_USER"), os.getenv("EMAIL_TOKEN"))
+        server.send_message(msg)
+
+    return render(request, 'auth/verificador.html', {'email': email})
 
 
-def senha(request):
-    return render(request, 'auth/senha.html')
+
+def atualizar_senha(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        nova_senha = request.POST.get('nova_senha')
+        confirmar_senha = request.POST.get('confirmar_senha')
+
+        if not nova_senha or not confirmar_senha:
+            messages.error(request, 'Preencha todos os campos.')
+            return render(request, 'auth/senha.html', {'email': email})
+
+        if nova_senha != confirmar_senha:
+            messages.error(request, 'As senhas não coincidem.')
+            return render(request, 'auth/senha.html', {'email': email})
+
+        try:
+            usuario = User.objects.get(email=email)
+        except User.DoesNotExist:
+            messages.error(request, 'Usuário não encontrado.')
+            return redirect('email')
+
+        usuario.set_password(nova_senha)
+        usuario.senha_Token = None
+        usuario.save()
+
+        messages.success(request, 'Senha atualizada com sucesso. Faça login.')
+        return redirect('login')
+
+    return redirect('login')
+
+def verificar_codigo(request):
+    if request.method == 'POST':
+        codigo = request.POST.get('codigo')
+        email = request.POST.get('email')
+
+        try:
+            usuario = User.objects.get(email=email)
+        except User.DoesNotExist:
+            messages.error(request, 'E-mail inválido.')
+            return render(request, 'auth/senha.html')
+
+        if usuario.senha_Token == codigo:
+            return render(request, 'auth/senha.html', {'email': email})
+        else:
+            messages.error(request, 'Código incorreto.')
+            return render(request, 'auth/verificador.html', {'email': email})
+
+    return redirect('login')
