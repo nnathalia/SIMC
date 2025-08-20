@@ -2,7 +2,7 @@
 {% block content %}
 <section class="w-100">
   <div class="row w-100">
-    <div class=" col-lg-8 col-md-12 col-sm-12 mb-lg-0 mb-sm-3 mb-md-3">
+    <div class=" col-lg-8 col-md-12 col-sm-12 mb-lg-0 mb-sm-3 mb-md-3 mb-3">
       <div class="default-card p-4" style="height: 100%">
         <div class="d-flex justify-content-between">
           <div class="d-flex align-items-center">
@@ -10,7 +10,7 @@
           </div>
           <div class="d-flex align-items-center gap-2">
             <i class="bi bi-calendar"></i>
-            <p class="text-primary mb-0">Agosto 24</p>
+            <p class="text-primary mb-0">{{ hoje|date:" F Y" }}</p>
           </div>
         </div>
         <div class="chart">
@@ -20,67 +20,59 @@
     </div>
 
     <div class="col-lg-4 col-md-12 col-sm-12">
-      <div class="default-card">
-        <div class="d-flex justify-content-between pb-2">
-          <div class="d-flex align-items-center">
-            <p class="mt-0">Média das informações</p>
-          </div>
-          <div class="d-flex align-items-center btn-select custom-select-wrapper">
-            <select name="date" id="date" class="custom-select">
-              <option value="mes">Mês</option>
-              <option value="semana">Sem</option>
-            </select>
-          </div>
-        </div>
-        <div>
-          <div class="d-flex justify-content-between pb-2">
-            <div class="d-flex align-items-center gap-2">
-              <i class="bi bi-cloud-lightning-rain"></i>
-              <p class="m-0">Temperatura</p>
-            </div>
-            <div class="d-flex align-items-center">
-              <p class="m-0">28ºC</p>
-            </div>
-          </div>
-          <div class="d-flex justify-content-between pb-2">
-            <div class="d-flex align-items-center gap-2">
-              <i class="bi bi-cloud-lightning-rain"></i>
-              <p class="m-0">Luminosidade</p>
-            </div>
-            <div class="d-flex align-items-center">
-              <p class="m-0">28%</p>
-            </div>
-          </div>
-          <div class="d-flex justify-content-between pb-2">
-            <div class="d-flex align-items-center gap-2">
-              <i class="bi bi-cloud-lightning-rain"></i>
-              <p class="m-0">Umidade do solo</p>
-            </div>
-            <div class="d-flex align-items-center">
-              <p class="m-0">28%</p>
-            </div>
-          </div>
-          <div class="d-flex justify-content-between pb-2">
-            <div class="d-flex align-items-center gap-2">
-              <i class="bi bi-cloud-lightning-rain"></i>
-              <p class="m-0">Umidade do ar</p>
-            </div>
-            <div class="d-flex align-items-center">
-              <p class="m-0">28%</p>
-            </div>
-          </div>
-          <div class="d-flex justify-content-between pb-2">
-            <div class="d-flex align-items-center gap-2">
-              <i class="bi bi-cloud-lightning-rain"></i>
-              <p class="m-0">Chuva</p>
-            </div>
-            <div class="d-flex align-items-center">
-              <p class="m-0">28%</p>
-            </div>
-          </div>
-        </div>
+  <div class="default-card">
+    <div class="d-flex justify-content-between pb-2">
+      <div class="d-flex align-items-center">
+        <p class="mt-0">Média das informações</p>
+      </div>
+      <div class="d-flex align-items-center btn-select custom-select-wrapper">
+        <select id="date" class="custom-select">
+          <option value="mes">Mês</option>
+          <option value="semana">Semana</option>
+        </select>
       </div>
     </div>
+
+    <div id="valores-media">
+      <div class="d-flex justify-content-between pb-2">
+        <div class="d-flex align-items-center gap-2">
+          <i class="bi bi-thermometer-sun"></i>
+          <p class="m-0">Temperatura</p>
+        </div>
+        <p class="m-0" id="temp">{{ medias_mes.temp|default:"—"|floatformat:1 }}ºC</p>
+      </div>
+      <div class="d-flex justify-content-between pb-2">
+        <div class="d-flex align-items-center gap-2">
+          <i class="bi bi-brightness-high"></i>
+          <p class="m-0">Luminosidade</p>
+        </div>
+        <p class="m-0" id="lum">{{ medias_mes.lum|default:"—"|floatformat:1 }}%</p>
+      </div>
+      <div class="d-flex justify-content-between pb-2">
+        <div class="d-flex align-items-center gap-2">
+          <i class="bi bi-droplet"></i>
+          <p class="m-0">Umidade do solo</p>
+        </div>
+        <p class="m-0" id="solo">{{ medias_mes.solo|default:"—"|floatformat:1 }}%</p>
+      </div>
+      <div class="d-flex justify-content-between pb-2">
+        <div class="d-flex align-items-center gap-2">
+          <i class="bi bi-water"></i>
+          <p class="m-0">Umidade do ar</p>
+        </div>
+        <p class="m-0" id="ar">{{ medias_mes.ar|default:"—"|floatformat:1 }}%</p>
+      </div>
+      <div class="d-flex justify-content-between pb-2">
+        <div class="d-flex align-items-center gap-2">
+          <i class="bi bi-cloud-drizzle"></i>
+          <p class="m-0">Chuva</p>
+        </div>
+        <p class="m-0" id="chuva">{{ medias_mes.chuva|default:"—"|floatformat:1 }}%</p>
+      </div>
+    </div>
+  </div>
+</div>
+
   </div>
 </section>
 
@@ -149,6 +141,39 @@
     </div>
   </form>
 </section>
+
+
+<script>
+  const select = document.getElementById("date");
+
+  // dados passados pelo Django (transforma em JSON)
+  const mediasMes = {
+    temp: "{{ medias_mes.temp|default:0|floatformat:1 }}",
+    lum: "{{ medias_mes.lum|default:0|floatformat:1 }}",
+    solo: "{{ medias_mes.solo|default:0|floatformat:1 }}",
+    ar: "{{ medias_mes.ar|default:0|floatformat:1 }}",
+    chuva: "{{ medias_mes.chuva|default:0|floatformat:1 }}"
+  };
+
+  const mediasSemana = {
+    temp: "{{ medias_semana.temp|default:0|floatformat:1 }}",
+    lum: "{{ medias_semana.lum|default:0|floatformat:1 }}",
+    solo: "{{ medias_semana.solo|default:0|floatformat:1 }}",
+    ar: "{{ medias_semana.ar|default:0|floatformat:1 }}",
+    chuva: "{{ medias_semana.chuva|default:0|floatformat:1 }}"
+  };
+
+  select.addEventListener("change", function () {
+    const periodo = this.value === "semana" ? mediasSemana : mediasMes;
+
+    document.getElementById("temp").textContent = periodo.temp + "ºC";
+    document.getElementById("lum").textContent = periodo.lum + "%";
+    document.getElementById("solo").textContent = periodo.solo + "%";
+    document.getElementById("ar").textContent = periodo.ar + "%";
+    document.getElementById("chuva").textContent = periodo.chuva + "%";
+  });
+</script>
+
 
 
 {% endblock %}

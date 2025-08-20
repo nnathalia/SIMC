@@ -12,7 +12,7 @@ def get_data_atual(request):
           #Configuração Locale para Windows
             locale.setlocale(locale.LC_TIME, 'Portuguese_Brazil.1252')
         except locale.Error:
-            pass
+                pass
         
     data_atual = datetime.now()
     data_formatada = data_atual.strftime('%A, %d de %B de %Y')
@@ -45,5 +45,7 @@ def localizacao(request):
             estado = ""
 
     localizacao = f"{cidade} / {estado}".strip(" /")
-    return {'localizacao': localizacao}
+    return {'localizacao': localizacao,
+            'cidade': cidade
+            }
   
