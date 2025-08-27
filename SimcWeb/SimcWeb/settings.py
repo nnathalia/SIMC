@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'estacao',
     'medicao',
     'esp_app',
-    'account'
+    'account',
+    'reports'
     
 ]
 

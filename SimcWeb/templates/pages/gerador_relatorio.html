@@ -79,27 +79,28 @@
 <section class="default-card mt-4">
   <p class="fw-bold fs-4">Gerador de Relatórios</p>
 
-  <form class="mb-4" method="get" action="">
+  <!-- o form agora aponta para a view Django -->
+  <form class="mb-4" method="get" action="{% url 'gerar_relatorio' %}">
     <div class="row g-4">
       <div class="col-md-6 d-flex gap-4">
         <div class="flex-fill">
           <label for="dataInicial">Data Inicial</label>
-          <input type="date" class="form-control input-style" id="dataInicial" />
+          <input type="date" class="form-control input-style" id="dataInicial" name="data_inicial" />
         </div>
         <div class="flex-fill">
           <label for="dataFinal">Data Final</label>
-          <input type="date" class="form-control input-style" id="dataFinal" />
+          <input type="date" class="form-control input-style" id="dataFinal" name="data_final" />
         </div>
       </div>
 
       <div class="col-md-6 d-flex gap-4">
         <div class="flex-fill">
           <label for="horaInicial">Hora Inicial</label>
-          <input type="time" class="form-control input-style" id="horaInicial" />
+          <input type="time" class="form-control input-style" id="horaInicial" name="hora_inicial" />
         </div>
         <div class="flex-fill">
           <label for="horaFinal">Hora Final</label>
-          <input type="time" class="form-control input-style" id="horaFinal" />
+          <input type="time" class="form-control input-style" id="horaFinal" name="hora_final" />
         </div>
       </div>
 
@@ -108,39 +109,40 @@
           <p class="mt-1 fw-bold">Dados</p>
           <div class="d-flex flex-wrap gap-4 text-secondary">
             <div>
-              <input class="form-check-input" type="checkbox" id="temperatura" name="temperatura" value="temperatura" />
+              <input class="form-check-input" type="checkbox" id="temperatura" name="campos" value="temperatura" />
               <label class="form-check-label" for="temperatura">Temperatura</label>
             </div>
             <div>
-              <input class="form-check-input" type="checkbox" id="umidadeAr" name="umidadeAr" value="umidadeAr" />
+              <input class="form-check-input" type="checkbox" id="umidadeAr" name="campos" value="umidade_ar" />
               <label class="form-check-label" for="umidadeAr">Umidade do Ar</label>
             </div>
             <div>
-              <input class="form-check-input" type="checkbox" id="Chuva" name="Chuva" value="Chuva" />
-              <label class="form-check-label" for="Chuva">Chuva</label>
+              <input class="form-check-input" type="checkbox" id="chuva" name="campos" value="chuva" />
+              <label class="form-check-label" for="chuva">Chuva</label>
             </div>
             <div>
-              <input class="form-check-input" type="checkbox" id="luminosidade" name="luminosidade" value="luminosidade" />
+              <input class="form-check-input" type="checkbox" id="luminosidade" name="campos" value="luminosidade" />
               <label class="form-check-label" for="luminosidade">Luminosidade</label>
             </div>
             <div>
-              <input class="form-check-input" type="checkbox" id="umidadeSolo" name="umidadeSolo" value="umidadeSolo" />
+              <input class="form-check-input" type="checkbox" id="umidadeSolo" name="campos" value="umidade_solo" />
               <label class="form-check-label" for="umidadeSolo">Umidade do Solo</label>
             </div>
             <div>
-              <input class="form-check-input" type="checkbox" id="iqa" name="iqa" value="iqa" />
-              <label class="form-check-label" for="iqa">IQA</label>
+              <input class="form-check-input" type="checkbox" id="uv" name="campos" value="uv" />
+              <label class="form-check-label" for="uv">UV</label>
             </div>
           </div>
         </fieldset>
       </div>
 
       <div class="btn-style mt-3 d-flex justify-content-end w-100">
-        <button class="btn">Gerar relatório</button>
+        <button type="submit" class="btn">Gerar relatório</button>
       </div>
     </div>
   </form>
 </section>
+
 
 
 <script>

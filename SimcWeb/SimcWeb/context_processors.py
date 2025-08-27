@@ -34,18 +34,22 @@ def localizacao(request):
     if ip in ('127.0.0.1', '::1'):
         cidade = "Ji-Paraná"
         estado = "Rondônia"
+        timezone = "America/Porto_Velho"
     else:
         try:
             response = requests.get(f"https://ipinfo.io/{ip}/json", timeout=3)
             data = response.json()
             cidade = data.get("city", "Desconhecido")
             estado = data.get("region", "")
+            timezone = data.get("timezone")
         except Exception:
             cidade = "Desconhecido"
             estado = ""
+            timezone = "UTC"
 
     localizacao = f"{cidade} / {estado}".strip(" /")
     return {'localizacao': localizacao,
-            'cidade': cidade
+            'cidade': cidade,
+            'timezone': timezone
             }
   

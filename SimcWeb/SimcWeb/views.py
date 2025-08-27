@@ -231,3 +231,5 @@ def chart_data(request):
         ],
     }
     return JsonResponse(data)
+
+
