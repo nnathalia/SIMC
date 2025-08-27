@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Recuperação de Senha</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      padding: 40px;
+      text-align: center;
+    }
+    .container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .codigo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-top: 20px;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Recuperação de Senha</h2>
+    <p>Seu código de verificação é:</p>
+    <div class="codigo">{{ codigo }}</div>
+  </div>
+</body>
+</html>
