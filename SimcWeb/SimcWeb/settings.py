@@ -31,6 +31,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+""""DEBUG = False
+
+ALLOWED_HOSTS = ["seu_dominio.com", "IP_DO_SERVIDOR"]"""
+
 
 # Application definition
 
@@ -45,7 +49,6 @@ INSTALLED_APPS = [
     'previsao',
     'estacao',
     'medicao',
-    'esp_app',
     'account',
     'reports'
     

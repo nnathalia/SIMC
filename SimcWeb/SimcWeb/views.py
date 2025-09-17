@@ -49,10 +49,20 @@ def dashboard(request):
     descricao = get_descricao(request)
     print(f"DESCRIÇAO TEMPO HOJE: {descricao}")
     previsao = get_previsao(request)
+    """"
+        CALCULANDO 
+        Sensação Térmica = 33 + (10 ∙ √v + 10,45 - velocidade do vento) ∙ ((Temperatura - 33)) / 22
+        """
+    """vt = medicao.velocidade_vento / 3.6  # km/h -> m/s <- converte um m/s caso esteja recebendo em km/h"""
+    vt = medicao.velocidade_vento   # em m/s
+    t = medicao.temperatura         # em °C
+
+    # Fórmula de sensação térmica (Steadman)
+    sensacao_termica = 33 + (10 * (vt ** 0.5) + 10.45 - vt) * ((t - 33) / 22)
     
     icone_hoje = None
     if medicao:
-        icone_hoje = escolher_icone(medicao.chuva)
+        icone_hoje = escolher_icone(medicao.pluviometro)
     
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         if not medicao:
@@ -63,20 +73,25 @@ def dashboard(request):
             'luminosidade': medicao.luminosidade,
             'umidade_ar': medicao.umidade_ar,
             'umidade_solo': medicao.umidade_solo,
-            'chuva': medicao.chuva,
+            'pluviometro': medicao.pluviometro,
+            'direcao_vento': medicao.direcao_vento,
+            'velocidade_vento': medicao.velocidade_vento,
             'uv': medicao.uv,
             'ultima_atualizacao': medicao.data_hora.strftime('%d/%m/%Y %H:%M:%S'),
-            'previsao' : previsao
+            'previsao' : previsao,
+            'sensacao_termica': sensacao_termica
         }
-        """"
-        CALCULANDO 
-        Sensação Térmica = 33 + (10 ∙ √v + 10,45 - velocidade do vento) ∙ ((Temperatura - 33)) / 22
-        """
+        
+
+        print(f"Sensação térmica: {sensacao_termica:.2f} °C")
         print(medicao.data_hora)
         print(medicao.temperatura)
         print(medicao.umidade_ar)
         print(medicao.umidade_solo)
         print(medicao.umidade_solo)
+        print(medicao.pluviometro)
+        print(medicao.direcao_vento)
+        print(medicao.velocidade_vento)
         print(medicao.uv)
         print(previsao)
         
@@ -95,17 +110,17 @@ def dashboard(request):
             .get('media_temp')
         )
         
-        media_chuva = (
+        media_pluviometro = (
             Medicao.objects
             .filter(data_hora__date=dia)
-            .aggregate(media_chuva=Avg('chuva'))
-            .get('media_chuva')
+            .aggregate(media_pluviometro=Avg('pluviometro'))
+            .get('media_pluviometro')
         )
          
         dias_passados.append({
             'dia': dia,
             'media': round(media, 1) if media else None,
-            'icone': escolher_icone(media_chuva)
+            'icone': escolher_icone(media_pluviometro)
         })
         
         context = {
@@ -114,7 +129,8 @@ def dashboard(request):
             'previsao' : previsao,
             'dias_passados': dias_passados,
             'descricao_tempo' : descricao,
-            'icone_hoje' : icone_hoje
+            'icone_hoje' : icone_hoje,
+            'sensacao_termica': round(sensacao_termica) if medicao else None,
         }
 
     return render(request, 'pages/dashboard.html', context)
@@ -132,7 +148,8 @@ def relatorio(request):
         lum=Avg("luminosidade"),
         solo=Avg("umidade_solo"),
         ar=Avg("umidade_ar"),
-        chuva=Avg("chuva"),
+        pluviometro=Avg("pluviometro"),
+        uv=Avg("uv"),
     )
 
     # médias da semana (últimos 7 dias)
@@ -142,7 +159,8 @@ def relatorio(request):
         lum=Avg("luminosidade"),
         solo=Avg("umidade_solo"),
         ar=Avg("umidade_ar"),
-        chuva=Avg("chuva"),
+        pluviometro=Avg("pluviometro"),
+        uv=Avg("uv"),
     )
 
     context = {

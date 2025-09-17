@@ -65,10 +65,19 @@
       <div class="d-flex justify-content-between pb-2">
         <div class="d-flex align-items-center gap-2">
           <i class="bi bi-cloud-drizzle"></i>
-          <p class="m-0">Chuva</p>
+          <p class="m-0">Pluviômetro</p>
         </div>
-        <p class="m-0" id="chuva">{{ medias_mes.chuva|default:"—"|floatformat:1 }}%</p>
+        <p class="m-0" id="pluviometro">{{ medias_mes.pluviometro|default:"—"|floatformat:1 }}%</p>
       </div>
+      <div class="d-flex justify-content-between pb-2">
+        <div class="d-flex align-items-center gap-2">
+          <i class="bi bi-brightness-high"></i>
+          <p class="m-0">ìndice Uv</p>
+        </div>
+        <p class="m-0" id="uv">{{ medias_mes.pluviometro|default:"—"|floatformat:1 }}%</p>
+      </div>
+      
+     
     </div>
   </div>
 </div>
@@ -117,8 +126,8 @@
               <label class="form-check-label" for="umidadeAr">Umidade do Ar</label>
             </div>
             <div>
-              <input class="form-check-input" type="checkbox" id="chuva" name="campos" value="chuva" />
-              <label class="form-check-label" for="chuva">Chuva</label>
+              <input class="form-check-input" type="checkbox" id="pluviometro" name="campos" value="pluviometro" />
+              <label class="form-check-label" for="pluviometro">Pluviômetro</label>
             </div>
             <div>
               <input class="form-check-input" type="checkbox" id="luminosidade" name="campos" value="luminosidade" />
@@ -129,8 +138,16 @@
               <label class="form-check-label" for="umidadeSolo">Umidade do Solo</label>
             </div>
             <div>
+              <input class="form-check-input" type="checkbox" id="direcao_vento" name="campos" value="direcao_vento" />
+              <label class="form-check-label" for="direcao_vento">Direção do Vento</label>
+            </div>
+            <div>
+              <input class="form-check-input" type="checkbox" id="velocidade_vento" name="campos" value="velocidade_vento" />
+              <label class="form-check-label" for="velocidade_vento">Velocidade do Vento</label>
+            </div>
+            <div>
               <input class="form-check-input" type="checkbox" id="uv" name="campos" value="uv" />
-              <label class="form-check-label" for="uv">UV</label>
+              <label class="form-check-label" for="uv">índice Uv</label>
             </div>
           </div>
         </fieldset>
@@ -154,7 +171,8 @@
     lum: "{{ medias_mes.lum|default:0|floatformat:1 }}",
     solo: "{{ medias_mes.solo|default:0|floatformat:1 }}",
     ar: "{{ medias_mes.ar|default:0|floatformat:1 }}",
-    chuva: "{{ medias_mes.chuva|default:0|floatformat:1 }}"
+    pluviometro: "{{ medias_mes.pluviometro|default:0|floatformat:1 }}"
+    uv: "{{ medias_mes.uv|default:0|floatformat:1 }}"
   };
 
   const mediasSemana = {
@@ -162,7 +180,8 @@
     lum: "{{ medias_semana.lum|default:0|floatformat:1 }}",
     solo: "{{ medias_semana.solo|default:0|floatformat:1 }}",
     ar: "{{ medias_semana.ar|default:0|floatformat:1 }}",
-    chuva: "{{ medias_semana.chuva|default:0|floatformat:1 }}"
+    pluviometro: "{{ medias_semana.pluviometro|default:0|floatformat:1 }}",
+    uv: "{{ medias_semana.uv|default:0|floatformat:1 }}"
   };
 
   select.addEventListener("change", function () {
@@ -172,7 +191,8 @@
     document.getElementById("lum").textContent = periodo.lum + "%";
     document.getElementById("solo").textContent = periodo.solo + "%";
     document.getElementById("ar").textContent = periodo.ar + "%";
-    document.getElementById("chuva").textContent = periodo.chuva + "%";
+    document.getElementById("pluviometro").textContent = periodo.pluviometro + "%";
+    document.getElementById("uv").textContent = periodo.uv + "%";
   });
 </script>
 

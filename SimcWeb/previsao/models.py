@@ -25,4 +25,4 @@ class Previsao(models.Model):
 
 
     class Meta:
-        db_table = 'flu_previsao'
+        db_table = 'simc_previsao'

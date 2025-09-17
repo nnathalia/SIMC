@@ -18,7 +18,7 @@ class Usuario(AbstractUser):
     objects = UsuarioManager()
 
     class Meta:
-        db_table = 'flu_usuario'
+        db_table = 'simc_usuario'
 
 class Endereco(models.Model):
     usuario = models.OneToOneField('Usuario', on_delete=models.CASCADE, related_name='endereco')
@@ -31,5 +31,5 @@ class Endereco(models.Model):
     cep = models.CharField(max_length=9)
 
     class Meta:
-        db_table = 'flu_endereco'
+        db_table = 'simc_endereco'
 

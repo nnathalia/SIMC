@@ -10,10 +10,13 @@
       <div>
         {% if medicao %}
         <p class="fs-1 fw-bold text-white mb-0" id="temperatura">
-          {{ medicao.temperatura|floatformat:0 }}
+          {{ medicao.temperatura|floatformat:0 }} °C
         </p>
         {% endif %}
-        <p class="text-white">Sensação térmica: 32°C</p>
+        {% if sensacao_termica %}
+          <p class="text-white" id="sensacao_termica"> Sensação térmica: {{ sensacao_termica|floatformat:0}} °C</p>
+        {% endif %}
+        
       </div>
     </div>
     <div class="last-week d-flex gap-5">
@@ -74,8 +77,8 @@
 
   <div class="card-metric p-4 d-flex justify-content-between">
     <div>
-      <p class="mb-0 fw-bold">Chuva</p>
-      <p data-metric="chuva" class="fw-bold fs-3 mb-0">{{ medicao.chuva }}</p>
+      <p class="mb-0 fw-bold">Pluviômetro</p>
+      <p data-metric="pluviometro" class="fw-bold fs-3 mb-0">{{ medicao.pluviometro }}</p>
     </div>
     <div class="icon">
       <i class="bi bi-cloud-drizzle text-secondary"></i>
@@ -94,6 +97,16 @@
     </div>
   </div>
 
+   <div class="card-metric p-4 d-flex justify-content-between">
+    <div>
+      <p class="mb-0 fw-bold">Direção Vento</p>
+      <p data-metric="direcao_vento" class="fw-bold fs-3 mb-0">{{ medicao.direcao_vento }}</p>
+    </div>
+    <div class="icon">
+      <i class="bi bi-wind text-secondary"></i>
+    </div>
+  </div>
+
   <div class="card-metric p-4 d-flex justify-content-between">
     <div>
       <p class="mb-0 fw-bold">Índice Ultravioleta</p>
@@ -103,6 +116,11 @@
       <i class="bi bi-sun text-secondary"></i>
     </div>
   </div>
+
+   
+
+  
+
   {% else %}
   <p>Nenhuma medicaoição encontrada.</p>
   {% endif %}
@@ -145,11 +163,14 @@
       success: function (data) {
         // Atualiza os elementos com os novos dados
         $("#temperatura").text(data.temperatura + "°C"); // Exemplo para temperatura
+        $("#sensacao_termica").text("Sensação térmica: " + data.sensacao_termica + "°C"); 
         $('[data-metric="luminosidade"]').text(data.luminosidade);
         $('[data-metric="umidade_ar"]').text(data.umidade_ar + "%");
         $('[data-metric="umidade_solo"]').text(data.umidade_solo + "%");
-        $('[data-metric="chuva"]').text(data.chuva);
+        $('[data-metric="pluviometro"]').text(data.pluviometro);
         $('[data-metric="uv"]').text(data.uv);
+        $('[data-metric="direcao_vento"]').text(data.direcao_vento);
+        $('[data-metric="velocidade_vento"]').text(data.velocidade_vento);
         // Atualiza a última atualização
         $("#ultima-atualizacao").text(data.ultima_atualizacao);
       },

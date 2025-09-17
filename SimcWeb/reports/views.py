@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.utils.dateparse import parse_datetime
-from reportlab.lib.pagesizes import A4
+from reportlab.lib.pagesizes import A4,landscape
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import (
     SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, Image, HRFlowable
@@ -56,7 +56,7 @@ def gerar_relatorio(request):
     response = HttpResponse(content_type="application/pdf")
     response["Content-Disposition"] = 'attachment; filename="Relatório SIMC.pdf"'
 
-    doc = SimpleDocTemplate(response, pagesize=A4, leftMargin=40, rightMargin=40, topMargin=60, bottomMargin=40)
+    doc = SimpleDocTemplate(response, pagesize=landscape(A4), leftMargin=40, rightMargin=40, topMargin=60, bottomMargin=40)
     styles = getSampleStyleSheet()
     elementos = []
 
@@ -81,13 +81,15 @@ def gerar_relatorio(request):
     labels = {
         "temperatura": "Temperatura",
         "umidade_ar": "Umidade do Ar",
-        "chuva": "Chuva",
+        "pluviometro": "Pluviômetro",
         "luminosidade": "Luminosidade",
         "umidade_solo": "Umidade do Solo",
+        "direcao_vento": "Direção do Vento",
+        "velocidade_vento": "Velocidade do Vento",
         "uv": "Índice UV"
     }
 
-    campos_formatados = ", ".join(labels.get(c, c).title() for c in campos)
+    campos_formatados = ", ".join(labels.get(c, c) for c in campos)
     data_inicial_fmt = dt_inicio.astimezone(tz).strftime("%d/%m/%Y - %H:%M") if dt_inicio else "-"
     data_final_fmt = dt_fim.astimezone(tz).strftime("%d/%m/%Y - %H:%M") if dt_fim else "-"
 
@@ -99,7 +101,7 @@ def gerar_relatorio(request):
     elementos.append(Spacer(1, 18))
 
     # --- 5. Monta tabela dinamicamente ---
-    cabecalho = ["Data/Hora"] + [labels.get(c, c).title() for c in campos]
+    cabecalho = ["Data/Hora"] + [labels.get(c, c) for c in campos]
     tabela_dados = [cabecalho]
 
     for med in qs:
@@ -107,7 +109,7 @@ def gerar_relatorio(request):
         for campo in campos:
             valor = getattr(med, campo.lower().replace(" ", "_"), None)
             if valor is not None:
-                linha.append(f"{valor:.2f}" if campo.lower() in ["temperatura", "umidade_ar", "umidade_solo", "luminosidade", "chuva", "uv"] else str(valor))
+                linha.append(f"{valor:.2f}" if campo.lower() in ["temperatura", "umidade_ar", "umidade_solo", "luminosidade", "pluviometro","direcao_vento","velocidade_vento",  "uv"] else str(valor))
             else:
                 linha.append("-")
         tabela_dados.append(linha)

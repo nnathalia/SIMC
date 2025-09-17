@@ -8,7 +8,9 @@ class Medicao(models.Model):
     umidade_ar = models.FloatField()
     umidade_solo = models.FloatField()
     luminosidade = models.FloatField()
-    chuva = models.FloatField()
+    pluviometro = models.FloatField()
+    velocidade_vento = models.FloatField()
+    direcao_vento = models.FloatField()
     uv = models.FloatField()
     idEstacao_fk = models.ForeignKey(Estacao, on_delete=models.CASCADE)
 
@@ -17,4 +19,4 @@ class Medicao(models.Model):
     deleted_at = models.DateTimeField(null=True, blank=True)
 
     class Meta:  
-        db_table = 'flu_medicao'
+        db_table = 'simc_medicao'

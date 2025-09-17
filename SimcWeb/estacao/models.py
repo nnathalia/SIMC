@@ -22,4 +22,4 @@ class Estacao(models.Model):
         return self.nome_est
 
     class Meta:
-        db_table = 'flu_estacao'
+        db_table = 'simc_estacao'

@@ -1,4 +1,5 @@
 {% load static %}
+{% load bootstrap5 %}
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
@@ -11,14 +12,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    {% load bootstrap5 %}
     {% bootstrap_css %}
-    {% bootstrap_javascript %}
-
     <title>{% block title %}{% endblock %}</title>
   </head>
 
   <body>
-    <main>{% block content %}{% endblock %}</main>
+    <main class="container-fluid bg-overlay">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 d-flex flex-column justify-content-center min-vh-100">
+          <h1 class="text-white fw-bold">SIMC</h1>
+          <p class="text-white fs-4 fw-light">
+            Sua estação meteorológica completa na palma da mão!
+          </p>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </main>
+
+    {% bootstrap_javascript %}
   </body>
 </html>

@@ -32,7 +32,7 @@ html, body {
 
 /*CONFIGURAÇÃO BACKGROUND*/
 
-main {
+body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -41,7 +41,7 @@ main {
   height: 100vh;
 }
 
-section {
+main {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

@@ -22,7 +22,8 @@ def login_view(request):
             login(request, user)
             return redirect('dashboard')
         else:
-            return render(request, 'auth/login.html', {'error': 'Usuário ou senha inválidos'})
+            messages.error(request, 'Usuário ou senha inválidos')
+            return render(request, 'auth/login.html')
     return render(request, 'auth/login.html')
 
 

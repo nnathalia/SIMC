@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -28,6 +29,7 @@
 </head>
 <body>
   <div class="container">
+    <img src="{% static '/img/logo.png' %}" alt="">
     <h2>Recuperação de Senha</h2>
     <p>Seu código de verificação é:</p>
     <div class="codigo">{{ codigo }}</div>
