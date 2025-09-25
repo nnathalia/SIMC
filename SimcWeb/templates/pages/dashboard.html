@@ -164,13 +164,13 @@
         // Atualiza os elementos com os novos dados
         $("#temperatura").text(data.temperatura + "°C"); // Exemplo para temperatura
         $("#sensacao_termica").text("Sensação térmica: " + data.sensacao_termica + "°C"); 
-        $('[data-metric="luminosidade"]').text(data.luminosidade);
+        $('[data-metric="luminosidade"]').text(data.luminosidade + "lx");
         $('[data-metric="umidade_ar"]').text(data.umidade_ar + "%");
         $('[data-metric="umidade_solo"]').text(data.umidade_solo + "%");
-        $('[data-metric="pluviometro"]').text(data.pluviometro);
+        $('[data-metric="pluviometro"]').text(data.pluviometro + "mm");
         $('[data-metric="uv"]').text(data.uv);
-        $('[data-metric="direcao_vento"]').text(data.direcao_vento);
-        $('[data-metric="velocidade_vento"]').text(data.velocidade_vento);
+        $('[data-metric="direcao_vento"]').text(data.direcao_vento + "°");
+        $('[data-metric="velocidade_vento"]').text(data.velocidade_vento + "km/h");
         // Atualiza a última atualização
         $("#ultima-atualizacao").text(data.ultima_atualizacao);
       },

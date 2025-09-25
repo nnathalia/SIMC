@@ -4,7 +4,7 @@
     <h1 class="text-center mt-3 fs-2 pt-3">Tecnologias</h1>
     <div class="row d-flex align-items-center justify-content-center mt-3 gap-5">
       {% for tech in tecnologias %}
-      <div class="col-md-1  d-flex justify-content-center pb-5">
+      <div class="col-md-1 d-flex justify-content-center pb-5">
         <a href="{{ tech.link }}" target="_blank">
           <img class="icones-tech" src="{% static tech.img %}" alt="{{ tech.nome }}" />
         </a>
