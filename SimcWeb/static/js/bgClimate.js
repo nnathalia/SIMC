@@ -1,23 +1,16 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const temperaturaElement = document.getElementById("temperatura");
-  const bgClimate = document.getElementById("bgClimate");
+function bgClimate(temperatura) {
+  const bg = document.getElementById("bgClimate");
+  if (!bg || isNaN(temperatura)) return;
 
-  if (temperaturaElement) {
-    const temperaturaText = temperaturaElement.innerText.trim().replace("°C", "");
-    const temperatura = parseInt(temperaturaText);
-    console.log("Temperatura lida:", temperatura);
-    if (!isNaN(temperatura)) {
-      let gradient;
-
-      if (temperatura <= 25) {
-        gradient = "linear-gradient(#1E90FF, #00008B)";
-      } else if (temperatura > 25 && temperatura <= 35) {
-        gradient = "linear-gradient(#FFD700, #FF8C00)";
-      } else {
-        gradient = "linear-gradient(#FF4500, #FFD700)";
-      }
-      
-      bgClimate.style.background = gradient;
-    }
+  let gradient;
+  if (temperatura <= 25) {
+    gradient = "linear-gradient(#1E90FF, #00008B)"; // frio
+  } else if (temperatura <= 35) {
+    gradient = "linear-gradient(#FFD700, #FF8C00)"; // quente moderado
+  } else {
+    gradient = "linear-gradient(#FF4500, #FFD700)"; // muito quente
   }
-});
+
+  bg.style.transition = "background 1s ease";
+  bg.style.background = gradient;
+}

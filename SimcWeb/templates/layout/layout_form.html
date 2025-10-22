@@ -1,14 +1,24 @@
-{% load static %}
-{% load bootstrap5 %}
+{% load static %} {% load bootstrap5 %}
+
 <html lang="pt-br">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="icon" href="{% static 'img/icone-page.png' %}" />
+
+    <!-- CSS do projeto -->
     <link rel="stylesheet" href="{% static 'css/form-style.css' %}" />
     <link rel="stylesheet" href="{% static 'css/form-responsive.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/senha.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/cadastro.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/toast-style.css' %}" />
+
+    <!-- CSS do Toastr -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -19,7 +29,9 @@
   <body>
     <main class="container-fluid bg-overlay">
       <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12 d-flex flex-column justify-content-center min-vh-100">
+        <div
+          class="col-lg-6 col-md-6 col-sm-12 d-flex flex-column justify-content-center min-vh-100"
+        >
           <h1 class="text-white fw-bold">SIMC</h1>
           <p class="text-white fs-4 fw-light">
             Sua estação meteorológica completa na palma da mão!
@@ -33,5 +45,26 @@
     </main>
 
     {% bootstrap_javascript %}
+    <!-- JS do Toastr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+      {% if messages %}
+        {% for message in messages %}
+          {% if 'error' in message.tags or 'danger' in message.tags %}
+            toastr.error('{{ message }}');
+          {% elif 'success' in message.tags %}
+            toastr.success('{{ message }}');
+          {% elif 'warning' in message.tags %}
+            toastr.warning('{{ message }}');
+          {% elif 'info' in message.tags %}
+            toastr.info('{{ message }}');
+          {% else %}
+            toastr.info('{{ message }}');
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </script>
   </body>
 </html>

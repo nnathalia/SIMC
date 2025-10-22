@@ -1,0 +1,56 @@
+/* Container principal do toast */
+#toast-container > .toast {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 5px !important;
+ 
+  border-radius: 12px !important;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.062);
+  line-height: 1.4 !important;
+}
+
+/* Remove comportamento padrão do ícone e alinha corretamente */
+#toast-container > .toast::before {
+  content: "" !important; /* reseta o ícone padrão */
+}
+
+/* Usa o ícone do toast interno (gerado pela lib) */
+#toast-container > .toast i,
+#toast-container > .toast svg {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin-right: 10px !important;
+  font-size: 20px !important;
+  line-height: 1 !important;
+  flex-shrink: 0 !important;
+}
+
+/* Garante que o texto fique na linha certa */
+#toast-container > .toast-message {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex: 1 !important;
+}
+
+/* Cores personalizadas */
+#toast-container > .toast-success {
+  background-color: #28a745 !important;
+}
+
+#toast-container > .toast-error {
+  background-color: #dc3545 !important;
+}
+
+#toast-container > .toast-warning {
+  background-color: #ffc107 !important;
+  color: #222 !important;
+}
+
+#toast-container > .toast-info {
+  background-color: #007bff !important;
+}

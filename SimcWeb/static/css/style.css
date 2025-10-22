@@ -37,38 +37,45 @@ li {
 }
 
 /* Config Default */
-.default-card{
+.default-card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  /* border: 1px solid rgb(214, 214, 214); */
   background-color: white;
   width: 100%;
   padding: 1.5rem;
 }
 
+.bg-climate,
+.forecast {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
 
+.card-metric {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 10px;
+}
 
-.btn-style button{
-  background-color: black;
-  color: white;
+.btn-style {
+  background-color: #1363ac !important;
+  color: white !important;
   border-radius: 5px;
   padding: 6px 20px;
+  cursor: pointer;
 }
 
-.bt-style button{
-  color: white;
-  border-radius: 5px;
-  padding: 6px 20px;
+.bg-blue {
+  background-color: #1363ac;
 }
 
-.btn-style button:hover{
-  color: white;
-  background-color: #104e88;
+.card-perfil {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 10px;
 }
 
-.btn-select select{
-  background-color: #1363AC;
-  color: white;
-  border-radius: 5px;
-  padding: 6px 10px;
+.btn-auth:hover{
+  background-color: #0f3f6d !important; 
+  color: white !important;
 }

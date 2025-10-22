@@ -21,6 +21,11 @@ section .slogan {
   color: #1363ac;
 }
 
+.btn-index:hover{
+  background-color: #0f3f6d !important; 
+  color: white !important;
+}
+
 /*main*/
 
 main h1 .simc {

@@ -18,8 +18,11 @@
     justify-content: center;
   }
 
-  .card-metric {
-    width: 100%;
+  .card-metric,
+  .card-perfil {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
   }
 
   .container-graph {
@@ -54,10 +57,14 @@
     flex-direction: column;
   }
 
-  .card-metric {
+  .card-metric,
+  .card-perfil {
     width: calc(50% - 10px);
   }
-  
+  .card-perfil{
+    width: 100%;
+  }
+
   .sidebar {
     display: none;
   }
@@ -72,9 +79,11 @@
   body {
     font-size: 18px;
   }
+
   .card-metric {
     width: calc(50% - 13px);
   }
+
   .sidebar {
     display: none;
   }
@@ -89,13 +98,14 @@
   body {
     font-size: 20px;
   }
+
   .card-metric {
     width: calc(33.33% - 13px);
   }
 }
 
 @media (min-width: 1200px) {
-  .card-metric {
+  .card-metric{
     width: calc(100% / 3 - 13px);
   }
 }

@@ -6,6 +6,7 @@ from django.urls import path, include
 from SimcWeb import views
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
@@ -17,5 +18,8 @@ urlpatterns = [
     path("chart-data/", views.chart_data, name="chart-data"),
 
     path('account/', include('account.urls')),
+    path('medicao/', include('medicao.urls')),
+    path('notificacao/', include('notificacao.urls')),
+
 ]
 

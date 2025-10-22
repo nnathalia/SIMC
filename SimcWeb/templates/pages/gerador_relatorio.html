@@ -1,201 +1,219 @@
-{% extends 'layout/layout.html' %} {% block title %} Relatorios {% endblock %}
-{% block content %}
+{% extends 'layout/layout.html' %} {% block title %}Relatórios{% endblock %}
+{%block content %} {% load custom_tags %}
+
 <section class="w-100">
-  <div class="row w-100">
-    <div class=" col-lg-8 col-md-12 col-sm-12 mb-lg-0 mb-sm-3 mb-md-3 mb-3">
-      <div class="default-card p-4" style="height: 100%">
-        <div class="d-flex justify-content-between">
-          <div class="d-flex align-items-center">
-            <p class="mt-0">Gráfico do tempo durante a semana</p>
-          </div>
+  <div class="row g-3">
+    <!-- Gráfico -->
+    <div class="col-lg-8 col-md-12">
+      <div class="default-card p-4 h-100">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <p class="m-0">Gráfico do tempo durante a semana</p>
           <div class="d-flex align-items-center gap-2">
             <i class="bi bi-calendar"></i>
-            <p class="text-primary mb-0">{{ hoje|date:" F Y" }}</p>
+            <span class="text-primary">{{ hoje|date:"F Y" }}</span>
           </div>
         </div>
-        <div class="chart">
-          <canvas id="chart" data-url="{% url 'chart-data' %}"></canvas>
-        </div>
+        <canvas id="chart" data-url="{% url 'chart-data' %}"></canvas>
       </div>
     </div>
 
-    <div class="col-lg-4 col-md-12 col-sm-12">
-  <div class="default-card">
-    <div class="d-flex justify-content-between pb-2">
-      <div class="d-flex align-items-center">
-        <p class="mt-0">Média das informações</p>
-      </div>
-      <div class="d-flex align-items-center btn-select custom-select-wrapper">
-        <select id="date" class="custom-select">
-          <option value="mes">Mês</option>
-          <option value="semana">Semana</option>
-        </select>
-      </div>
+    <!-- Médias -->
+<div class="col-lg-4 col-md-12">
+  <div class="default-card p-3 h-100">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <p class="fw-bold fs-5 mb-0">Média das informações</p>
+      <select id="date" class="form-select form-select-sm btn-style text-white"
+              style="width: auto; background-color: #0d6efd; color: white; border: none;">
+        <option value="mes" {% if tipo_periodo == 'mes' %}selected{% endif %}>Mês</option>
+        <option value="semana" {% if tipo_periodo == 'semana' %}selected{% endif %}>Semana</option>
+      </select>
     </div>
 
     <div id="valores-media">
-      <div class="d-flex justify-content-between pb-2">
-        <div class="d-flex align-items-center gap-2">
-          <i class="bi bi-thermometer-sun"></i>
-          <p class="m-0">Temperatura</p>
+    {% comment %} Seleciona as médias de acordo com o período {% endcomment %}
+    {% if tipo_periodo == 'mes' %}
+      {% for metrica in media_metricas %}
+      <div class="d-flex align-items-center justify-content-between py-2 border-bottom">
+        <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center justify-content-center me-3 bg-white"
+              style="width: 50px; height: 50px; border-radius: 8px">
+            <i class="bi bi-{{ metrica.icon }} fs-5"></i>
+          </div>
+          <div>
+            <h6 class="mb-0 fw-bold">{{ metrica.label }}</h6>
+            <small class="text-muted">Média registrada</small>
+          </div>
         </div>
-        <p class="m-0" id="temp">{{ medias_mes.temp|default:"—"|floatformat:1 }}ºC</p>
-      </div>
-      <div class="d-flex justify-content-between pb-2">
-        <div class="d-flex align-items-center gap-2">
-          <i class="bi bi-brightness-high"></i>
-          <p class="m-0">Luminosidade</p>
+        <div class="text-end">
+          <p class="mb-0 fw-bold media-valor" id="{{ metrica.id }}">
+            {{ medias_mes|get_item:metrica.id|default:"—"|floatformat:1 }}
+            {{ metrica.sufixo }}
+          </p>
+
+          {% if metrica.classificacao %}
+          <small class="text-muted">{{ metrica.classificacao }}</small>
+          {% endif %}
         </div>
-        <p class="m-0" id="lum">{{ medias_mes.lum|default:"—"|floatformat:1 }}%</p>
+
       </div>
-      <div class="d-flex justify-content-between pb-2">
-        <div class="d-flex align-items-center gap-2">
-          <i class="bi bi-droplet"></i>
-          <p class="m-0">Umidade do solo</p>
+      {% endfor %}
+    {% else %}
+      {% for metrica in media_metricas %}
+      <div class="d-flex align-items-center justify-content-between py-2 border-bottom">
+        <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center justify-content-center me-3 bg-white"
+              style="width: 50px; height: 50px; border-radius: 8px">
+            <i class="bi bi-{{ metrica.icon }} fs-5"></i>
+          </div>
+          <div>
+            <h6 class="mb-0 fw-bold">{{ metrica.label }}</h6>
+            <small class="text-muted">Média registrada</small>
+          </div>
         </div>
-        <p class="m-0" id="solo">{{ medias_mes.solo|default:"—"|floatformat:1 }}%</p>
-      </div>
-      <div class="d-flex justify-content-between pb-2">
-        <div class="d-flex align-items-center gap-2">
-          <i class="bi bi-water"></i>
-          <p class="m-0">Umidade do ar</p>
+        <div class="text-end">
+          <p class="mb-0 fw-bold media-valor" id="{{ metrica.id }}">
+            {{ medias_semana|get_item:metrica.id|default:"—"|floatformat:1 }}
+            {{ metrica.sufixo }}
+          </p>
+          {% if metrica.classificacao %}
+          <small class="text-muted">{{ metrica.classificacao }}</small>
+          {% endif %}
         </div>
-        <p class="m-0" id="ar">{{ medias_mes.ar|default:"—"|floatformat:1 }}%</p>
       </div>
-      <div class="d-flex justify-content-between pb-2">
-        <div class="d-flex align-items-center gap-2">
-          <i class="bi bi-cloud-drizzle"></i>
-          <p class="m-0">Pluviômetro</p>
-        </div>
-        <p class="m-0" id="pluviometro">{{ medias_mes.pluviometro|default:"—"|floatformat:1 }}%</p>
-      </div>
-      <div class="d-flex justify-content-between pb-2">
-        <div class="d-flex align-items-center gap-2">
-          <i class="bi bi-brightness-high"></i>
-          <p class="m-0">ìndice Uv</p>
-        </div>
-        <p class="m-0" id="uv">{{ medias_mes.pluviometro|default:"—"|floatformat:1 }}%</p>
-      </div>
-      
-     
-    </div>
-  </div>
+      {% endfor %}
+    {% endif %}
 </div>
 
   </div>
+</div>
+  </div>
 </section>
 
-<section class="default-card mt-4">
-  <p class="fw-bold fs-4">Gerador de Relatórios</p>
-
-  <!-- o form agora aponta para a view Django -->
-  <form class="mb-4" method="get" action="{% url 'gerar_relatorio' %}">
-    <div class="row g-4">
-      <div class="col-md-6 d-flex gap-4">
-        <div class="flex-fill">
-          <label for="dataInicial">Data Inicial</label>
-          <input type="date" class="form-control input-style" id="dataInicial" name="data_inicial" />
-        </div>
-        <div class="flex-fill">
-          <label for="dataFinal">Data Final</label>
-          <input type="date" class="form-control input-style" id="dataFinal" name="data_final" />
-        </div>
-      </div>
-
-      <div class="col-md-6 d-flex gap-4">
-        <div class="flex-fill">
-          <label for="horaInicial">Hora Inicial</label>
-          <input type="time" class="form-control input-style" id="horaInicial" name="hora_inicial" />
-        </div>
-        <div class="flex-fill">
-          <label for="horaFinal">Hora Final</label>
-          <input type="time" class="form-control input-style" id="horaFinal" name="hora_final" />
-        </div>
-      </div>
-
-      <div class="col-12">
-        <fieldset class="dados">
-          <p class="mt-1 fw-bold">Dados</p>
-          <div class="d-flex flex-wrap gap-4 text-secondary">
-            <div>
-              <input class="form-check-input" type="checkbox" id="temperatura" name="campos" value="temperatura" />
-              <label class="form-check-label" for="temperatura">Temperatura</label>
+<!-- Formulário -->
+<section class="w-100 mt-4">
+  <div class="default-card p-4">
+    <h5 class="fw-bold mb-4">Gerador de Relatórios</h5>
+    <form method="get" action="{% url 'gerar_relatorio' %}">
+      <div class="row g-3">
+        <!-- Datas -->
+        <div class="col-md-6">
+          <div class="row g-3">
+            {% for label, name in datas %}
+            <div class="col-6">
+              <label for="{{ name }}" class="form-label fw-semibold"
+                >{{ label }}</label
+              >
+              <input
+                type="date"
+                class="form-control"
+                id="{{ name }}"
+                name="{{ name }}"
+                value="{{ request.GET.name }}"
+              />
             </div>
-            <div>
-              <input class="form-check-input" type="checkbox" id="umidadeAr" name="campos" value="umidade_ar" />
-              <label class="form-check-label" for="umidadeAr">Umidade do Ar</label>
-            </div>
-            <div>
-              <input class="form-check-input" type="checkbox" id="pluviometro" name="campos" value="pluviometro" />
-              <label class="form-check-label" for="pluviometro">Pluviômetro</label>
-            </div>
-            <div>
-              <input class="form-check-input" type="checkbox" id="luminosidade" name="campos" value="luminosidade" />
-              <label class="form-check-label" for="luminosidade">Luminosidade</label>
-            </div>
-            <div>
-              <input class="form-check-input" type="checkbox" id="umidadeSolo" name="campos" value="umidade_solo" />
-              <label class="form-check-label" for="umidadeSolo">Umidade do Solo</label>
-            </div>
-            <div>
-              <input class="form-check-input" type="checkbox" id="direcao_vento" name="campos" value="direcao_vento" />
-              <label class="form-check-label" for="direcao_vento">Direção do Vento</label>
-            </div>
-            <div>
-              <input class="form-check-input" type="checkbox" id="velocidade_vento" name="campos" value="velocidade_vento" />
-              <label class="form-check-label" for="velocidade_vento">Velocidade do Vento</label>
-            </div>
-            <div>
-              <input class="form-check-input" type="checkbox" id="uv" name="campos" value="uv" />
-              <label class="form-check-label" for="uv">índice Uv</label>
-            </div>
+            {% endfor %}
           </div>
-        </fieldset>
+        </div>
+
+        <!-- Horários -->
+        <div class="col-md-6">
+          <div class="row g-3">
+            {% for label, name in horarios %}
+            <div class="col-6">
+              <label for="{{ name }}" class="form-label fw-semibold"
+                >{{ label }}</label
+              >
+              <input
+                type="time"
+                class="form-control"
+                id="{{ name }}"
+                name="{{ name }}"
+                value="{{ request.GET.name }}"
+              />
+            </div>
+            {% endfor %}
+          </div>
+        </div>
       </div>
 
-      <div class="btn-style mt-3 d-flex justify-content-end w-100">
-        <button type="submit" class="btn">Gerar relatório</button>
+      <!-- Campos de dados -->
+      <div class="mt-4">
+        <p class="fs-6 fw-bold mb-2">Selecione os dados:</p>
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-2">
+          {% for campo, label in campos_disponiveis.items %}
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="{{ campo }}"
+              name="campos"
+              value="{{ campo }}"
+              {%
+              if
+              campo
+              in
+              campos_selecionados
+              %}checked{%
+              endif
+              %}
+            />
+            <label class="form-check-label" for="{{ campo }}"
+              >{{ label }}</label
+            >
+          </div>
+          {% endfor %}
+        </div>
       </div>
-    </div>
-  </form>
+
+      <div class="d-flex justify-content-end mt-4">
+        <button type="submit" class="btn px-4 btn-style">
+          <i class="bi bi-file-earmark-text me-2"></i>Gerar relatório
+        </button>
+      </div>
+    </form>
+  </div>
 </section>
 
-
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  const select = document.getElementById("date");
-
-  // dados passados pelo Django (transforma em JSON)
   const mediasMes = {
     temp: "{{ medias_mes.temp|default:0|floatformat:1 }}",
     lum: "{{ medias_mes.lum|default:0|floatformat:1 }}",
-    solo: "{{ medias_mes.solo|default:0|floatformat:1 }}",
-    ar: "{{ medias_mes.ar|default:0|floatformat:1 }}",
-    pluviometro: "{{ medias_mes.pluviometro|default:0|floatformat:1 }}"
+    umidade_ar: "{{ medias_mes.umidade_ar|default:0|floatformat:1 }}",
+    umidade_solo: "{{ medias_mes.umidade_solo|default:0|floatformat:1 }}",
+    pluviometro: "{{ medias_mes.pluviometro|default:0|floatformat:1 }}",
     uv: "{{ medias_mes.uv|default:0|floatformat:1 }}"
   };
 
   const mediasSemana = {
     temp: "{{ medias_semana.temp|default:0|floatformat:1 }}",
     lum: "{{ medias_semana.lum|default:0|floatformat:1 }}",
-    solo: "{{ medias_semana.solo|default:0|floatformat:1 }}",
-    ar: "{{ medias_semana.ar|default:0|floatformat:1 }}",
+    umidade_ar: "{{ medias_semana.umidade_ar|default:0|floatformat:1 }}",
+    umidade_solo: "{{ medias_semana.umidade_solo|default:0|floatformat:1 }}",
     pluviometro: "{{ medias_semana.pluviometro|default:0|floatformat:1 }}",
     uv: "{{ medias_semana.uv|default:0|floatformat:1 }}"
   };
 
-  select.addEventListener("change", function () {
-    const periodo = this.value === "semana" ? mediasSemana : mediasMes;
+  function atualizarValores(medias) {
+  Object.entries(medias).forEach(([id, valor]) => {
+    const elemento = document.getElementById(id);
+    if (elemento) {
+      const sufixo = elemento.textContent.match(/[^\d.,]+$/)?.[0] || ""; // mantém o sufixo existente
+      elemento.textContent = `${valor}${sufixo ? " " + sufixo : ""}`;
+    }
+  });
+}
+  
 
-    document.getElementById("temp").textContent = periodo.temp + "ºC";
-    document.getElementById("lum").textContent = periodo.lum + "%";
-    document.getElementById("solo").textContent = periodo.solo + "%";
-    document.getElementById("ar").textContent = periodo.ar + "%";
-    document.getElementById("pluviometro").textContent = periodo.pluviometro + "%";
-    document.getElementById("uv").textContent = periodo.uv + "%";
+  document.getElementById('date').addEventListener('change', function() {
+    const periodo = this.value;
+    if (periodo === 'mes') {
+      atualizarValores(mediasMes);
+    } else {
+      atualizarValores(mediasSemana);
+    }
   });
 </script>
-
 
 
 {% endblock %}

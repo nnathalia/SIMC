@@ -1,5 +1,13 @@
 {% load static %}
 <aside class="bg-white text-secondary vh-90 p-1 border-none sidebar-mobile" width="300px">
+  <div class="d-flex justify-content-center align-items-center p-2 w-100">
+  <a class="navbar-brand" href="#">
+    <img src="{% static 'img/logo-azul.png' %}" 
+         alt="Logo" 
+         style="max-width: 80px; width: 100%; height: auto; object-fit: contain;">
+  </a>
+</div>
+
   <ul class="nav flex-column">
     <li class="nav-item mb-2 " id="nav-item">
       <div class="item-list nav-link " >
@@ -13,7 +21,7 @@
     </li>
     <li class="nav-item mb-2 ">
       <div class="item-list nav-link">
-        <a class="nav-link text-secondary" href=""> <i class="bi bi-bell"></i></a>
+        <a class="nav-link text-secondary" href="{% url "notificacoes" %}"> <i class="bi bi-bell"></i></a>
       </div>
     </li>
     <hr />

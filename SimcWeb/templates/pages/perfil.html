@@ -1,111 +1,137 @@
-{% extends 'layout/layout.html' %} {% block title %} Perfil {% endblock %}
-{%block content %}
+{% extends 'layout/layout.html' %}
+{% block title %} Perfil {% endblock %}
+{% block content %}
+{% load user_extras %}
 
 <section class="default-card">
   <div class="perfil d-flex flex-column">
-    <p class="fw-bold fs-4 mb-4">Perfil</p>
-    <p class="mb-1">Nome</p>
-    <h4 class="mb-3">
-      {{ request.user.first_name }} {{ request.user.last_name }}
-    </h4>
-    <p class="mb-1">Email</p>
-    <h4 class="mb-3">{{ request.user.email }}</h4>
-  </div>
-</section>
+    <p class="fw-bold fs-5 mb-4">Perfil</p>
+    <div class="d-flex flex-wrap align-items-center gap-4">
+      <!-- Torna o círculo das iniciais responsivo -->
+      <div class="rounded-circle bg-blue d-flex justify-content-center align-items-center p-2 flex-shrink-0" style="width:80px; height:80px;">
+        <p class="mb-0 text-white fw-bold fs-4 text-center"> {{ request.user.nome|iniciais }}</p>
+      </div>
 
-<section class="w-100 d-flex justify-content-between p-4">
-  <div>
-    <h4>Minhas Estações</h4>
-  </div>
-  <div class="btn-style">
-    <button
-      type="button"
-      class="btn"
-      data-bs-toggle="modal"
-      data-bs-target="#cadEstacaoModal"
-    >
-      <i class="bi bi-plus-circle"></i> Cadastrar Estação
-    </button>
-  </div>
-  <div class="modal" tabindex="-1" id="cadEstacaoModal">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Cadastro de Estação</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <form action="" method="post">
-          {% csrf_token %}
-          <div class="modal-body">
-            <div class="flex-fill m-3">
-              <label for="dataInicial">Nome</label>
-              <input
-                type="text"
-                class="form-control input-style"
-                name="estacao"
-                placeholder="Digite o nome da estação aqui"
-              />
-            </div>
-            {% if show_modal %} {% if messages %}
-            <ul class="messages">
-              {% for message in messages %}
-              <li class="{{ message.tags }}">{{ message }}</li>
-              {% endfor %}
-            </ul>
-            {% endif %} {% endif %}
-          </div>
-
-          <div class="modal-footer">
-            <div class="bt-style">
-              <button
-                type="button"
-                class="btn btn-danger"
-                data-bs-dismiss="modal"
-              >
-                Cancelar
-              </button>
-            </div>
-            <div class="btn-style">
-              <button type="submit" class="btn">Cadastrar Estação</button>
-            </div>
-          </div>
-        </form>
+      <div class="flex-grow-1">
+        <p class="mb-1">Nome</p>
+        <h4 class="mb-3">{{ request.user.nome }}</h4>
+        <p class="mb-1">Email</p>
+        <h4 class="mb-3">{{ request.user.email }}</h4>
       </div>
     </div>
   </div>
 </section>
 
-<section class="default-card">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Estações</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% if estacao %}
-        {% for e in estacao %}
-          <tr>
-            <th scope="row">{{ forloop.counter }}</th>
-            <td>{{ e.nome_est }}</td>
-            <td><!-- botões como "Editar", "Excluir" --></td>
-          </tr>
-        {% endfor %}
-      {% else %}
-        <tr>
-          <td colspan="4" class="text-center">Nenhuma estação cadastrada</td>
-        </tr>
-      {% endif %}
-    </tbody>
-  </table>
-  
+<section class="pt-4 w-100">
+  <div class="row g-3">
+    <div class="col-lg-6 col-md-6 col-12">
+      <div class="card-perfil p-4 d-flex justify-content-between align-items-center">
+        <div>
+          <p class="mb-0 fw-bold">Estações</p>
+          <p class="fw-bold fs-3 mb-0">{{ quant_estacoes }}</p>
+        </div>
+        <div class="icon">
+          <i class="bi bi-thermometer-half text-warning fs-4"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-12">
+      <div class="card-perfil p-4 d-flex justify-content-between align-items-center">
+        <div>
+          <p class="mb-0 fw-bold">Leituras hoje</p>
+          <p class="fw-bold fs-3 mb-0">{{ quant_medicoes }}</p>
+        </div>
+        <div class="icon">
+          <i class="bi bi-activity text-success fs-4"></i>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<section class="default-card p-4 mt-4">
+  <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+    <p class="fw-bold fs-5 mb-2 mb-md-0">Minhas Estações</p>
+    <button
+      type="button"
+      class="btn btn-dark d-flex align-items-center gap-1"
+      data-bs-toggle="modal"
+      data-bs-target="#cadEstacaoModal"
+    >
+      <i class="bi bi-plus"></i> Cadastrar Estação
+    </button>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Estações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if estacao %}
+          {% for e in estacao %}
+            <tr>
+              <th scope="row">{{ forloop.counter }}</th>
+              <td>{{ e.nome_est }}</td>
+              <td><!-- botões como "Editar", "Excluir" --></td>
+            </tr>
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td colspan="4" class="text-center py-5">
+              <div class="d-flex flex-column align-items-center">
+                <div class="rounded-circle bg-light d-flex align-items-center justify-content-center mb-3" style="width:50px; height:50px;">
+                  <i class="bi bi-activity fs-4 text-secondary"></i>
+                </div>
+                <p class="text-muted fw-bold mb-1">Nenhuma estação cadastrada</p>
+                <small class="text-muted">Adicione sua primeira estação para começar o monitoramento</small>
+              </div>
+            </td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Modal Cadastro -->
+<div class="modal fade" tabindex="-1" id="cadEstacaoModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-3 border-0 shadow">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title fw-bold">Cadastro de Estação</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="estacao" class="form-label fw-semibold">Nome</label>
+            <input type="text" class="form-control rounded-3 border" name="estacao" placeholder="Digite o nome da estação aqui"/>
+          </div>
+
+          {% if show_modal %} {% if messages %}
+          <ul class="messages list-unstyled mt-2">
+            {% for message in messages %}
+              <li class="text-danger small">{{ message }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %} {% endif %}
+        </div>
+
+        <div class="modal-footer border-0 pt-0">
+          <button type="button" class="btn btn-light border rounded-3 px-4" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-dark rounded-3 px-4">Cadastrar Estação</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 <!-- Sucesso popup -->
 <div class="modal" tabindex="-1" id="successPopup">
@@ -113,9 +139,7 @@
     <div class="modal-content p-4 text-center">
       <h5>Estação cadastrada com sucesso!</h5>
       <div class="mt-3">
-        <button type="button" class="btn btn-success" data-bs-dismiss="modal">
-          OK
-        </button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
       </div>
     </div>
   </div>

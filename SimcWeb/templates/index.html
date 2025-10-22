@@ -1,7 +1,7 @@
 {% load static %}
 <html lang="pt-br">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
     <link rel="stylesheet" href="{% static 'css/index.css' %}" />
@@ -27,7 +27,7 @@
       <nav class="navbar bg-body-tertiary">
         <div class="container">
           <a class="navbar-brand" href="#"><img src="{% static 'img/logo-azul.png' %}" alt="Logo" width="80" height="0" class="d-inline-block align-text-top" /></a>
-          <a href="{% url 'login' %}"><button class="btn">Login</button></a>
+          <a href="{% url 'login' %}"><button class="btn btn-index">Login</button></a>
         </div>
       </nav>
 
@@ -37,7 +37,7 @@
             <div class="col-md-6 col-sm-12">
               <h1 class="slogan">SIMC - Sistema Inteligente de Monitoramento Climatico</h1>
               <p class="text-secondary fw-light"> Sua estação meteorológica completa na palma da mão.</p>
-              <a href="{% url 'cadastro' %}"><button class="btn btn-login">Cadastrar</button></a>
+              <a href="{% url 'cadastro' %}"><button class="btn btn-index">Cadastrar</button></a>
             </div>
             <div class="col-md-6 col-sm-12 mt-4">
               <img src="{% static 'img/img-index.svg' %}" alt="Imagem do tempo" style="width: 100%;" />
@@ -87,10 +87,10 @@
       </section>
 
       <!-- Colaboradores -->
-      {% include 'partials/_colaboradores.html' with colaboradores=colaboradores_context %}
+      {% include 'partials/_colaboradores.html' with colaboradores=colaboradores %}
 
       <!-- Tecnologias -->
-      {% include 'partials/_tecnologias.html' with tecnologias=tecnologias_context %}
+      {% include 'partials/_tecnologias.html' with tecnologias=tecnologias %}
     </main>
 
     <footer>

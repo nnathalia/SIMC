@@ -1,5 +1,5 @@
-{% extends 'layout/layout_form.html' %} 
-{% load static %} {% block title %}Cadastro{% endblock %} {% block content %}
+{% extends 'layout/layout_form.html' %} {% load static %} 
+{% block title%}Cadastro{% endblock %} {% block content %}
 <section class="container-fluid col-12">
   <div class="row h-100">
     <div
@@ -70,25 +70,6 @@
               />
             </div>
           </div>
-
-          {% if messages %}
-          <div class="mt-2">
-            {% for message in messages %}
-            <div
-              class="alert alert-{{ message.tags }} alert-dismissible fade show small p-2 m-0"
-              role="alert"
-            >
-              <span class="text-danger">{{ message }}</span>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="alert"
-                aria-label="Close"
-              ></button>
-            </div>
-            {% endfor %}
-          </div>
-          {% endif %}
           <div class="d-flex justify-content-end">
             <a
               href="{% url 'email' %}"
@@ -97,7 +78,7 @@
             >
           </div>
           <div class="d-grid mt-3 bg-btn">
-            <button class="btn btn-primary text-white" type="submit">
+            <button class="btn btn-auth text-white" type="submit">
               Cadastrar
             </button>
           </div>

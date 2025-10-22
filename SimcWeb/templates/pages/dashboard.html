@@ -1,34 +1,31 @@
-{% extends 'layout/layout.html' %} {% block title %} Dashboard {% endblock %}
+{% extends 'layout/layout.html' %} 
+{% block title %}Dashboard{% endblock %}
 {%block content %}
-
 <section id="bgClimate" class="bg-climate container-climate w-100">
   <div class="current-weather w-100 d-flex justify-content-between p-5">
     <div class="d-flex align-items-center gap-4">
-      <div>
-        <i class="{{ icone_hoje }} fw-bold text-white" style="font-size: 90px"></i>
-      </div>
+      <i class="{{ icone_hoje }} fw-bold text-white fs-1"></i>
       <div>
         {% if medicao %}
-        <p class="fs-1 fw-bold text-white mb-0" id="temperatura">
-          {{ medicao.temperatura|floatformat:0 }} °C
+        <p id="temperatura" class="fs-1 fw-bold text-white mb-0">
+          {{ medicao.temperatura|default:"—"|floatformat:0 }} °C
+        </p>
+        {% endif %} {% if sensacao_termica %}
+        <p id="sensacao_termica" class="text-white">
+          Sensação térmica: {{ sensacao_termica|floatformat:0 }} °C
         </p>
         {% endif %}
-        {% if sensacao_termica %}
-          <p class="text-white" id="sensacao_termica"> Sensação térmica: {{ sensacao_termica|floatformat:0}} °C</p>
-        {% endif %}
-        
       </div>
     </div>
+
     <div class="last-week d-flex gap-5">
       {% for dia in dias_passados %}
       <div class="d-flex flex-column align-items-center">
         <p class="fw-bold text-white">{{ dia.dia|date:"l" }}</p>
         <i class="{{ dia.icone }} fs-1 fw-bold text-white"></i>
-        {% if dia.media %}
-        <p class="fw-bold text-white pt-2">{{ dia.media }}°C</p>
-        {% else %}
-        <p class="fw-bold text-white pt-2">—</p>
-        {% endif %}
+        <p class="fw-bold text-white pt-2">
+          {{ dia.media|default:"—" }}{% if dia.media %}°C{% endif %}
+        </p>
       </div>
       {% endfor %}
     </div>
@@ -38,107 +35,53 @@
 <section
   class="weather-metrics gap-3 pt-4 d-flex flex-wrap justify-content-start w-100"
 >
-  {% if medicao %}
+  {% if medicao %} {% for m in metricas %}
   <div class="card-metric p-4 d-flex justify-content-between">
     <div>
-      <p class="mb-0 fw-bold">Luminosidade</p>
-      <p data-metric="luminosidade" class="fw-bold fs-3 mb-0">
-        {{ medicao.luminosidade }}
+      <p class="mb-0 fw-bold">{{ m.nome }}</p>
+      <p id="{{ m.campo }}" class="fw-bold fs-3 mb-0">
+        {% if m.valor is not None %} {{ m.valor }}<span class="fs-5 fw-semibold"
+          >{{ m.sufixo}}</span
+        >
+        <span class="fs-6 {{ m.cor }}"> {{ m.classificacao }}</span>
+        {% else %} — {% endif %}
       </p>
     </div>
     <div class="icon">
-      <i class="bi bi-sun text-secondary"></i>
+      <i class="{{ m.icone }} fs-4"></i>
     </div>
   </div>
-
-  <div class="card-metric p-4 d-flex justify-content-between">
-    <div>
-      <p class="mb-0 fw-bold">Umidade do ar</p>
-      <p data-metric="umidade_ar" class="fw-bold fs-3 mb-0">
-        {{ medicao.umidade_ar }}
-      </p>
-    </div>
-    <div class="icon">
-      <i class="bi bi-droplet text-secondary"></i>
-    </div>
-  </div>
-
-  <div class="card-metric p-4 d-flex justify-content-between">
-    <div>
-      <p class="mb-0 fw-bold">Umidade do solo</p>
-      <p data-metric="umidade_solo" class="fw-bold fs-3 mb-0">
-        {{ medicao.umidade_solo }}
-      </p>
-    </div>
-    <div class="icon">
-      <i class="bi bi-droplet text-secondary"></i>
-    </div>
-  </div>
-
-  <div class="card-metric p-4 d-flex justify-content-between">
-    <div>
-      <p class="mb-0 fw-bold">Pluviômetro</p>
-      <p data-metric="pluviometro" class="fw-bold fs-3 mb-0">{{ medicao.pluviometro }}</p>
-    </div>
-    <div class="icon">
-      <i class="bi bi-cloud-drizzle text-secondary"></i>
-    </div>
-  </div>
-
-  <div class="card-metric p-4 d-flex justify-content-between">
-    <div>
-      <p class="mb-0 fw-bold">Velocidade do vento</p>
-      <p data-metric="velocidade_vento" class="fw-bold fs-3 mb-0">
-        {{ medicao.velocidade_vento }}
-      </p>
-    </div>
-    <div class="icon">
-      <i class="bi bi-wind text-secondary"></i>
-    </div>
-  </div>
-
-   <div class="card-metric p-4 d-flex justify-content-between">
-    <div>
-      <p class="mb-0 fw-bold">Direção Vento</p>
-      <p data-metric="direcao_vento" class="fw-bold fs-3 mb-0">{{ medicao.direcao_vento }}</p>
-    </div>
-    <div class="icon">
-      <i class="bi bi-wind text-secondary"></i>
-    </div>
-  </div>
-
-  <div class="card-metric p-4 d-flex justify-content-between">
-    <div>
-      <p class="mb-0 fw-bold">Índice Ultravioleta</p>
-      <p data-metric="uv" class="fw-bold fs-3 mb-0">{{ medicao.uv }}</p>
-    </div>
-    <div class="icon">
-      <i class="bi bi-sun text-secondary"></i>
-    </div>
-  </div>
-
-   
-
-  
-
-  {% else %}
-  <p>Nenhuma medicaoição encontrada.</p>
+  {% endfor %} {% else %}
+  <p>Nenhuma medição encontrada.</p>
   {% endif %}
 </section>
 
 <section class="default-card mt-4">
   <p class="fw-bold fs-4">Previsão para os próximos dias</p>
+
   {% if previsao %} {% for dia in previsao %}
-  <div class="d-flex justify-content-between pb-2">
-    <div class="d-flex align-items-center gap-2">
-      <i class="bi bi-cloud-lightning-rain"></i>
-      <p class="m-0">{{ dia.dia }}: {{ dia.descricao }}</p>
-      <p></p>
-    </div>
+  <div class="d-flex align-items-center justify-content-between p-2">
+    <!-- Ícone -->
     <div class="d-flex align-items-center">
-      <p class="m-0">
-        {{ dia.temp_min|floatformat:1 }}° min / {{ dia.temp_max|floatformat:1 }}° max
+      <div
+        class="d-flex align-items-center justify-content-center rounded-3 me-3"
+        style="background: white; width: 50px; height: 50px"
+      >
+        <i class="{{ dia.icone }} fs-4"></i>
+      </div>
+      <div>
+        <h6 class="mb-0 fw-bold">{{ dia.dia }}</h6>
+        <small class="text-muted">{{ dia.descricao }}</small>
+      </div>
+    </div>
+
+    <!-- Temperaturas -->
+    <div class="text-end">
+      <p class="mb-0">
+        <span class="text-muted">{{ dia.temp_min|floatformat:1 }}°</span> /
+        <span class="fw-bold">{{ dia.temp_max|floatformat:1 }}°</span>
       </p>
+      <small class="text-muted">min / máx</small>
     </div>
   </div>
   {% endfor %} {% else %}
@@ -149,39 +92,63 @@
   </div>
   {% endif %}
 </section>
-<!-- Ajax -->
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" > </script>
+
 <script>
+  // Função que busca a última medição e atualiza no front
   function atualizarDados() {
-    $.ajax({
-      url: "{% url 'dashboard' %}", // Certifique-se de que a URL está correta
-      type: "GET",
-      headers: {
-        "X-Requested-With": "XMLHttpRequest",
-      },
-      success: function (data) {
-        // Atualiza os elementos com os novos dados
-        $("#temperatura").text(data.temperatura + "°C"); // Exemplo para temperatura
-        $("#sensacao_termica").text("Sensação térmica: " + data.sensacao_termica + "°C"); 
-        $('[data-metric="luminosidade"]').text(data.luminosidade + "lx");
-        $('[data-metric="umidade_ar"]').text(data.umidade_ar + "%");
-        $('[data-metric="umidade_solo"]').text(data.umidade_solo + "%");
-        $('[data-metric="pluviometro"]').text(data.pluviometro + "mm");
-        $('[data-metric="uv"]').text(data.uv);
-        $('[data-metric="direcao_vento"]').text(data.direcao_vento + "°");
-        $('[data-metric="velocidade_vento"]').text(data.velocidade_vento + "km/h");
-        // Atualiza a última atualização
-        $("#ultima-atualizacao").text(data.ultima_atualizacao);
-      },
-      error: function (xhr) {
-        console.error("Erro ao buscar dados:", xhr.responseText);
-      },
-    });
-  }
+  $.ajax({
+    type: "GET",
+    url: "{% url 'atualizar_medicao' %}",
+    success: function (response) {
+      // Atualizar temperatura e sensação térmica
+      $("#temperatura").text(response.temperatura + " °C");
+      $("#sensacao_termica").text(
+        "Sensação térmica: " + response.sensacao_termica + " °C"
+      );
 
-  // Chama a função a cada 10 segundos (10000 milissegundos)
-  setInterval(atualizarDados, 10000);
+      // Atualizar cor do container
+      const temp = parseFloat(response.temperatura);
+      if (!isNaN(temp)) bgClimate(temp);
+
+      // Atualizar métricas
+      if (response.metricas) {
+        response.metricas.forEach((m) => {
+          if (m.valor !== null && $("#" + m.campo).length) {
+            $("#" + m.campo).html(
+              m.valor +
+                (m.sufixo
+                  ? `<span class="fs-5 fw-semibold">${m.sufixo}</span>`
+                  : "") +
+                (m.classificacao
+                  ? ` <span class="fs-6 ${m.cor}">${m.classificacao}</span>`
+                  : "")
+            );
+          }
+        });
+      }
+    },
+    error: function (response) {
+      console.error("Erro ao atualizar medição:", response);
+    },
+  });
+}
+
+// Ao carregar a página → aplica cor inicial e busca última medição
+document.addEventListener("DOMContentLoaded", function () {
+  const temperaturaElement = document.getElementById("temperatura");
+  if (temperaturaElement) {
+    const tempInicial = parseFloat(
+      temperaturaElement.innerText.trim().replace("°C", "")
+    );
+    if (!isNaN(tempInicial)) bgClimate(tempInicial);
+  }
+  atualizarDados();
+});
+
+// Atualiza a cada 10 segundos
+setInterval(atualizarDados, 10000);
 </script>
 
 {% endblock %}

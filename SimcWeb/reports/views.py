@@ -78,6 +78,17 @@ def gerar_relatorio(request):
     elementos.append(Spacer(1, 20))
 
     # --- 4. Informações dos filtros aplicados ---
+    labels_class = {
+        "temperatura": "Temperatura \n °C",
+        "umidade_ar": "Umidade do Ar \n %",
+        "pluviometro": "Pluviômetro \n mm",
+        "luminosidade": "Luminosidade \n lx",
+        "umidade_solo": "Umidade do Solo \n %",
+        "direcao_vento": "Direção do Vento \n °",
+        "velocidade_vento": "Velocidade do Vento \n km/h",
+        "uv": "Índice UV \n índice"
+    }
+    
     labels = {
         "temperatura": "Temperatura",
         "umidade_ar": "Umidade do Ar",
@@ -101,7 +112,7 @@ def gerar_relatorio(request):
     elementos.append(Spacer(1, 18))
 
     # --- 5. Monta tabela dinamicamente ---
-    cabecalho = ["Data/Hora"] + [labels.get(c, c) for c in campos]
+    cabecalho = ["Data \n Hora"] + [labels_class.get(c, c) for c in campos]
     tabela_dados = [cabecalho]
 
     for med in qs:

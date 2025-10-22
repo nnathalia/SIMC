@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from django.contrib.messages import constants as messages
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -50,7 +51,8 @@ INSTALLED_APPS = [
     'estacao',
     'medicao',
     'account',
-    'reports'
+    'reports',
+    'notificacao',
     
 ]
 
@@ -130,6 +132,8 @@ AUTHENTICATION_BACKENDS = [
 
 LANGUAGE_CODE = 'pt-br'
 
+DEFAULT_CHARSET = 'utf-8'
+
 TIME_ZONE = 'America/Porto_Velho'
 
 USE_I18N = True
@@ -157,3 +161,11 @@ LOGIN_REDIRECT_URL = '/dashboard/'
 LOGOUT_REDIRECT_URL = '/login/'
 
 AUTH_USER_MODEL = 'account.Usuario'
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'secondary',
+    messages.INFO: 'info',
+    messages.SUCCESS: 'success',
+    messages.WARNING: 'warning',
+    messages.ERROR: 'danger',
+}
