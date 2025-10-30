@@ -1,6 +1,8 @@
 from datetime import datetime
 import locale
 import requests
+"""from medicao.views import get_descricao"""
+
 
 
 def get_data_atual(request):
@@ -53,3 +55,8 @@ def localizacao(request):
             'timezone': timezone
             }
   
+def variaveis_globais(request):
+    data_atual = get_data_atual(request)['data_formatada']
+    """ descricao_tempo = get_descricao(request).get("descricao", "Sem dados")"""
+      
+    return {'data_atual': data_atual}

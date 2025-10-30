@@ -111,10 +111,15 @@
         {% csrf_token %}
         <div class="modal-body">
           <div class="mb-3">
-            <label for="estacao" class="form-label fw-semibold">Nome</label>
-            <input type="text" class="form-control rounded-3 border" name="estacao" placeholder="Digite o nome da estação aqui"/>
+            <label for="estacao" class="form-label fw-semibold">Nome da estação</label>
+            <input type="text" class="form-control rounded-3 border" name="estacao" placeholder="Digite o nome da estação aqui"required/>
           </div>
 
+           <div class="mb-3">
+            <label for="identificador" class="form-label fw-semibold">Código da estação</label>
+            <input type="text" class="form-control rounded-3 border" name="identificador" placeholder="Digite o nome da estação aqui" required/>
+          </div>
+          
           {% if show_modal %} {% if messages %}
           <ul class="messages list-unstyled mt-2">
             {% for message in messages %}

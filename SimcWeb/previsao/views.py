@@ -1,19 +1,14 @@
-from collections import defaultdict
-from datetime import datetime, timedelta, timezone
-import locale
-import requests
 from SimcWeb.context_processors import localizacao
-
-
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
 import locale
 import requests
+from django.conf import settings
 
 def get_previsao(request):
     city_name = localizacao(request)['cidade']
-    API_KEY = "0690b99f7ea9ac664d4e4945ebe8b5de"
-    url = f"https://api.openweathermap.org/data/2.5/forecast?q={city_name}&appid={API_KEY}&lang=pt_br&units=metric"
+    api_key = settings.API_KEY
+    url = f"https://api.openweathermap.org/data/2.5/forecast?q={city_name}&appid={api_key}&lang=pt_br&units=metric"
     
     resp = requests.get(url)
     if resp.status_code != 200:

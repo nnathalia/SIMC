@@ -14,6 +14,7 @@ urlpatterns = [
     path('gerador_relatorio/', views.relatorio, name="relatorio"),
     path("relatorio/", include("reports.urls")),
     path('perfil/', views.perfil, name="perfil"),
+    path("selecionar-estacao/", views.selecionar_estacao, name="selecionar_estacao"),
     
     path("chart-data/", views.chart_data, name="chart-data"),
 

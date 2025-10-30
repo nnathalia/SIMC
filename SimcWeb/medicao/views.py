@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render
 from django.db.models import Avg
 from django.utils import timezone
@@ -10,8 +11,8 @@ from django.http import JsonResponse
 
 def get_descricao(request):
     city_name = localizacao(request)['cidade']
-    API_KEY = "0690b99f7ea9ac664d4e4945ebe8b5de"
-    url = f"https://api.openweathermap.org/data/2.5/forecast?q={city_name}&appid={API_KEY}&lang=pt_br&units=metric"
+    api_key = settings.API_KEY
+    url = f"https://api.openweathermap.org/data/2.5/forecast?q={city_name}&appid={api_key}&lang=pt_br&units=metric"
 
     resp = requests.get(url)
     if resp.status_code != 200:

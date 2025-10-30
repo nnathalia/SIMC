@@ -9,6 +9,9 @@ class Estacao(models.Model):
         related_name='estacao',
     )
     nome_est = models.CharField(max_length=45)
+    """Esse campo é o identificador do Arduino, que você grava no 
+    firmware ou mostra via Serial para o usuário cadastrar no sistema."""
+    identificador = models.CharField(max_length=50, unique=True, blank=True, null=True)  # 🔹 novo campo
     latitude = models.FloatField(blank=True, null=True)
     longitude = models.FloatField(blank=True, null=True)
     altitude = models.FloatField(blank=True, null=True)

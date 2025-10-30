@@ -17,6 +17,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+API_KEY = os.getenv('API_KEY')
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -99,10 +101,9 @@ DATABASES = {
         'USER': os.getenv('DB_USUARIO'),
         'PASSWORD': os.getenv('DB_SENHA'),
         'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORTA'),
+        'PORT': os.getenv('DB_PORTA'), 
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
