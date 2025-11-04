@@ -3,50 +3,36 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.http import JsonResponse
-from django.shortcuts import render
-from medicao.views import escolher_icone,get_descricao, get_metricas, get_dias_passados, get_medias
+from medicao.views import (
+    escolher_icone, get_descricao, get_metricas,
+    get_dias_passados, get_medias
+)
 from medicao.metrics import METRICAS, MEDIAS_METRICAS
 from medicao.models import Medicao, Estacao
-from previsao.views import prev_icone, get_previsao
+from previsao.views import get_previsao
 from django.utils import timezone
 from django.db.models import Avg
 from .data import COLABORADORES, TECNOLOGIAS
 
-def index(request):
 
+def index(request):
     context = {
-        "colaboradores" : COLABORADORES,
-        "tecnologias" : TECNOLOGIAS
+        "colaboradores": COLABORADORES,
+        "tecnologias": TECNOLOGIAS
     }
-    
     return render(request, 'index.html', context)
 
 
 @login_required(redirect_field_name='login')
 def dashboard(request):
-    # Recupera ID da estação selecionada
-    estacao_id = request.session.get("estacao_id")
-
-    # Se o usuário ainda não escolheu nenhuma estação
-    if not estacao_id:
-        messages.warning(request, "Selecione uma estação no seu perfil para visualizar os dados.")
-        return redirect("perfil")
-
-    # Busca a estação selecionada do usuário logado
-    estacao = Estacao.objects.filter(id=estacao_id, usuario=request.user).first()
-    if not estacao:
-        messages.error(request, "Estação selecionada inválida.")
-        return redirect("perfil")
-
-    # 🔹 Agora filtra a última medição apenas dessa estação
+    # Busca a última medição do usuário, independente da estação
     medicao = (
         Medicao.objects
-        .filter(idEstacao_fk=estacao)
-        .order_by('-created_at')  # ou '-data_hora' dependendo do seu campo
+        .filter(idEstacao_fk__usuario=request.user)
+        .order_by('-data_hora')  # ou '-created_at', se for o campo correto
         .first()
     )
 
-    # Calcula sensação térmica se tiver medição
     sensacao_termica = None
     metricas = {}
 
@@ -62,7 +48,7 @@ def dashboard(request):
 
     context = {
         "medicao": medicao,
-        "ultima_atualizacao": medicao.created_at if medicao else None,
+        "ultima_atualizacao": medicao.data_hora if medicao else None,
         "previsao": get_previsao(request),
         "dias_passados": get_dias_passados(request=request),
         "descricao_tempo": descricao_texto,
@@ -70,11 +56,9 @@ def dashboard(request):
         "icone_hoje": icone_hoje,
         "sensacao_termica": round(sensacao_termica) if sensacao_termica else None,
         "metricas": metricas,
-        "estacao_nome": estacao.nome_est,  # mostra o nome no front
     }
 
     return render(request, "pages/dashboard.html", context)
-
 
 
 @login_required(redirect_field_name="login")
@@ -111,9 +95,11 @@ def relatorio(request):
         "campos_disponiveis": campos_disponiveis,
         "descricao_tempo": descricao_texto,
     }
+
     return render(request, "pages/gerador_relatorio.html", context)
 
-@login_required(redirect_field_name= 'login')
+
+@login_required(redirect_field_name='login')
 def perfil(request):
     descricao_info = get_descricao(request)
     descricao_texto = descricao_info.get("descricao", "Sem dados")
@@ -122,13 +108,13 @@ def perfil(request):
         nome_estacao = request.POST.get('estacao')
         identificador = request.POST.get('identificador')
 
-        # 🔹 Verifica se o código já foi usado por outro usuário
+        # Verifica se o código já foi usado por outro usuário
         estacao_existente = Estacao.objects.filter(identificador=identificador).first()
         if estacao_existente and estacao_existente.usuario != request.user:
             messages.error(request, "Esse código já está vinculado a outro usuário!")
             request.session['show_modal'] = True
 
-        # 🔹 Verifica se o nome já existe para o mesmo usuário
+        # Verifica se o nome já existe para o mesmo usuário
         elif Estacao.objects.filter(nome_est=nome_estacao, usuario=request.user).exists():
             messages.error(request, "Você já tem uma estação com esse nome!")
             request.session['show_modal'] = True
@@ -143,7 +129,6 @@ def perfil(request):
 
         return redirect('perfil')
 
-    # 🔹 parte original
     show_modal = request.session.pop('show_modal', False)
     show_success_popup = request.session.pop('show_success_popup', False)
     hoje = timezone.now().date()
@@ -153,7 +138,8 @@ def perfil(request):
         "estacao": Estacao.objects.filter(usuario=request.user),
         "quant_estacoes": Estacao.objects.filter(usuario=request.user).count(),
         "quant_medicoes": Medicao.objects.filter(
-            idEstacao_fk__usuario=request.user, created_at__date=hoje
+            idEstacao_fk__usuario=request.user,
+            created_at__date=hoje
         ).count(),
         "show_modal": show_modal,
         "show_success_popup": show_success_popup,
@@ -162,31 +148,13 @@ def perfil(request):
     return render(request, 'pages/perfil.html', context)
 
 
-@login_required
-def selecionar_estacao(request):
-    if request.method == "POST":
-        estacao_id = request.POST.get("estacao_id")
-
-        # Garante que a estação pertence ao usuário
-        if Estacao.objects.filter(id=estacao_id, usuario=request.user).exists():
-            request.session["estacao_id"] = int(estacao_id)
-            estacao_nome = Estacao.objects.get(id=estacao_id).nome_est
-            request.session["estacao_nome"] = estacao_nome
-            messages.success(request, f"Estação '{estacao_nome}' selecionada com sucesso!")
-        else:
-            messages.error(request, "Estação inválida.")
-
-    return redirect("perfil")
-
-@login_required(redirect_field_name= 'login')
+@login_required(redirect_field_name='login')
 def notificacao(request):
     descricao_info = get_descricao(request)
     descricao_texto = descricao_info.get("descricao", "Sem dados")
-    
-    context ={"descricao_tempo" : descricao_texto}
 
+    context = {"descricao_tempo": descricao_texto}
     return render(request, 'pages/notificacao.html', context)
-
 
 
 def chart_data(request):
@@ -231,7 +199,5 @@ def chart_data(request):
             }
         ],
     }
+
     return JsonResponse(data)
-
-
-
