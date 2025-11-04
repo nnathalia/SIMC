@@ -1,3 +1,5 @@
+import os
+from django.conf import settings
 from django.http import HttpResponse
 from django.utils.dateparse import parse_datetime
 from reportlab.lib.pagesizes import A4,landscape
@@ -61,8 +63,8 @@ def gerar_relatorio(request):
     elementos = []
 
     # --- 3. Cabeçalho com logo ---
-    logo = "static/img/logo-azul.png"  # coloque o caminho correto do seu logo
-    elementos.append(Image(logo, width=140, height=45))
+    logo_path = os.path.join(settings.BASE_DIR, 'static', 'img', 'logo-azul.png')
+    elementos.append(Image(logo_path, width=140, height=45))
     elementos.append(Spacer(1, 12))
 
     titulo_style = ParagraphStyle(
